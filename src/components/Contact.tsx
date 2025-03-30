@@ -41,20 +41,20 @@ const Contact: React.FC = () => {
                       { icon: <LocationOn />, title: 'Location', content: 'Pune, Maharashtra' },
                     ].map((item, index) => (
                       <Grid item xs={12} sm={6} key={item.title}>
-                        <Box sx={{ display: 'flex', alignItems: 'flex-start', p: 2, borderRadius: 2, background: 'rgba(0, 188, 212, 0.05)', transition: 'all 0.3s ease' }}>
+                        <Box sx={{ display: 'flex', alignItems: 'flex-start', p: 2, borderRadius: 2, background: 'rgba(0, 188, 212, 0.05)', transition: 'all 0.3s ease', wordBreak: 'break-word', overflowWrap: 'break-word' }}>
                           <IconButton color="primary" sx={{ mr: 2 }}>
                             {item.icon}
                           </IconButton>
-                          <Box>
+                          <Box sx={{ flex: 1, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
                             <Typography variant="h6" sx={{ color: 'primary.light', fontWeight: 'bold' }}>
                               {item.title}
                             </Typography>
                             {item.link ? (
-                              <Link href={item.link} target="_blank" rel="noopener noreferrer" sx={{ color: 'text.secondary', textDecoration: 'none' }}>
+                              <Link href={item.link} target="_blank" rel="noopener noreferrer" sx={{ color: 'text.secondary', textDecoration: 'none', wordBreak: 'break-word', overflowWrap: 'break-word' }}>
                                 {item.content}
                               </Link>
                             ) : (
-                              <Typography color="text.secondary">{item.content}</Typography>
+                              <Typography color="text.secondary" sx={{ wordBreak: 'break-word', overflowWrap: 'break-word' }}>{item.content}</Typography>
                             )}
                           </Box>
                         </Box>
