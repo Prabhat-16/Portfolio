@@ -1,62 +1,9 @@
-import React, { useState } from 'react';
-import { Box, Container, Typography, Grid, Paper, IconButton, Link, TextField, Button, Snackbar, Alert } from '@mui/material';
-import { Email, Phone, LinkedIn, LocationOn, Send } from '@mui/icons-material';
+import React from 'react';
+import { Box, Container, Typography, Grid, Paper, IconButton, Link } from '@mui/material';
+import { Email, Phone, LinkedIn, LocationOn } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-  const [snackbar, setSnackbar] = useState({
-    open: false,
-    message: '',
-    severity: 'success' as 'success' | 'error',
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Here you would typically send the form data to your backend
-    console.log(formData);
-    setSnackbar({
-      open: true,
-      message: 'Message sent successfully!',
-      severity: 'success',
-    });
-    setFormData({ name: '', email: '', subject: '', message: '' });
-  };
-
-  const handleCloseSnackbar = () => {
-    setSnackbar(prev => ({ ...prev, open: false }));
-  };
-
-  const textFieldStyles = {
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: 'rgba(0, 188, 212, 0.3)',
-      },
-      '&:hover fieldset': {
-        borderColor: 'primary.light',
-      },
-      '&.Mui-focused fieldset': {
-        borderColor: 'primary.main',
-      },
-    },
-    '& .MuiInputLabel-root': {
-      color: 'text.secondary',
-    },
-    '& .MuiOutlinedInput-input': {
-      color: 'text.primary',
-    },
-  };
-
   return (
     <Box
       id="contact"
@@ -67,7 +14,6 @@ const Contact: React.FC = () => {
         overflow: 'hidden',
       }}
     >
-      {/* Animated background elements */}
       <Box
         component={motion.div}
         sx={{
@@ -79,14 +25,8 @@ const Contact: React.FC = () => {
           background: 'radial-gradient(circle at 30% 70%, rgba(0,188,212,0.1) 0%, rgba(0,188,212,0) 50%)',
           zIndex: 0,
         }}
-        animate={{
-          opacity: [0.3, 0.5, 0.3],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
+        animate={{ opacity: [0.3, 0.5, 0.3] }}
+        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
       />
 
       <Container sx={{ position: 'relative', zIndex: 1 }}>
@@ -112,7 +52,6 @@ const Contact: React.FC = () => {
                   elevation={3} 
                   sx={{ 
                     p: 4,
-                    height: '100%',
                     background: 'linear-gradient(135deg, #132f4c 0%, #0a1929 100%)',
                     border: '1px solid rgba(0, 188, 212, 0.1)',
                     '&:hover': {
@@ -138,7 +77,7 @@ const Contact: React.FC = () => {
                         icon: <LinkedIn />,
                         title: 'LinkedIn',
                         content: 'Prabhat/linkedin',
-                        link: 'https://linkedin.com/in/Prabhat',
+                        link: 'https://www.linkedin.com/in/prabhat-web-developer/',
                       },
                       {
                         icon: <LocationOn />,
@@ -162,31 +101,19 @@ const Contact: React.FC = () => {
                               borderRadius: 2,
                               background: 'rgba(0, 188, 212, 0.05)',
                               transition: 'all 0.3s ease',
-                              height: '100%',
+                              wordBreak: 'break-word',
                               '&:hover': {
                                 background: 'rgba(0, 188, 212, 0.1)',
                               },
                             }}
                           >
-                            <IconButton 
-                              color="primary" 
-                              sx={{ 
-                                mr: 2,
-                                background: 'rgba(0, 188, 212, 0.1)',
-                                '&:hover': {
-                                  background: 'rgba(0, 188, 212, 0.2)',
-                                },
-                              }}
-                            >
+                            <IconButton color="primary" sx={{ mr: 2 }}>
                               {item.icon}
                             </IconButton>
                             <Box>
                               <Typography 
                                 variant="h6" 
-                                sx={{ 
-                                  color: 'primary.light',
-                                  fontWeight: 'bold',
-                                }}
+                                sx={{ color: 'primary.light', fontWeight: 'bold' }}
                               >
                                 {item.title}
                               </Typography>
@@ -200,6 +127,7 @@ const Contact: React.FC = () => {
                                     textDecoration: 'none',
                                     display: 'block',
                                     wordBreak: 'break-word',
+                                    overflowWrap: 'break-word',
                                     '&:hover': {
                                       color: 'primary.main',
                                       textDecoration: 'underline',
@@ -209,12 +137,7 @@ const Contact: React.FC = () => {
                                   {item.content}
                                 </Link>
                               ) : (
-                                <Typography 
-                                  color="text.secondary"
-                                  sx={{
-                                    wordBreak: 'break-word',
-                                  }}
-                                >
+                                <Typography color="text.secondary" sx={{ wordBreak: 'break-word', overflowWrap: 'break-word' }}>
                                   {item.content}
                                 </Typography>
                               )}
@@ -227,104 +150,6 @@ const Contact: React.FC = () => {
                 </Paper>
               </motion.div>
             </Grid>
-
-            <Grid item xs={12} md={6}>
-              <motion.div
-                initial={{ x: 50, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-              >
-                <Paper
-                  elevation={3}
-                  sx={{
-                    p: 4,
-                    height: '100%',
-                    background: 'linear-gradient(135deg, #132f4c 0%, #0a1929 100%)',
-                    border: '1px solid rgba(0, 188, 212, 0.1)',
-                    '&:hover': {
-                      boxShadow: '0 0 20px rgba(0, 188, 212, 0.2)',
-                    },
-                  }}
-                >
-                  <Typography variant="h5" gutterBottom sx={{ color: 'primary.light', mb: 3 }}>
-                    Send Message
-                  </Typography>
-                  <form onSubmit={handleSubmit}>
-                    <Grid container spacing={2}>
-                      <Grid item xs={12} sm={6}>
-                        <TextField
-                          fullWidth
-                          label="Name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleChange}
-                          required
-                          variant="outlined"
-                          sx={textFieldStyles}
-                        />
-                      </Grid>
-                      <Grid item xs={12} sm={6}>
-                        <TextField
-                          fullWidth
-                          label="Email"
-                          name="email"
-                          type="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          required
-                          variant="outlined"
-                          sx={textFieldStyles}
-                        />
-                      </Grid>
-                      <Grid item xs={12}>
-                        <TextField
-                          fullWidth
-                          label="Subject"
-                          name="subject"
-                          value={formData.subject}
-                          onChange={handleChange}
-                          required
-                          variant="outlined"
-                          sx={textFieldStyles}
-                        />
-                      </Grid>
-                      <Grid item xs={12}>
-                        <TextField
-                          fullWidth
-                          label="Message"
-                          name="message"
-                          value={formData.message}
-                          onChange={handleChange}
-                          required
-                          multiline
-                          rows={4}
-                          variant="outlined"
-                          sx={textFieldStyles}
-                        />
-                      </Grid>
-                      <Grid item xs={12}>
-                        <Button
-                          type="submit"
-                          variant="contained"
-                          size="large"
-                          endIcon={<Send />}
-                          sx={{
-                            mt: 2,
-                            background: 'linear-gradient(45deg, #00bcd4 30%, #008394 90%)',
-                            '&:hover': {
-                              background: 'linear-gradient(45deg, #008394 30%, #00bcd4 90%)',
-                            },
-                          }}
-                        >
-                          Send Message
-                        </Button>
-                      </Grid>
-                    </Grid>
-                  </form>
-                </Paper>
-              </motion.div>
-            </Grid>
           </Grid>
 
           <Box sx={{ mt: 6, textAlign: 'center' }}>
@@ -334,32 +159,15 @@ const Contact: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.5 }}
             >
-              <Typography 
-                variant="body1" 
-                sx={{ 
-                  color: 'text.secondary',
-                  opacity: 0.8,
-                }}
-              >
+              <Typography variant="body1" sx={{ color: 'text.secondary', opacity: 0.8 }}>
                 © {new Date().getFullYear()} Prabhat Mishra. All rights reserved.
               </Typography>
             </motion.div>
           </Box>
         </motion.div>
       </Container>
-
-      <Snackbar
-        open={snackbar.open}
-        autoHideDuration={6000}
-        onClose={handleCloseSnackbar}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-      >
-        <Alert onClose={handleCloseSnackbar} severity={snackbar.severity} sx={{ width: '100%' }}>
-          {snackbar.message}
-        </Alert>
-      </Snackbar>
     </Box>
   );
 };
 
-export default Contact; 
+export default Contact;
