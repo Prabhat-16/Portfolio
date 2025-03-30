@@ -1,20 +1,20 @@
 {
-  "short_name": "Prabhat's Portfolio",
-  "name": "Prabhat's Portfolio - Web Developer",
+  "short_name": "Prabhat Mishra",
+  "name": "Prabhat Mishra - Backend Developer Portfolio",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "Prabhat_Logo_1.jpg",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "type": "image/jpg"
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
+      "src": "Prabhat_Logo_1.jpg",
+      "type": "image/jpg",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
-      "type": "image/png",
+      "src": "Prabhat_Logo_1.jpg",
+      "type": "image/jpg",
       "sizes": "512x512"
     }
   ],

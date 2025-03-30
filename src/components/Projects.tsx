@@ -149,32 +149,6 @@ const Projects: React.FC = () => {
                         ))}
                       </Box>
                     </CardContent>
-                    <CardActions sx={{ p: 2, pt: 0 }}>
-                      <Button 
-                        size="small" 
-                        startIcon={<GitHub />}
-                        sx={{
-                          color: 'primary.light',
-                          '&:hover': {
-                            color: 'primary.main',
-                          },
-                        }}
-                      >
-                        View Code
-                      </Button>
-                      <Button 
-                        size="small" 
-                        startIcon={<Launch />}
-                        sx={{
-                          color: 'primary.light',
-                          '&:hover': {
-                            color: 'primary.main',
-                          },
-                        }}
-                      >
-                        Live Demo
-                      </Button>
-                    </CardActions>
                   </Card>
                 </motion.div>
               </Grid>
