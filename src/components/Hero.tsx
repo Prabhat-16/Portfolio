@@ -2,6 +2,23 @@ import React, { useEffect, useState } from 'react';
 import { Box, Typography, Container, Button } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-scroll';
+import CodeIcon from '@mui/icons-material/Code';
+import TerminalIcon from '@mui/icons-material/Terminal';
+import StorageIcon from '@mui/icons-material/Storage';
+import CloudIcon from '@mui/icons-material/Cloud';
+import SecurityIcon from '@mui/icons-material/Security';
+import JavascriptIcon from '@mui/icons-material/Javascript';
+import HtmlIcon from '@mui/icons-material/Html';
+import CssIcon from '@mui/icons-material/Css';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import CloudQueueIcon from '@mui/icons-material/CloudQueue';
+import ComputerIcon from '@mui/icons-material/Computer';
+import DesktopWindowsIcon from '@mui/icons-material/DesktopWindows';
+import DeveloperBoardIcon from '@mui/icons-material/DeveloperBoard';
+import BuildIcon from '@mui/icons-material/Build';
+import LanguageIcon from '@mui/icons-material/Language';
+import DnsIcon from '@mui/icons-material/Dns';
+import BugReportIcon from '@mui/icons-material/BugReport';
 
 const Hero: React.FC = () => {
   const roles = [
@@ -19,6 +36,30 @@ const Hero: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Expanded tech icons array
+  const techIcons = [
+    { icon: <CodeIcon />, color: '#00bcd4', size: '2.5rem', speed: 18 },
+    { icon: <TerminalIcon />, color: '#4caf50', size: '2.2rem', speed: 20 },
+    { icon: <StorageIcon />, color: '#ff9800', size: '2.3rem', speed: 22 },
+    { icon: <CloudIcon />, color: '#2196f3', size: '2.4rem', speed: 19 },
+    { icon: <SecurityIcon />, color: '#f44336', size: '2.1rem', speed: 21 },
+    { icon: <JavascriptIcon />, color: '#F7DF1E', size: '2.5rem', speed: 17 },
+    { icon: <HtmlIcon />, color: '#E34F26', size: '2.3rem', speed: 23 },
+    { icon: <CssIcon />, color: '#1572B6', size: '2.3rem', speed: 20 },
+    { icon: <GitHubIcon />, color: '#181717', size: '2.2rem', speed: 18 },
+    { icon: <CloudQueueIcon />, color: '#00C7B7', size: '2.4rem', speed: 21 },
+    { icon: <ComputerIcon />, color: '#2496ED', size: '2.3rem', speed: 22 },
+    { icon: <DesktopWindowsIcon />, color: '#0078D6', size: '2.2rem', speed: 20 },
+    { icon: <DeveloperBoardIcon />, color: '#FCC624', size: '2.3rem', speed: 19 },
+    { icon: <BuildIcon />, color: '#FB7A24', size: '2.2rem', speed: 21 },
+    { icon: <LanguageIcon />, color: '#777BB4', size: '2.3rem', speed: 20 },
+    { icon: <DnsIcon />, color: '#4479A1', size: '2.2rem', speed: 22 },
+    { icon: <BugReportIcon />, color: '#e91e63', size: '2.1rem', speed: 23 },
+  ];
+
+  // Helper to get a random vertical position
+  const getRandomY = () => Math.random() * (window.innerHeight - 40);
+
   return (
     <Box
       sx={{
@@ -31,40 +72,64 @@ const Hero: React.FC = () => {
         overflow: 'hidden',
       }}
     >
-      {/* Animated particles */}
-      {[...Array(50)].map((_, i) => (
-        <Box
-          key={i}
-          component={motion.div}
-          sx={{
-            position: 'absolute',
-            width: '2px',
-            height: '2px',
-            background: 'primary.main',
-            borderRadius: '50%',
-            boxShadow: '0 0 10px rgba(0, 188, 212, 0.5)',
-          }}
-          animate={{
-            x: [
-              Math.random() * window.innerWidth,
-              Math.random() * window.innerWidth,
-            ],
-            y: [
-              Math.random() * window.innerHeight,
-              Math.random() * window.innerHeight,
-            ],
-            opacity: [0.2, 0.8, 0.2],
-            scale: [1, 1.5, 1],
-          }}
-          transition={{
-            duration: Math.random() * 10 + 20,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
-      ))}
+      {/* Animated background gradient */}
+      <Box
+        component={motion.div}
+        sx={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'linear-gradient(135deg, #0a1929 0%, #132f4c 100%)',
+          zIndex: 0,
+        }}
+        animate={{
+          background: [
+            'linear-gradient(135deg, #0a1929 0%, #132f4c 100%)',
+            'linear-gradient(135deg, #132f4c 0%, #0a1929 100%)',
+            'linear-gradient(135deg, #0a1929 0%, #132f4c 100%)',
+          ],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: 'linear',
+        }}
+      />
 
-      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
+      {/* Flying tech icons (left to right) */}
+      {techIcons.map((item, index) => {
+        const y = getRandomY();
+        return (
+          <Box
+            key={`icon-${index}`}
+            component={motion.div}
+            sx={{
+              position: 'absolute',
+              color: item.color,
+              opacity: 0.3,
+              fontSize: item.size || '2rem',
+              zIndex: 1,
+              top: y,
+              left: 0,
+            }}
+            initial={{ x: -60 }}
+            animate={{ x: window.innerWidth + 60 }}
+            transition={{
+              duration: item.speed || 18 + index * 2,
+              repeat: Infinity,
+              repeatType: 'loop',
+              ease: 'linear',
+              delay: index * 2,
+            }}
+          >
+            {item.icon}
+          </Box>
+        );
+      })}
+
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
         <Box
           sx={{
             textAlign: 'center',
