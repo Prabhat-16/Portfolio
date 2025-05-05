@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Container, Typography, Grid, Paper, IconButton, Link } from '@mui/material';
-import { Email, Phone, LinkedIn, LocationOn, GitHub, Twitter, Instagram } from '@mui/icons-material';
+import { Email, LinkedIn, LocationOn, GitHub, Twitter, Instagram } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 
 const Contact: React.FC = () => {
@@ -35,26 +35,79 @@ const Contact: React.FC = () => {
               >
                 <Paper elevation={3} sx={{ p: 4, background: 'linear-gradient(135deg, #132f4c 0%, #0a1929 100%)', border: '1px solid rgba(0, 188, 212, 0.1)' }}>
                   <Grid container spacing={3}>
-                    {[{ icon: <Email />, title: 'Email', content: 'mprabhat1607@gmail.com', link: 'mailto:mprabhat1607@gmail.com' },
-                      { icon: <Phone />, title: 'Phone', content: '+91 7990676099', link: 'tel:+917990676099' },
-                      { icon: <LinkedIn />, title: 'LinkedIn', content: 'Prabhat/linkedin', link: 'https://www.linkedin.com/in/prabhat-web-developer/' },
-                      { icon: <LocationOn />, title: 'Location', content: 'Pune, Maharashtra' },
-                    ].map((item, index) => (
+                    {/* Email - full width */}
+                    {/* Email - full width and centered */}
+<Grid item xs={12}>
+  <Box
+    sx={{
+      display: 'flex',
+      justifyContent: 'center',
+    }}
+  >
+    <Box
+      sx={{
+        display: 'flex',
+        alignItems: 'flex-start',
+        p: 2,
+        borderRadius: 2,
+        background: 'rgba(0, 188, 212, 0.05)',
+        transition: 'all 0.3s ease',
+        width: '100%',
+        maxWidth: 600, // restrict width for better centering
+        wordBreak: 'break-word',
+        overflowWrap: 'break-word',
+      }}
+    >
+      <IconButton color="primary" sx={{ mr: 2 }}>
+        <Email />
+      </IconButton>
+      <Box sx={{ flex: 1 }}>
+        <Typography variant="h6" sx={{ color: 'primary.light', fontWeight: 'bold' }}>
+          Email
+        </Typography>
+        <Link
+          href="mailto:mprabhat1607@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          sx={{ color: 'text.secondary', textDecoration: 'none' }}
+        >
+          mprabhat1607@gmail.com
+        </Link>
+      </Box>
+    </Box>
+  </Box>
+</Grid>
+
+
+                    {/* LinkedIn and Location - half width each */}
+                    {[
+                      {
+                        icon: <LinkedIn />,
+                        title: 'LinkedIn',
+                        content: 'Prabhat/linkedin',
+                        link: 'https://www.linkedin.com/in/prabhat-web-developer/',
+                      },
+                      {
+                        icon: <LocationOn />,
+                        title: 'Location',
+                        content: 'Pune, Maharashtra',
+                      },
+                    ].map((item) => (
                       <Grid item xs={12} sm={6} key={item.title}>
-                        <Box sx={{ display: 'flex', alignItems: 'flex-start', p: 2, borderRadius: 2, background: 'rgba(0, 188, 212, 0.05)', transition: 'all 0.3s ease', wordBreak: 'break-word', overflowWrap: 'break-word' }}>
+                        <Box sx={{ display: 'flex', alignItems: 'flex-start', p: 2, borderRadius: 2, background: 'rgba(0, 188, 212, 0.05)', transition: 'all 0.3s ease' }}>
                           <IconButton color="primary" sx={{ mr: 2 }}>
                             {item.icon}
                           </IconButton>
-                          <Box sx={{ flex: 1, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
+                          <Box sx={{ flex: 1 }}>
                             <Typography variant="h6" sx={{ color: 'primary.light', fontWeight: 'bold' }}>
                               {item.title}
                             </Typography>
                             {item.link ? (
-                              <Link href={item.link} target="_blank" rel="noopener noreferrer" sx={{ color: 'text.secondary', textDecoration: 'none', wordBreak: 'break-word', overflowWrap: 'break-word' }}>
+                              <Link href={item.link} target="_blank" rel="noopener noreferrer" sx={{ color: 'text.secondary', textDecoration: 'none' }}>
                                 {item.content}
                               </Link>
                             ) : (
-                              <Typography color="text.secondary" sx={{ wordBreak: 'break-word', overflowWrap: 'break-word' }}>{item.content}</Typography>
+                              <Typography color="text.secondary">{item.content}</Typography>
                             )}
                           </Box>
                         </Box>
