@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
   const roles = [
     "Frontend Developer",
     "Backend Developer",
-    "DevOps Enthusiast"
+    "DevOps and Cloud Enthusiast"
   ];
   
   const [currentRole, setCurrentRole] = useState(0);
