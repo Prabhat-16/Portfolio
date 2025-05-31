@@ -38,45 +38,46 @@ const Contact: React.FC = () => {
                     {/* Email - full width */}
                     {/* Email - full width and centered */}
 <Grid item xs={12}>
-  <Box
-    sx={{
-      display: 'flex',
-      justifyContent: 'center',
-    }}
-  >
+  <Box sx={{ display: 'flex', justifyContent: 'center' }}>
     <Box
       sx={{
         display: 'flex',
-        alignItems: 'flex-start',
+        flexDirection: 'column',
+        alignItems: 'center',
+        textAlign: 'center',
         p: 2,
         borderRadius: 2,
         background: 'rgba(0, 188, 212, 0.05)',
         transition: 'all 0.3s ease',
         width: '100%',
-        maxWidth: 600, // restrict width for better centering
+        maxWidth: 600,
         wordBreak: 'break-word',
-        overflowWrap: 'break-word',
       }}
     >
-      <IconButton color="primary" sx={{ mr: 2 }}>
-        <Email />
-      </IconButton>
-      <Box sx={{ flex: 1 }}>
+      {/* Top row: icon + label */}
+      <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+        <IconButton color="primary" sx={{ p: 0, mr: 1 }}>
+          <Email />
+        </IconButton>
         <Typography variant="h6" sx={{ color: 'primary.light', fontWeight: 'bold' }}>
           Email
         </Typography>
-        <Link
-          href="mailto:mprabhat1607@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          sx={{ color: 'text.secondary', textDecoration: 'none' }}
-        >
-          mprabhat1607@gmail.com
-        </Link>
       </Box>
+
+      {/* Email address centered below */}
+      <Link
+        href="mailto:mprabhat1607@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        sx={{ color: 'text.secondary', textDecoration: 'none', fontSize: '1rem' }}
+      >
+        mprabhat1607@gmail.com
+      </Link>
     </Box>
   </Box>
 </Grid>
+
+
 
 
                     {/* LinkedIn and Location - half width each */}
