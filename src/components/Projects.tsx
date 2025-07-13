@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Container, Typography, Grid, Card, CardContent, CardActions, Button, Chip } from '@mui/material';
 import { motion } from 'framer-motion';
 import { GitHub, Launch } from '@mui/icons-material';
+import CloudBackground from './CloudBackground';
 
 interface Project {
   title: string;
@@ -46,28 +47,7 @@ const Projects: React.FC = () => {
         overflow: 'hidden',
       }}
     >
-      {/* Animated cloud background gradient */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'radial-gradient(circle at 50% 50%, rgba(135,206,235,0.1) 0%, rgba(135,206,235,0) 50%)',
-          zIndex: 0,
-        }}
-        component={motion.div}
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: 'linear',
-        }}
-      />
+      <CloudBackground zIndex={0} />
 
       <Container sx={{ position: 'relative', zIndex: 1 }}>
         <motion.div
@@ -88,9 +68,15 @@ const Projects: React.FC = () => {
               gutterBottom 
               align="center"
               sx={{ 
-                color: '#4682B4',
                 fontWeight: 'bold',
                 position: 'relative',
+                background: 'linear-gradient(90deg, #5bb6e6 10%, #87CEEB 60%, #4682B4 100%)',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                color: 'transparent',
+                WebkitTextFillColor: 'transparent',
+                textFillColor: 'transparent',
+                display: 'inline-block',
                 '&::after': {
                   content: '""',
                   position: 'absolute',

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext } from 'react';
 
 interface ThemeContextType {
   isDarkMode: boolean;
@@ -20,24 +20,14 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    const saved = localStorage.getItem('theme');
-    const initialTheme = saved ? saved === 'dark' : true; // Default to dark mode
-    console.log('Initial theme:', initialTheme ? 'dark' : 'light');
-    return initialTheme;
-  });
+  // Always light mode
+  const isDarkMode = false;
+  const toggleTheme = () => {};
 
-  useEffect(() => {
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-    // Apply theme to document for CSS variables
-    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
-    console.log('Theme changed to:', isDarkMode ? 'dark' : 'light');
-  }, [isDarkMode]);
-
-  const toggleTheme = () => {
-    console.log('Toggling theme from:', isDarkMode ? 'dark' : 'light');
-    setIsDarkMode(!isDarkMode);
-  };
+  // Set document attribute for CSS variables
+  React.useEffect(() => {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }, []);
 
   return (
     <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>

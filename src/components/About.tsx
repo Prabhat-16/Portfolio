@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Container, Typography, Grid, Paper } from '@mui/material';
 import { motion } from 'framer-motion';
+import CloudBackground from './CloudBackground';
 
 const About: React.FC = () => {
   return (
@@ -13,27 +14,7 @@ const About: React.FC = () => {
         overflow: 'hidden',
       }}
     >
-      {/* Animated cloud background gradient */}
-      <Box
-        component={motion.div}
-        sx={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'radial-gradient(circle at 70% 30%, rgba(135,206,235,0.1) 0%, rgba(135,206,235,0) 50%)',
-          zIndex: 0,
-        }}
-        animate={{
-          opacity: [0.3, 0.5, 0.3],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      />
+      <CloudBackground zIndex={0} />
 
       <Container sx={{ position: 'relative', zIndex: 1 }}>
         <motion.div
@@ -52,10 +33,16 @@ const About: React.FC = () => {
               variant="h2" 
               component="h2" 
               sx={{ 
-                color: '#4682B4',
-                textAlign: 'center',
                 fontWeight: 'bold',
+                textAlign: 'center',
                 position: 'relative',
+                background: 'linear-gradient(90deg, #5bb6e6 10%, #87CEEB 60%, #4682B4 100%)',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                color: 'transparent',
+                WebkitTextFillColor: 'transparent',
+                textFillColor: 'transparent',
+                display: 'inline-block',
                 '&::after': {
                   content: '""',
                   position: 'absolute',

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ThemeProvider as MuiThemeProvider, createTheme, CssBaseline, Container } from '@mui/material';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -7,12 +7,19 @@ import Projects from './components/Projects';
 import Resume from './components/Resume';
 import Contact from './components/Contact';
 import CloudBackground from './components/CloudBackground';
+import SplashScreen from './components/SplashScreen';
 import { ThemeProvider } from './context/ThemeContext';
 import { useTheme } from './context/ThemeContext';
 import './styles/global.css';
 
 const AppContent: React.FC = () => {
   const { isDarkMode } = useTheme();
+  const [showSplash, setShowSplash] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowSplash(false), 1700);
+    return () => clearTimeout(timer);
+  }, []);
 
   const theme = createTheme({
     palette: {
@@ -161,6 +168,10 @@ const AppContent: React.FC = () => {
       },
     },
   });
+
+  if (showSplash) {
+    return <SplashScreen />;
+  }
 
   return (
     <MuiThemeProvider theme={theme}>

@@ -18,6 +18,7 @@ import {
   DesktopWindows,
   DeveloperBoard
 } from '@mui/icons-material';
+import CloudBackground from './CloudBackground';
 
 const Skills: React.FC = () => {
   const categories = [
@@ -75,6 +76,7 @@ const Skills: React.FC = () => {
         overflow: 'hidden',
       }}
     >
+      <CloudBackground zIndex={0} />
       {/* Animated cloud particles */}
       {[...Array(30)].map((_, i) => (
         <Box
@@ -129,11 +131,16 @@ const Skills: React.FC = () => {
                 variant="h2" 
                 component="h2" 
                 sx={{ 
-                  color: '#4682B4',
-                  textAlign: 'center',
                   fontWeight: 'bold',
                   mb: 2,
                   position: 'relative',
+                  background: 'linear-gradient(90deg, #5bb6e6 10%, #87CEEB 60%, #4682B4 100%)',
+                  backgroundClip: 'text',
+                  WebkitBackgroundClip: 'text',
+                  color: 'transparent',
+                  WebkitTextFillColor: 'transparent',
+                  textFillColor: 'transparent',
+                  display: 'inline-block',
                   '&::after': {
                     content: '""',
                     position: 'absolute',

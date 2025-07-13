@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Container, Typography, Grid, Paper, IconButton, Link } from '@mui/material';
 import { Email, LinkedIn, LocationOn, GitHub, Twitter, Instagram } from '@mui/icons-material';
 import { motion } from 'framer-motion';
+import CloudBackground from './CloudBackground';
 
 const Contact: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const Contact: React.FC = () => {
         overflow: 'hidden',
       }}
     >
+      <CloudBackground zIndex={0} />
       <Container sx={{ position: 'relative', zIndex: 1 }}>
         <motion.div
           initial={{ opacity: 0 }}
@@ -33,9 +35,15 @@ const Contact: React.FC = () => {
               gutterBottom 
               align="center"
               sx={{ 
-                color: '#4682B4',
                 fontWeight: 'bold',
                 position: 'relative',
+                background: 'linear-gradient(90deg, #5bb6e6 10%, #87CEEB 60%, #4682B4 100%)',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                color: 'transparent',
+                WebkitTextFillColor: 'transparent',
+                textFillColor: 'transparent',
+                display: 'inline-block',
                 '&::after': {
                   content: '""',
                   position: 'absolute',
@@ -49,7 +57,7 @@ const Contact: React.FC = () => {
                 }
               }}
             >
-              ☁️ Get In Touch
+              <span role="img" aria-label="cloud">☁️</span> Get In Touch
             </Typography>
             <Typography 
               variant="body1" 
