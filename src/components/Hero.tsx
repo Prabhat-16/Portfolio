@@ -19,6 +19,22 @@ import BuildIcon from '@mui/icons-material/Build';
 import LanguageIcon from '@mui/icons-material/Language';
 import DnsIcon from '@mui/icons-material/Dns';
 import BugReportIcon from '@mui/icons-material/BugReport';
+import ApiIcon from '@mui/icons-material/Api';
+import DataObjectIcon from '@mui/icons-material/DataObject';
+import StorageOutlinedIcon from '@mui/icons-material/StorageOutlined';
+import CloudDoneIcon from '@mui/icons-material/CloudDone';
+import CloudSyncIcon from '@mui/icons-material/CloudSync';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
+import CloudOffIcon from '@mui/icons-material/CloudOff';
+import CloudCircleIcon from '@mui/icons-material/CloudCircle';
+import CloudDoneOutlinedIcon from '@mui/icons-material/CloudDoneOutlined';
+import CloudQueueOutlinedIcon from '@mui/icons-material/CloudQueueOutlined';
+import CloudSyncOutlinedIcon from '@mui/icons-material/CloudSyncOutlined';
+import CloudUploadOutlinedIcon from '@mui/icons-material/CloudUploadOutlined';
+import CloudDownloadOutlinedIcon from '@mui/icons-material/CloudDownloadOutlined';
+import CloudOffOutlinedIcon from '@mui/icons-material/CloudOffOutlined';
+import CloudCircleOutlinedIcon from '@mui/icons-material/CloudCircleOutlined';
 
 const Hero: React.FC = () => {
   const roles = [
@@ -36,29 +52,46 @@ const Hero: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Expanded tech icons array
+  // Enhanced tech icons array with cloud icons added to existing ones
   const techIcons = [
-    { icon: <CodeIcon />, color: '#00bcd4', size: '2.5rem', speed: 18 },
-    { icon: <TerminalIcon />, color: '#4caf50', size: '2.2rem', speed: 20 },
-    { icon: <StorageIcon />, color: '#ff9800', size: '2.3rem', speed: 22 },
-    { icon: <CloudIcon />, color: '#2196f3', size: '2.4rem', speed: 19 },
-    { icon: <SecurityIcon />, color: '#f44336', size: '2.1rem', speed: 21 },
-    { icon: <JavascriptIcon />, color: '#F7DF1E', size: '2.5rem', speed: 17 },
-    { icon: <HtmlIcon />, color: '#E34F26', size: '2.3rem', speed: 23 },
-    { icon: <CssIcon />, color: '#1572B6', size: '2.3rem', speed: 20 },
-    { icon: <GitHubIcon />, color: '#181717', size: '2.2rem', speed: 18 },
-    { icon: <CloudQueueIcon />, color: '#00C7B7', size: '2.4rem', speed: 21 },
-    { icon: <ComputerIcon />, color: '#2496ED', size: '2.3rem', speed: 22 },
-    { icon: <DesktopWindowsIcon />, color: '#0078D6', size: '2.2rem', speed: 20 },
-    { icon: <DeveloperBoardIcon />, color: '#FCC624', size: '2.3rem', speed: 19 },
-    { icon: <BuildIcon />, color: '#FB7A24', size: '2.2rem', speed: 21 },
-    { icon: <LanguageIcon />, color: '#777BB4', size: '2.3rem', speed: 20 },
-    { icon: <DnsIcon />, color: '#4479A1', size: '2.2rem', speed: 22 },
-    { icon: <BugReportIcon />, color: '#e91e63', size: '2.1rem', speed: 23 },
+    // Original icons with enhanced animations
+    { icon: <CodeIcon />, color: '#00bcd4', size: '2.5rem', speed: 18, delay: 0 },
+    { icon: <TerminalIcon />, color: '#4caf50', size: '2.2rem', speed: 20, delay: 1 },
+    { icon: <StorageIcon />, color: '#ff9800', size: '2.3rem', speed: 22, delay: 2 },
+    { icon: <SecurityIcon />, color: '#f44336', size: '2.1rem', speed: 21, delay: 3 },
+    { icon: <JavascriptIcon />, color: '#F7DF1E', size: '2.5rem', speed: 17, delay: 4 },
+    { icon: <HtmlIcon />, color: '#E34F26', size: '2.3rem', speed: 23, delay: 5 },
+    { icon: <CssIcon />, color: '#1572B6', size: '2.3rem', speed: 20, delay: 6 },
+    { icon: <GitHubIcon />, color: '#181717', size: '2.2rem', speed: 18, delay: 7 },
+    { icon: <ComputerIcon />, color: '#2496ED', size: '2.3rem', speed: 22, delay: 8 },
+    { icon: <DesktopWindowsIcon />, color: '#0078D6', size: '2.2rem', speed: 20, delay: 9 },
+    { icon: <DeveloperBoardIcon />, color: '#FCC624', size: '2.3rem', speed: 19, delay: 10 },
+    { icon: <BuildIcon />, color: '#FB7A24', size: '2.2rem', speed: 21, delay: 11 },
+    { icon: <LanguageIcon />, color: '#777BB4', size: '2.3rem', speed: 20, delay: 12 },
+    { icon: <DnsIcon />, color: '#4479A1', size: '2.2rem', speed: 22, delay: 13 },
+    { icon: <BugReportIcon />, color: '#e91e63', size: '2.1rem', speed: 23, delay: 14 },
+    
+    // Added cloud icons
+    { icon: <CloudIcon />, color: '#87CEEB', size: '3rem', speed: 15, delay: 15 },
+    { icon: <CloudQueueIcon />, color: '#B0E0E6', size: '2.8rem', speed: 18, delay: 16 },
+    { icon: <CloudDoneIcon />, color: '#4682B4', size: '2.9rem', speed: 16, delay: 17 },
+    { icon: <CloudSyncIcon />, color: '#5D8CAE', size: '2.7rem', speed: 19, delay: 18 },
+    { icon: <CloudUploadIcon />, color: '#6B8E9E', size: '2.6rem', speed: 17, delay: 19 },
+    { icon: <CloudDownloadIcon />, color: '#7A9EAE', size: '2.5rem', speed: 20, delay: 20 },
+    { icon: <CloudCircleIcon />, color: '#87CEEB', size: '2.8rem', speed: 14, delay: 21 },
+    { icon: <CloudDoneOutlinedIcon />, color: '#B0E0E6', size: '2.4rem', speed: 21, delay: 22 },
+    { icon: <CloudQueueOutlinedIcon />, color: '#4682B4', size: '2.6rem', speed: 18, delay: 23 },
+    { icon: <CloudSyncOutlinedIcon />, color: '#5D8CAE', size: '2.3rem', speed: 22, delay: 24 },
+    { icon: <CloudUploadOutlinedIcon />, color: '#6B8E9E', size: '2.5rem', speed: 19, delay: 25 },
+    { icon: <CloudDownloadOutlinedIcon />, color: '#7A9EAE', size: '2.2rem', speed: 23, delay: 26 },
+    { icon: <CloudCircleOutlinedIcon />, color: '#87CEEB', size: '2.7rem', speed: 17, delay: 27 },
+    { icon: <ApiIcon />, color: '#B0E0E6', size: '2.4rem', speed: 18, delay: 28 },
+    { icon: <DataObjectIcon />, color: '#4682B4', size: '2.3rem', speed: 22, delay: 29 },
+    { icon: <StorageOutlinedIcon />, color: '#5D8CAE', size: '2.2rem', speed: 24, delay: 30 },
   ];
 
   // Helper to get a random vertical position
-  const getRandomY = () => Math.random() * (window.innerHeight - 40);
+  const getRandomY = () => Math.random() * (window.innerHeight - 60);
 
   return (
     <Box
@@ -67,12 +100,12 @@ const Hero: React.FC = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'linear-gradient(135deg, #0a1929 0%, #132f4c 100%)',
+        background: 'linear-gradient(135deg, #87CEEB 0%, #B0E0E6 25%, #E0F6FF 50%, #F0F8FF 75%, #FFFFFF 100%)',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
-      {/* Animated background gradient */}
+      {/* Animated cloud background gradient */}
       <Box
         component={motion.div}
         sx={{
@@ -81,24 +114,24 @@ const Hero: React.FC = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'linear-gradient(135deg, #0a1929 0%, #132f4c 100%)',
+          background: 'linear-gradient(135deg, #87CEEB 0%, #B0E0E6 25%, #E0F6FF 50%, #F0F8FF 75%, #FFFFFF 100%)',
           zIndex: 0,
         }}
         animate={{
           background: [
-            'linear-gradient(135deg, #0a1929 0%, #132f4c 100%)',
-            'linear-gradient(135deg, #132f4c 0%, #0a1929 100%)',
-            'linear-gradient(135deg, #0a1929 0%, #132f4c 100%)',
+            'linear-gradient(135deg, #87CEEB 0%, #B0E0E6 25%, #E0F6FF 50%, #F0F8FF 75%, #FFFFFF 100%)',
+            'linear-gradient(135deg, #B0E0E6 0%, #E0F6FF 25%, #F0F8FF 50%, #87CEEB 75%, #B0E0E6 100%)',
+            'linear-gradient(135deg, #87CEEB 0%, #B0E0E6 25%, #E0F6FF 50%, #F0F8FF 75%, #FFFFFF 100%)',
           ],
         }}
         transition={{
-          duration: 10,
+          duration: 15,
           repeat: Infinity,
           ease: 'linear',
         }}
       />
 
-      {/* Flying tech icons (left to right) */}
+      {/* Enhanced floating tech icons with cloud icons added */}
       {techIcons.map((item, index) => {
         const y = getRandomY();
         return (
@@ -108,20 +141,31 @@ const Hero: React.FC = () => {
             sx={{
               position: 'absolute',
               color: item.color,
-              opacity: 0.3,
+              opacity: 0.5,
               fontSize: item.size || '2rem',
               zIndex: 1,
               top: y,
               left: 0,
+              filter: 'drop-shadow(0 0 15px rgba(135, 206, 235, 0.4))',
             }}
-            initial={{ x: -60 }}
-            animate={{ x: window.innerWidth + 60 }}
+            initial={{ 
+              x: -80,
+              y: y,
+              rotate: 0,
+              scale: 0.8,
+            }}
+            animate={{ 
+              x: window.innerWidth + 80,
+              y: [y, y - 30, y + 20, y - 15, y],
+              rotate: [0, 5, -3, 2, 0],
+              scale: [0.8, 1, 0.9, 1.1, 0.8],
+            }}
             transition={{
               duration: item.speed || 18 + index * 2,
               repeat: Infinity,
               repeatType: 'loop',
-              ease: 'linear',
-              delay: index * 2,
+              ease: 'easeInOut',
+              delay: item.delay || index * 1.5,
             }}
           >
             {item.icon}
@@ -148,12 +192,12 @@ const Hero: React.FC = () => {
               sx={{ 
                 fontSize: { xs: '2.5rem', sm: '3.5rem', md: '5rem' },
                 fontWeight: 900,
-                background: 'linear-gradient(45deg, #00bcd4, #008394)',
+                background: 'linear-gradient(45deg, #87CEEB, #4682B4)',
                 backgroundClip: 'text',
                 textFillColor: 'transparent',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-                textShadow: '0 0 30px rgba(0, 188, 212, 0.3)',
+                textShadow: '0 0 30px rgba(135, 206, 235, 0.3)',
                 mb: 3,
               }}
             >
@@ -173,7 +217,7 @@ const Hero: React.FC = () => {
                 <Typography 
                   variant="h3" 
                   sx={{ 
-                    color: 'primary.light',
+                    color: '#4682B4',
                     fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
                     fontWeight: 'bold',
                   }}
@@ -193,14 +237,13 @@ const Hero: React.FC = () => {
               variant="h6" 
               sx={{ 
                 mb: 6,
-                color: 'text.secondary',
+                color: '#34495e',
                 maxWidth: '800px',
                 mx: 'auto',
                 fontSize: { xs: '1rem', sm: '1.1rem', md: '1.25rem' },
               }}
             >
-              Specializing in PHP, MySQL, and Web Development. Building robust and scalable solutions
-              with modern technologies and best practices.
+              Specializing in PHP, MySQL, Web Development & Cloud Deployments. Building robust, scalable solutions with modern technologies and best practices.
             </Typography>
           </motion.div>
 
@@ -222,9 +265,10 @@ const Hero: React.FC = () => {
                 borderRadius: 2,
                 textTransform: 'none',
                 fontSize: { xs: '1rem', md: '1.1rem' },
-                background: 'linear-gradient(45deg, #00bcd4 30%, #008394 90%)',
+                background: 'linear-gradient(45deg, #87CEEB 30%, #B0E0E6 90%)',
+                color: '#2c3e50',
                 '&:hover': {
-                  background: 'linear-gradient(45deg, #008394 30%, #00bcd4 90%)',
+                  background: 'linear-gradient(45deg, #B0E0E6 30%, #87CEEB 90%)',
                   transform: 'scale(1.05)',
                   transition: 'transform 0.2s',
                 },
@@ -244,17 +288,15 @@ const Hero: React.FC = () => {
                 borderRadius: 2,
                 textTransform: 'none',
                 fontSize: { xs: '1rem', md: '1.1rem' },
-                borderColor: 'primary.light',
-                color: 'primary.light',
+                borderColor: '#87CEEB',
+                color: '#4682B4',
                 '&:hover': {
-                  borderColor: 'primary.main',
-                  background: 'rgba(0,188,212,0.1)',
-                  transform: 'scale(1.05)',
-                  transition: 'transform 0.2s',
+                  borderColor: '#B0E0E6',
+                  backgroundColor: 'rgba(135, 206, 235, 0.1)',
                 },
               }}
             >
-              Contact Me
+              Get In Touch
             </Button>
           </motion.div>
         </Box>

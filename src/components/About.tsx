@@ -8,12 +8,12 @@ const About: React.FC = () => {
       id="about"
       sx={{
         py: 8,
-        backgroundColor: 'background.default',
+        background: 'linear-gradient(135deg, #E0F6FF 0%, #F0F8FF 50%, #FFFFFF 100%)',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
-      {/* Animated background gradient */}
+      {/* Animated cloud background gradient */}
       <Box
         component={motion.div}
         sx={{
@@ -22,7 +22,7 @@ const About: React.FC = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'radial-gradient(circle at 70% 30%, rgba(0,188,212,0.1) 0%, rgba(0,188,212,0) 50%)',
+          background: 'radial-gradient(circle at 70% 30%, rgba(135,206,235,0.1) 0%, rgba(135,206,235,0) 50%)',
           zIndex: 0,
         }}
         animate={{
@@ -52,7 +52,7 @@ const About: React.FC = () => {
               variant="h2" 
               component="h2" 
               sx={{ 
-                color: 'primary.light',
+                color: '#4682B4',
                 textAlign: 'center',
                 fontWeight: 'bold',
                 position: 'relative',
@@ -64,7 +64,7 @@ const About: React.FC = () => {
                   transform: 'translateX(-50%)',
                   width: '60px',
                   height: '4px',
-                  background: 'linear-gradient(90deg, #00bcd4, #008394)',
+                  background: 'linear-gradient(90deg, #87CEEB, #B0E0E6)',
                   borderRadius: '2px',
                 }
               }}
@@ -85,12 +85,13 @@ const About: React.FC = () => {
                   elevation={3}
                   sx={{
                     p: 4,
-                    background: 'linear-gradient(135deg, rgba(19, 47, 76, 0.8) 0%, rgba(10, 25, 41, 0.8) 100%)',
-                    borderRadius: 4,
-                    border: '1px solid rgba(0, 188, 212, 0.1)',
+                    background: 'rgba(255, 255, 255, 0.9)',
                     backdropFilter: 'blur(10px)',
+                    borderRadius: 4,
+                    border: '1px solid rgba(135, 206, 235, 0.3)',
                     position: 'relative',
                     overflow: 'hidden',
+                    boxShadow: '0 8px 32px rgba(135, 206, 235, 0.1)',
                     '&::before': {
                       content: '""',
                       position: 'absolute',
@@ -98,23 +99,29 @@ const About: React.FC = () => {
                       left: 0,
                       right: 0,
                       height: '1px',
-                      background: 'linear-gradient(90deg, transparent, rgba(0, 188, 212, 0.2), transparent)',
+                      background: 'linear-gradient(90deg, transparent, rgba(135, 206, 235, 0.3), transparent)',
+                    },
+                    '&:hover': {
+                      transform: 'translateY(-5px)',
+                      boxShadow: '0 15px 40px rgba(135, 206, 235, 0.2)',
+                      borderColor: 'rgba(135, 206, 235, 0.5)',
+                      transition: 'all 0.3s ease',
                     }
                   }}
                 >
-                  <Typography variant="h5" gutterBottom sx={{ color: 'primary.light', mb: 3 }}>
-                    Profile
+                  <Typography variant="h5" gutterBottom sx={{ color: '#4682B4', mb: 3, fontWeight: 600 }}>
+                    Cloud Developer Profile
                   </Typography>
-                  <Typography paragraph sx={{ color: 'text.secondary' }}>
-                    I am a skilled web developer specializing in backend technologies, particularly PHP and MySQL, 
-                    with expertise in designing robust architectures and implementing complex functionalities. 
-                    While my focus is on backend development, I have a strong grasp of front-end technologies 
-                    like HTML, CSS, JavaScript, and AJAX for seamless integration.
+                  <Typography paragraph sx={{ color: '#34495e', lineHeight: 1.8 }}>
+                    I am a passionate cloud developer specializing in backend technologies, particularly PHP and MySQL, 
+                    with expertise in designing robust cloud architectures and implementing scalable solutions. 
+                    My focus extends beyond traditional backend development to include cloud-native technologies, 
+                    DevOps practices, and modern deployment strategies.
                   </Typography>
-                  <Typography paragraph sx={{ color: 'text.secondary', mb: 0 }}>
-                    Currently learning DevOps and exploring automation, CI/CD, and cloud technologies. 
-                    Passionate about continuous learning and staying updated with new technologies to build 
-                    scalable and efficient solutions.
+                  <Typography paragraph sx={{ color: '#34495e', mb: 0, lineHeight: 1.8 }}>
+                    Currently expanding my expertise in cloud platforms, containerization, and infrastructure as code. 
+                    Passionate about building scalable, resilient applications that leverage the power of cloud computing 
+                    to deliver exceptional user experiences.
                   </Typography>
                 </Paper>
               </motion.div>
@@ -136,8 +143,8 @@ const About: React.FC = () => {
                       left: '10%',
                       right: '-10px',
                       bottom: '-10px',
-                      background: 'linear-gradient(135deg, rgba(0, 188, 212, 0.1) 0%, rgba(0, 188, 212, 0.05) 100%)',
-                      borderRadius: '10px',
+                      background: 'linear-gradient(135deg, rgba(135, 206, 235, 0.2) 0%, rgba(176, 224, 230, 0.1) 100%)',
+                      borderRadius: '20px',
                       zIndex: 0,
                     }
                   }}
@@ -145,7 +152,7 @@ const About: React.FC = () => {
                   <Box
                     component="img"
                     src="about.jpg"
-                    alt="Developer Illustration"
+                    alt="Cloud Developer Illustration"
                     sx={{
                       width: '100%',
                       height: 'auto',
@@ -155,12 +162,12 @@ const About: React.FC = () => {
                       position: 'relative',
                       zIndex: 1,
                       borderRadius: '20px',
-                      boxShadow: '0 20px 40px rgba(0, 0, 0, 0.2)',
+                      boxShadow: '0 20px 40px rgba(135, 206, 235, 0.2)',
                       transform: 'perspective(1000px) rotateY(-5deg)',
                       transition: 'all 0.3s ease',
                       '&:hover': {
                         transform: 'perspective(1000px) rotateY(0deg)',
-                        boxShadow: '0 25px 50px rgba(0, 188, 212, 0.3)',
+                        boxShadow: '0 25px 50px rgba(135, 206, 235, 0.4)',
                       },
                     }}
                   />

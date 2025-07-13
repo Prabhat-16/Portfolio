@@ -34,8 +34,8 @@ const Skills: React.FC = () => {
       ]
     },
     {
-      title: "DevOps & Cloud",
-      icon: "🛠",
+      title: "Cloud & DevOps",
+      icon: "☁️",
       items: [
         { name: "GIT", color: "#F05032", icon: <Terminal sx={{ fontSize: 30 }} /> },
         { name: "GITHUB ACTIONS", color: "#2088FF", icon: <GitHub sx={{ fontSize: 30 }} /> },
@@ -45,7 +45,7 @@ const Skills: React.FC = () => {
       ]
     },
     {
-      title: "Tools",
+      title: "Development Tools",
       icon: "🔧",
       items: [
         { name: "VS CODE", color: "#007ACC", icon: <Code sx={{ fontSize: 30 }} /> },
@@ -70,32 +70,32 @@ const Skills: React.FC = () => {
       id="skills"
       sx={{
         py: 10,
-        backgroundColor: 'background.default',
+        background: 'linear-gradient(135deg, #F0F8FF 0%, #E0F6FF 50%, #B0E0E6 100%)',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
-      {/* Animated background dots */}
-      {[...Array(50)].map((_, i) => (
+      {/* Animated cloud particles */}
+      {[...Array(30)].map((_, i) => (
         <Box
           key={i}
           component={motion.div}
           sx={{
             position: 'absolute',
-            width: '4px',
-            height: '4px',
-            background: 'primary.main',
+            width: '6px',
+            height: '6px',
+            background: 'rgba(135, 206, 235, 0.6)',
             borderRadius: '50%',
-            opacity: 0.2,
+            opacity: 0.3,
           }}
           animate={{
             y: ['0vh', '100vh'],
-            opacity: [0.2, 0],
+            opacity: [0.3, 0],
           }}
           transition={{
-            duration: Math.random() * 10 + 5,
+            duration: Math.random() * 15 + 10,
             repeat: Infinity,
-            delay: Math.random() * 5,
+            delay: Math.random() * 8,
             ease: 'linear',
           }}
           style={{
@@ -129,7 +129,7 @@ const Skills: React.FC = () => {
                 variant="h2" 
                 component="h2" 
                 sx={{ 
-                  color: 'primary.light',
+                  color: '#4682B4',
                   textAlign: 'center',
                   fontWeight: 'bold',
                   mb: 2,
@@ -142,12 +142,12 @@ const Skills: React.FC = () => {
                     transform: 'translateX(-50%)',
                     width: '60px',
                     height: '4px',
-                    background: 'linear-gradient(90deg, #00bcd4, #008394)',
+                    background: 'linear-gradient(90deg, #87CEEB, #B0E0E6)',
                     borderRadius: '2px',
                   }
                 }}
               >
-                🛠 Tech & Tools
+                ☁️ Cloud & Tech Stack
               </Typography>
             </motion.div>
             <motion.div
@@ -160,13 +160,14 @@ const Skills: React.FC = () => {
                 variant="body1" 
                 sx={{ 
                   mb: 4, 
-                  color: 'text.secondary',
+                  color: '#34495e',
                   textAlign: 'center',
                   maxWidth: '800px',
-                  mx: 'auto'
+                  mx: 'auto',
+                  fontSize: '1.1rem',
                 }}
               >
-                As a full stack developer diving into DevOps, here's what I work with:
+                As a cloud developer passionate about modern technologies, here's my comprehensive tech stack:
               </Typography>
             </motion.div>
           </Box>
@@ -184,12 +185,13 @@ const Skills: React.FC = () => {
                   elevation={3}
                   sx={{
                     p: 4,
-                    background: 'linear-gradient(135deg, rgba(19, 47, 76, 0.8) 0%, rgba(10, 25, 41, 0.8) 100%)',
-                    borderRadius: 4,
-                    border: '1px solid rgba(0, 188, 212, 0.1)',
+                    background: 'rgba(255, 255, 255, 0.9)',
                     backdropFilter: 'blur(10px)',
+                    borderRadius: 4,
+                    border: '1px solid rgba(135, 206, 235, 0.3)',
                     position: 'relative',
                     overflow: 'hidden',
+                    boxShadow: '0 8px 32px rgba(135, 206, 235, 0.1)',
                     '&::before': {
                       content: '""',
                       position: 'absolute',
@@ -197,7 +199,13 @@ const Skills: React.FC = () => {
                       left: 0,
                       right: 0,
                       height: '1px',
-                      background: 'linear-gradient(90deg, transparent, rgba(0, 188, 212, 0.2), transparent)',
+                      background: 'linear-gradient(90deg, transparent, rgba(135, 206, 235, 0.3), transparent)',
+                    },
+                    '&:hover': {
+                      transform: 'translateY(-5px)',
+                      boxShadow: '0 15px 40px rgba(135, 206, 235, 0.2)',
+                      borderColor: 'rgba(135, 206, 235, 0.5)',
+                      transition: 'all 0.3s ease',
                     }
                   }}
                 >
@@ -206,11 +214,12 @@ const Skills: React.FC = () => {
                       variant="h5" 
                       component="h3" 
                       sx={{ 
-                        color: 'primary.light',
+                        color: '#4682B4',
                         display: 'flex',
                         alignItems: 'center',
                         gap: 1,
                         fontSize: { xs: '1.5rem', md: '1.8rem' },
+                        fontWeight: 600,
                       }}
                     >
                       {category.icon} {category.title}
@@ -241,44 +250,41 @@ const Skills: React.FC = () => {
                           elevation={2}
                           sx={{
                             p: 2,
-                            backgroundColor: 'rgba(0, 188, 212, 0.05)',
-                            border: '1px solid rgba(0, 188, 212, 0.1)',
+                            backgroundColor: 'rgba(135, 206, 235, 0.1)',
+                            border: '1px solid rgba(135, 206, 235, 0.2)',
                             borderRadius: 2,
                             transition: 'all 0.3s ease',
                             cursor: 'pointer',
                             '&:hover': {
-                              backgroundColor: 'rgba(0, 188, 212, 0.1)',
-                              transform: 'translateY(-2px)',
-                              boxShadow: `0 4px 20px ${item.color}20`,
-                              border: `1px solid ${item.color}40`,
-                            },
+                              backgroundColor: 'rgba(135, 206, 235, 0.15)',
+                              borderColor: 'rgba(135, 206, 235, 0.4)',
+                              transform: 'translateY(-3px)',
+                              boxShadow: '0 8px 20px rgba(135, 206, 235, 0.2)',
+                            }
                           }}
                         >
                           <Box sx={{ 
                             display: 'flex', 
                             flexDirection: 'column', 
-                            alignItems: 'center',
-                            gap: 1 
+                            alignItems: 'center', 
+                            gap: 1,
+                            textAlign: 'center'
                           }}>
                             <Box sx={{ 
                               color: item.color,
-                              transition: 'transform 0.3s ease',
-                              '& > svg': {
-                                filter: `drop-shadow(0 2px 4px ${item.color}40)`,
-                              },
-                              '.MuiPaper-root:hover &': {
-                                transform: 'scale(1.1)',
-                              }
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              mb: 1
                             }}>
                               {item.icon}
                             </Box>
-                            <Typography
-                              variant="body2"
-                              sx={{
-                                color: item.color,
-                                fontWeight: 'bold',
-                                letterSpacing: '0.5px',
-                                textAlign: 'center',
+                            <Typography 
+                              variant="body2" 
+                              sx={{ 
+                                fontWeight: 600,
+                                color: '#2c3e50',
+                                fontSize: '0.9rem',
                               }}
                             >
                               {item.name}
