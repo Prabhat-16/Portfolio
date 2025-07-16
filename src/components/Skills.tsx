@@ -1,24 +1,27 @@
 import React from 'react';
 import { Box, Container, Typography, Paper } from '@mui/material';
 import { motion } from 'framer-motion';
-import {
-  Language,
-  Storage,
-  Javascript,
-  Code,
-  Html,
-  Css,
-  GitHub,
-  CloudQueue,
-  Terminal,
-  Build,
-  Cloud,
-  PostAdd,
-  Computer,
-  DesktopWindows,
-  DeveloperBoard
-} from '@mui/icons-material';
 import CloudBackground from './CloudBackground';
+
+const skillIconMap: Record<string, string> = {
+  PHP: 'php',
+  MYSQL: 'mysql',
+  JAVASCRIPT: 'js',
+  REACT: 'react',
+  HTML5: 'html',
+  CSS3: 'css',
+  GIT: 'git',
+  'GITHUB ACTIONS': 'githubactions',
+  DOCKER: 'docker',
+  AZURE: 'azure',
+  AWS: 'aws',
+  'VS CODE': 'vscode',
+  POSTMAN: 'postman',
+  NETLIFY: 'netlify',
+  GITHUB: 'github',
+  WINDOWS: 'windows',
+  LINUX: 'linux',
+};
 
 const Skills: React.FC = () => {
   const categories = [
@@ -26,42 +29,41 @@ const Skills: React.FC = () => {
       title: "Languages & Frameworks",
       icon: "💻",
       items: [
-        { name: "PHP", color: "#777BB4", icon: <Language sx={{ fontSize: 30 }} /> },
-        { name: "MYSQL", color: "#4479A1", icon: <Storage sx={{ fontSize: 30 }} /> },
-        { name: "JAVASCRIPT", color: "#F7DF1E", icon: <Javascript sx={{ fontSize: 30 }} /> },
-        { name: "REACT", color: "#61DAFB", icon: <Code sx={{ fontSize: 30 }} /> },
-        { name: "HTML5", color: "#E34F26", icon: <Html sx={{ fontSize: 30 }} /> },
-        { name: "CSS3", color: "#1572B6", icon: <Css sx={{ fontSize: 30 }} /> },
+        { name: "PHP", color: "#777BB4" },
+        { name: "MYSQL", color: "#4479A1" },
+        { name: "JAVASCRIPT", color: "#F7DF1E" },
+        { name: "REACT", color: "#61DAFB" },
+        { name: "HTML5", color: "#E34F26" },
+        { name: "CSS3", color: "#1572B6" },
       ]
     },
     {
       title: "Cloud & DevOps",
       icon: "☁️",
       items: [
-        { name: "GIT", color: "#F05032", icon: <Terminal sx={{ fontSize: 30 }} /> },
-        { name: "GITHUB ACTIONS", color: "#2088FF", icon: <GitHub sx={{ fontSize: 30 }} /> },
-        { name: "DOCKER", color: "#2496ED", icon: <Computer sx={{ fontSize: 30 }} /> },
-        { name: "AZURE", color: "#0078D4", icon: <CloudQueue sx={{ fontSize: 30 }} /> },
-        { name: "AWS", color: "#FF9900", icon: <Cloud sx={{ fontSize: 30 }} /> },
+        { name: "GIT", color: "#F05032" },
+        { name: "GITHUB ACTIONS", color: "#2088FF" },
+        { name: "DOCKER", color: "#2496ED" },
+        { name: "AZURE", color: "#0078D4" },
+        { name: "AWS", color: "#FF9900" },
       ]
     },
     {
       title: "Development Tools",
       icon: "🔧",
       items: [
-        { name: "VS CODE", color: "#007ACC", icon: <Code sx={{ fontSize: 30 }} /> },
-        { name: "POSTMAN", color: "#FF6C37", icon: <PostAdd sx={{ fontSize: 30 }} /> },
-        { name: "NETLIFY", color: "#00C7B7", icon: <Cloud sx={{ fontSize: 30 }} /> },
-        { name: "XAMPP", color: "#FB7A24", icon: <Computer sx={{ fontSize: 30 }} /> },
-        { name: "GITHUB", color: "#181717", icon: <GitHub sx={{ fontSize: 30 }} /> },
+        { name: "VS CODE", color: "#007ACC" },
+        { name: "POSTMAN", color: "#FF6C37" },
+        { name: "NETLIFY", color: "#00C7B7" },
+        { name: "GITHUB", color: "#181717" },
       ]
     },
     {
       title: "Platforms",
       icon: "🖥",
       items: [
-        { name: "WINDOWS", color: "#0078D6", icon: <DesktopWindows sx={{ fontSize: 30 }} /> },
-        { name: "LINUX", color: "#FCC624", icon: <DeveloperBoard sx={{ fontSize: 30 }} /> },
+        { name: "WINDOWS", color: "#0078D6" },
+        { name: "LINUX", color: "#FCC624" },
       ]
     }
   ];
@@ -250,54 +252,17 @@ const Skills: React.FC = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: index * 0.1 }}
-                        whileHover={{ scale: 1.05 }}
+                        transition={{ delay: index * 0.1, duration: 0.4 }}
+                        style={{ display: 'flex', alignItems: 'center', gap: 12 }}
                       >
-                        <Paper
-                          elevation={2}
-                          sx={{
-                            p: 2,
-                            backgroundColor: 'rgba(135, 206, 235, 0.1)',
-                            border: '1px solid rgba(135, 206, 235, 0.2)',
-                            borderRadius: 2,
-                            transition: 'all 0.3s ease',
-                            cursor: 'pointer',
-                            '&:hover': {
-                              backgroundColor: 'rgba(135, 206, 235, 0.15)',
-                              borderColor: 'rgba(135, 206, 235, 0.4)',
-                              transform: 'translateY(-3px)',
-                              boxShadow: '0 8px 20px rgba(135, 206, 235, 0.2)',
-                            }
-                          }}
-                        >
-                          <Box sx={{ 
-                            display: 'flex', 
-                            flexDirection: 'column', 
-                            alignItems: 'center', 
-                            gap: 1,
-                            textAlign: 'center'
-                          }}>
-                            <Box sx={{ 
-                              color: item.color,
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                              mb: 1
-                            }}>
-                              {item.icon}
-                            </Box>
-                            <Typography 
-                              variant="body2" 
-                              sx={{ 
-                                fontWeight: 600,
-                                color: '#2c3e50',
-                                fontSize: '0.9rem',
-                              }}
-                            >
-                              {item.name}
-                            </Typography>
-                          </Box>
-                        </Paper>
+                        <img
+                          src={`https://skillicons.dev/icons?i=${skillIconMap[item.name]}`}
+                          alt={item.name}
+                          style={{ width: 40, height: 40, marginRight: 8, filter: 'drop-shadow(0 2px 8px rgba(135,206,235,0.15))' }}
+                        />
+                        <Typography variant="subtitle1" sx={{ color: item.color, fontWeight: 500 }}>
+                          {item.name}
+                        </Typography>
                       </motion.div>
                     ))}
                   </Box>
