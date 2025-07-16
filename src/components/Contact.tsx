@@ -214,6 +214,120 @@ const Contact: React.FC = () => {
             </Grid>
           </Grid>
 
+          {/* Netlify Contact Form */}
+          <Box sx={{ mt: 6, display: 'flex', justifyContent: 'center' }}>
+            <Paper
+              elevation={3}
+              sx={{
+                p: 4,
+                background: 'rgba(255,255,255,0.95)',
+                borderRadius: '20px',
+                maxWidth: 500,
+                width: '100%',
+                boxShadow: '0 8px 32px rgba(135, 206, 235, 0.1)',
+                border: '1px solid rgba(135, 206, 235, 0.3)',
+              }}
+            >
+              <form
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}
+              >
+                {/* Netlify hidden input for form name */}
+                <input type="hidden" name="form-name" value="contact" />
+                {/* Honeypot field for spam prevention */}
+                <div style={{ display: 'none' }}>
+                  <label>
+                    Don’t fill this out: <input name="bot-field" />
+                  </label>
+                </div>
+                <Typography variant="h5" sx={{ color: '#4682B4', fontWeight: 600, mb: 1, textAlign: 'center' }}>
+                  Contact Form
+                </Typography>
+                <Box>
+                  <label htmlFor="name">
+                    <Typography variant="body1" sx={{ color: '#34495e', fontWeight: 500 }}>
+                      Name
+                    </Typography>
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
+                    style={{
+                      width: '100%',
+                      padding: '10px',
+                      borderRadius: '8px',
+                      border: '1px solid #B0E0E6',
+                      marginTop: '4px',
+                    }}
+                  />
+                </Box>
+                <Box>
+                  <label htmlFor="email">
+                    <Typography variant="body1" sx={{ color: '#34495e', fontWeight: 500 }}>
+                      Email
+                    </Typography>
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    style={{
+                      width: '100%',
+                      padding: '10px',
+                      borderRadius: '8px',
+                      border: '1px solid #B0E0E6',
+                      marginTop: '4px',
+                    }}
+                  />
+                </Box>
+                <Box>
+                  <label htmlFor="message">
+                    <Typography variant="body1" sx={{ color: '#34495e', fontWeight: 500 }}>
+                      Message
+                    </Typography>
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows={4}
+                    style={{
+                      width: '100%',
+                      padding: '10px',
+                      borderRadius: '8px',
+                      border: '1px solid #B0E0E6',
+                      marginTop: '4px',
+                      resize: 'vertical',
+                    }}
+                  />
+                </Box>
+                <button
+                  type="submit"
+                  style={{
+                    background: 'linear-gradient(90deg, #5bb6e6 10%, #87CEEB 60%, #4682B4 100%)',
+                    color: '#fff',
+                    border: 'none',
+                    borderRadius: '20px',
+                    padding: '10px 0',
+                    fontWeight: 600,
+                    fontSize: '1.1rem',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s',
+                    boxShadow: '0 4px 16px rgba(135, 206, 235, 0.15)',
+                  }}
+                >
+                  Send Message
+                </button>
+              </form>
+            </Paper>
+          </Box>
+
           <Box sx={{ mt: 4, textAlign: 'center' }}>
             <Typography variant="h5" sx={{ mb: 2, color: '#4682B4', fontWeight: 600 }}>Follow Me</Typography>
             <Box>
