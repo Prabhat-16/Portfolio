@@ -20,13 +20,13 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  // Always light mode
-  const isDarkMode = false;
+  // Always dark mode
+  const isDarkMode = true;
   const toggleTheme = () => {};
 
   // Set document attribute for CSS variables
   React.useEffect(() => {
-    document.documentElement.setAttribute('data-theme', 'light');
+    document.documentElement.setAttribute('data-theme', 'dark');
   }, []);
 
   return (

@@ -54,40 +54,40 @@ const Hero: React.FC = () => {
 
   // Enhanced tech icons array with cloud icons added to existing ones
   const techIcons = [
-    // Original icons with enhanced animations
-    { icon: <CodeIcon />, color: '#00bcd4', size: '2.5rem', speed: 18, delay: 0 },
-    { icon: <TerminalIcon />, color: '#4caf50', size: '2.2rem', speed: 20, delay: 1 },
-    { icon: <StorageIcon />, color: '#ff9800', size: '2.3rem', speed: 22, delay: 2 },
-    { icon: <SecurityIcon />, color: '#f44336', size: '2.1rem', speed: 21, delay: 3 },
-    { icon: <JavascriptIcon />, color: '#F7DF1E', size: '2.5rem', speed: 17, delay: 4 },
-    { icon: <HtmlIcon />, color: '#E34F26', size: '2.3rem', speed: 23, delay: 5 },
-    { icon: <CssIcon />, color: '#1572B6', size: '2.3rem', speed: 20, delay: 6 },
-    { icon: <GitHubIcon />, color: '#181717', size: '2.2rem', speed: 18, delay: 7 },
-    { icon: <ComputerIcon />, color: '#2496ED', size: '2.3rem', speed: 22, delay: 8 },
-    { icon: <DesktopWindowsIcon />, color: '#0078D6', size: '2.2rem', speed: 20, delay: 9 },
-    { icon: <DeveloperBoardIcon />, color: '#FCC624', size: '2.3rem', speed: 19, delay: 10 },
-    { icon: <BuildIcon />, color: '#FB7A24', size: '2.2rem', speed: 21, delay: 11 },
-    { icon: <LanguageIcon />, color: '#777BB4', size: '2.3rem', speed: 20, delay: 12 },
-    { icon: <DnsIcon />, color: '#4479A1', size: '2.2rem', speed: 22, delay: 13 },
-    { icon: <BugReportIcon />, color: '#e91e63', size: '2.1rem', speed: 23, delay: 14 },
+    // Original icons with enhanced animations - updated to blue theme
+    { icon: <CodeIcon />, color: '#3b82f6', size: '2.5rem', speed: 18, delay: 0 },
+    { icon: <TerminalIcon />, color: '#6366f1', size: '2.2rem', speed: 20, delay: 1 },
+    { icon: <StorageIcon />, color: '#818cf8', size: '2.3rem', speed: 22, delay: 2 },
+    { icon: <SecurityIcon />, color: '#a5b4fc', size: '2.1rem', speed: 21, delay: 3 },
+    { icon: <JavascriptIcon />, color: '#3b82f6', size: '2.5rem', speed: 17, delay: 4 },
+    { icon: <HtmlIcon />, color: '#6366f1', size: '2.3rem', speed: 23, delay: 5 },
+    { icon: <CssIcon />, color: '#818cf8', size: '2.3rem', speed: 20, delay: 6 },
+    { icon: <GitHubIcon />, color: '#a5b4fc', size: '2.2rem', speed: 18, delay: 7 },
+    { icon: <ComputerIcon />, color: '#3b82f6', size: '2.3rem', speed: 22, delay: 8 },
+    { icon: <DesktopWindowsIcon />, color: '#6366f1', size: '2.2rem', speed: 20, delay: 9 },
+    { icon: <DeveloperBoardIcon />, color: '#818cf8', size: '2.3rem', speed: 19, delay: 10 },
+    { icon: <BuildIcon />, color: '#a5b4fc', size: '2.2rem', speed: 21, delay: 11 },
+    { icon: <LanguageIcon />, color: '#3b82f6', size: '2.3rem', speed: 20, delay: 12 },
+    { icon: <DnsIcon />, color: '#6366f1', size: '2.2rem', speed: 22, delay: 13 },
+    { icon: <BugReportIcon />, color: '#818cf8', size: '2.1rem', speed: 23, delay: 14 },
     
-    // Added cloud icons
-    { icon: <CloudIcon />, color: '#87CEEB', size: '3rem', speed: 15, delay: 15 },
-    { icon: <CloudQueueIcon />, color: '#B0E0E6', size: '2.8rem', speed: 18, delay: 16 },
-    { icon: <CloudDoneIcon />, color: '#4682B4', size: '2.9rem', speed: 16, delay: 17 },
-    { icon: <CloudSyncIcon />, color: '#5D8CAE', size: '2.7rem', speed: 19, delay: 18 },
-    { icon: <CloudUploadIcon />, color: '#6B8E9E', size: '2.6rem', speed: 17, delay: 19 },
-    { icon: <CloudDownloadIcon />, color: '#7A9EAE', size: '2.5rem', speed: 20, delay: 20 },
-    { icon: <CloudCircleIcon />, color: '#87CEEB', size: '2.8rem', speed: 14, delay: 21 },
-    { icon: <CloudDoneOutlinedIcon />, color: '#B0E0E6', size: '2.4rem', speed: 21, delay: 22 },
-    { icon: <CloudQueueOutlinedIcon />, color: '#4682B4', size: '2.6rem', speed: 18, delay: 23 },
-    { icon: <CloudSyncOutlinedIcon />, color: '#5D8CAE', size: '2.3rem', speed: 22, delay: 24 },
-    { icon: <CloudUploadOutlinedIcon />, color: '#6B8E9E', size: '2.5rem', speed: 19, delay: 25 },
-    { icon: <CloudDownloadOutlinedIcon />, color: '#7A9EAE', size: '2.2rem', speed: 23, delay: 26 },
-    { icon: <CloudCircleOutlinedIcon />, color: '#87CEEB', size: '2.7rem', speed: 17, delay: 27 },
-    { icon: <ApiIcon />, color: '#B0E0E6', size: '2.4rem', speed: 18, delay: 28 },
-    { icon: <DataObjectIcon />, color: '#4682B4', size: '2.3rem', speed: 22, delay: 29 },
-    { icon: <StorageOutlinedIcon />, color: '#5D8CAE', size: '2.2rem', speed: 24, delay: 30 },
+    // Added cloud icons - updated to blue theme
+    { icon: <CloudIcon />, color: '#3b82f6', size: '3rem', speed: 15, delay: 15 },
+    { icon: <CloudQueueIcon />, color: '#6366f1', size: '2.8rem', speed: 18, delay: 16 },
+    { icon: <CloudDoneIcon />, color: '#818cf8', size: '2.9rem', speed: 16, delay: 17 },
+    { icon: <CloudSyncIcon />, color: '#a5b4fc', size: '2.7rem', speed: 19, delay: 18 },
+    { icon: <CloudUploadIcon />, color: '#3b82f6', size: '2.6rem', speed: 17, delay: 19 },
+    { icon: <CloudDownloadIcon />, color: '#6366f1', size: '2.5rem', speed: 20, delay: 20 },
+    { icon: <CloudCircleIcon />, color: '#818cf8', size: '2.8rem', speed: 14, delay: 21 },
+    { icon: <CloudDoneOutlinedIcon />, color: '#a5b4fc', size: '2.4rem', speed: 21, delay: 22 },
+    { icon: <CloudQueueOutlinedIcon />, color: '#3b82f6', size: '2.6rem', speed: 18, delay: 23 },
+    { icon: <CloudSyncOutlinedIcon />, color: '#6366f1', size: '2.3rem', speed: 22, delay: 24 },
+    { icon: <CloudUploadOutlinedIcon />, color: '#818cf8', size: '2.5rem', speed: 19, delay: 25 },
+    { icon: <CloudDownloadOutlinedIcon />, color: '#a5b4fc', size: '2.2rem', speed: 23, delay: 26 },
+    { icon: <CloudCircleOutlinedIcon />, color: '#3b82f6', size: '2.7rem', speed: 17, delay: 27 },
+    { icon: <ApiIcon />, color: '#6366f1', size: '2.4rem', speed: 18, delay: 28 },
+    { icon: <DataObjectIcon />, color: '#818cf8', size: '2.3rem', speed: 22, delay: 29 },
+    { icon: <StorageOutlinedIcon />, color: '#a5b4fc', size: '2.2rem', speed: 24, delay: 30 },
   ];
 
   // Helper to get a random vertical position
@@ -100,7 +100,7 @@ const Hero: React.FC = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'linear-gradient(135deg, #87CEEB 0%, #B0E0E6 25%, #E0F6FF 50%, #F0F8FF 75%, #FFFFFF 100%)',
+        background: 'linear-gradient(135deg, #1e3a8a 0%, #1e1b4b 25%, #0f172a 50%, #020617 75%, #000000 100%)',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -114,14 +114,14 @@ const Hero: React.FC = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'linear-gradient(135deg, #87CEEB 0%, #B0E0E6 25%, #E0F6FF 50%, #F0F8FF 75%, #FFFFFF 100%)',
+          background: 'linear-gradient(135deg, #1e3a8a 0%, #1e1b4b 25%, #0f172a 50%, #020617 75%, #000000 100%)',
           zIndex: 0,
         }}
         animate={{
           background: [
-            'linear-gradient(135deg, #87CEEB 0%, #B0E0E6 25%, #E0F6FF 50%, #F0F8FF 75%, #FFFFFF 100%)',
-            'linear-gradient(135deg, #B0E0E6 0%, #E0F6FF 25%, #F0F8FF 50%, #87CEEB 75%, #B0E0E6 100%)',
-            'linear-gradient(135deg, #87CEEB 0%, #B0E0E6 25%, #E0F6FF 50%, #F0F8FF 75%, #FFFFFF 100%)',
+            'linear-gradient(135deg, #1e3a8a 0%, #1e1b4b 25%, #0f172a 50%, #020617 75%, #000000 100%)',
+            'linear-gradient(135deg, #1e1b4b 0%, #0f172a 25%, #020617 50%, #1e3a8a 75%, #1e1b4b 100%)',
+            'linear-gradient(135deg, #1e3a8a 0%, #1e1b4b 25%, #0f172a 50%, #020617 75%, #000000 100%)',
           ],
         }}
         transition={{
@@ -141,12 +141,12 @@ const Hero: React.FC = () => {
             sx={{
               position: 'absolute',
               color: item.color,
-              opacity: 0.5,
+              opacity: 0.6,
               fontSize: item.size || '2rem',
               zIndex: 1,
               top: y,
               left: 0,
-              filter: 'drop-shadow(0 0 15px rgba(135, 206, 235, 0.4))',
+              filter: 'drop-shadow(0 0 15px rgba(59, 130, 246, 0.4))',
             }}
             initial={{ 
               x: -80,
@@ -192,12 +192,8 @@ const Hero: React.FC = () => {
               sx={{ 
                 fontSize: { xs: '2.5rem', sm: '3.5rem', md: '5rem' },
                 fontWeight: 900,
-                background: 'linear-gradient(45deg, #87CEEB, #4682B4)',
-                backgroundClip: 'text',
-                textFillColor: 'transparent',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                textShadow: '0 0 30px rgba(135, 206, 235, 0.3)',
+                color: '#ffffff',
+                textShadow: '0 0 30px rgba(255, 255, 255, 0.3)',
                 mb: 3,
               }}
             >
@@ -217,7 +213,7 @@ const Hero: React.FC = () => {
                 <Typography 
                   variant="h3" 
                   sx={{ 
-                    color: '#4682B4',
+                    color: '#ffffff',
                     fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
                     fontWeight: 'bold',
                   }}
@@ -237,10 +233,11 @@ const Hero: React.FC = () => {
               variant="h6" 
               sx={{ 
                 mb: 6,
-                color: '#34495e',
+                color: '#ffffff',
                 maxWidth: '800px',
                 mx: 'auto',
                 fontSize: { xs: '1rem', sm: '1.1rem', md: '1.25rem' },
+                opacity: 0.9,
               }}
             >
               Specializing in PHP, MySQL, Web Development & Cloud Deployments. Building robust, scalable solutions with modern technologies and best practices.
@@ -265,10 +262,10 @@ const Hero: React.FC = () => {
                 borderRadius: 2,
                 textTransform: 'none',
                 fontSize: { xs: '1rem', md: '1.1rem' },
-                background: 'linear-gradient(45deg, #87CEEB 30%, #B0E0E6 90%)',
-                color: '#2c3e50',
+                background: 'linear-gradient(45deg, #1e3a8a, #1e1b4b)',
+                color: '#ffffff',
                 '&:hover': {
-                  background: 'linear-gradient(45deg, #B0E0E6 30%, #87CEEB 90%)',
+                  background: 'linear-gradient(45deg, #1e1b4b, #1e3a8a)',
                   transform: 'scale(1.05)',
                   transition: 'transform 0.2s',
                 },
@@ -288,11 +285,11 @@ const Hero: React.FC = () => {
                 borderRadius: 2,
                 textTransform: 'none',
                 fontSize: { xs: '1rem', md: '1.1rem' },
-                borderColor: '#87CEEB',
-                color: '#4682B4',
+                borderColor: '#3b82f6',
+                color: '#3b82f6',
                 '&:hover': {
-                  borderColor: '#B0E0E6',
-                  backgroundColor: 'rgba(135, 206, 235, 0.1)',
+                  borderColor: '#1e3a8a',
+                  backgroundColor: 'rgba(59, 130, 246, 0.1)',
                 },
               }}
             >
