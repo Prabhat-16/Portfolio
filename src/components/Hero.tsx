@@ -195,7 +195,7 @@ const Hero: React.FC = () => {
                 color: '#ffffff',
                 textShadow: '0 0 30px rgba(255, 255, 255, 0.3)',
                 mb: 3,
-                fontFamily: '"Poppins", "Inter", sans-serif',
+                fontFamily: '"Playfair Display", serif',
                 letterSpacing: '-0.03em',
                 lineHeight: 1.1,
               }}
