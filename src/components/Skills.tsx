@@ -73,7 +73,7 @@ const Skills: React.FC = () => {
       id="skills"
       sx={{
         py: 10,
-        background: 'linear-gradient(135deg, #F0F8FF 0%, #E0F6FF 50%, #B0E0E6 100%)',
+        background: 'linear-gradient(135deg, #1e3a8a 0%, #1e1b4b 25%, #0f172a 50%, #020617 75%, #000000 100%)',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -88,7 +88,7 @@ const Skills: React.FC = () => {
             position: 'absolute',
             width: '6px',
             height: '6px',
-            background: 'rgba(135, 206, 235, 0.6)',
+            background: 'rgba(59, 130, 246, 0.6)',
             borderRadius: '50%',
             opacity: 0.3,
           }}
@@ -133,16 +133,14 @@ const Skills: React.FC = () => {
                 variant="h2" 
                 component="h2" 
                 sx={{ 
-                  fontWeight: 'bold',
+                  fontWeight: 800,
                   mb: 2,
                   position: 'relative',
-                  background: 'linear-gradient(90deg, #5bb6e6 10%, #87CEEB 60%, #4682B4 100%)',
-                  backgroundClip: 'text',
-                  WebkitBackgroundClip: 'text',
-                  color: 'transparent',
-                  WebkitTextFillColor: 'transparent',
-                  textFillColor: 'transparent',
+                  color: '#ffffff',
+                  textShadow: '0 0 30px rgba(255, 255, 255, 0.3)',
                   display: 'inline-block',
+                  fontFamily: '"Poppins", "Inter", sans-serif',
+                  letterSpacing: '-0.02em',
                   '&::after': {
                     content: '""',
                     position: 'absolute',
@@ -151,7 +149,7 @@ const Skills: React.FC = () => {
                     transform: 'translateX(-50%)',
                     width: '60px',
                     height: '4px',
-                    background: 'linear-gradient(90deg, #87CEEB, #B0E0E6)',
+                    background: 'linear-gradient(90deg, #3b82f6, #6366f1)',
                     borderRadius: '2px',
                   }
                 }}
@@ -169,11 +167,16 @@ const Skills: React.FC = () => {
                 variant="body1" 
                 sx={{ 
                   mb: 4, 
-                  color: '#34495e',
+                  color: '#ffffff',
                   textAlign: 'center',
                   maxWidth: '800px',
                   mx: 'auto',
                   fontSize: '1.1rem',
+                  opacity: 0.9,
+                  fontFamily: '"Inter", sans-serif',
+                  fontWeight: 400,
+                  letterSpacing: '0.01em',
+                  lineHeight: 1.6,
                 }}
               >
                 As a cloud developer passionate about modern technologies, here's my comprehensive tech stack:
@@ -194,13 +197,13 @@ const Skills: React.FC = () => {
                   elevation={3}
                   sx={{
                     p: 4,
-                    background: 'rgba(255, 255, 255, 0.9)',
+                    background: 'rgba(19, 47, 76, 0.9)',
                     backdropFilter: 'blur(10px)',
                     borderRadius: 4,
-                    border: '1px solid rgba(135, 206, 235, 0.3)',
+                    border: '1px solid rgba(59, 130, 246, 0.3)',
                     position: 'relative',
                     overflow: 'hidden',
-                    boxShadow: '0 8px 32px rgba(135, 206, 235, 0.1)',
+                    boxShadow: '0 8px 32px rgba(59, 130, 246, 0.1)',
                     '&::before': {
                       content: '""',
                       position: 'absolute',
@@ -208,12 +211,12 @@ const Skills: React.FC = () => {
                       left: 0,
                       right: 0,
                       height: '1px',
-                      background: 'linear-gradient(90deg, transparent, rgba(135, 206, 235, 0.3), transparent)',
+                      background: 'linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent)',
                     },
                     '&:hover': {
                       transform: 'translateY(-5px)',
-                      boxShadow: '0 15px 40px rgba(135, 206, 235, 0.2)',
-                      borderColor: 'rgba(135, 206, 235, 0.5)',
+                      boxShadow: '0 15px 40px rgba(59, 130, 246, 0.2)',
+                      borderColor: 'rgba(59, 130, 246, 0.5)',
                       transition: 'all 0.3s ease',
                     }
                   }}
@@ -223,12 +226,14 @@ const Skills: React.FC = () => {
                       variant="h5" 
                       component="h3" 
                       sx={{ 
-                        color: '#4682B4',
+                        color: '#3b82f6',
                         display: 'flex',
                         alignItems: 'center',
                         gap: 1,
                         fontSize: { xs: '1.5rem', md: '1.8rem' },
-                        fontWeight: 600,
+                        fontWeight: 700,
+                        fontFamily: '"Inter", sans-serif',
+                        letterSpacing: '-0.01em',
                       }}
                     >
                       {category.icon} {category.title}
@@ -258,9 +263,9 @@ const Skills: React.FC = () => {
                         <img
                           src={`https://skillicons.dev/icons?i=${skillIconMap[item.name]}`}
                           alt={item.name}
-                          style={{ width: 40, height: 40, marginRight: 8, filter: 'drop-shadow(0 2px 8px rgba(135,206,235,0.15))' }}
+                          style={{ width: 40, height: 40, marginRight: 8, filter: 'drop-shadow(0 2px 8px rgba(59,130,246,0.15))' }}
                         />
-                        <Typography variant="subtitle1" sx={{ color: item.color, fontWeight: 500 }}>
+                        <Typography variant="subtitle1" sx={{ color: '#ffffff', fontWeight: 500, opacity: 0.9, fontFamily: '"Inter", sans-serif', letterSpacing: '0.01em' }}>
                           {item.name}
                         </Typography>
                       </motion.div>

@@ -9,7 +9,7 @@ const About: React.FC = () => {
       id="about"
       sx={{
         py: 8,
-        background: 'linear-gradient(135deg, #E0F6FF 0%, #F0F8FF 50%, #FFFFFF 100%)',
+        background: 'linear-gradient(135deg, #1e3a8a 0%, #1e1b4b 25%, #0f172a 50%, #020617 75%, #000000 100%)',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -33,16 +33,14 @@ const About: React.FC = () => {
               variant="h2" 
               component="h2" 
               sx={{ 
-                fontWeight: 'bold',
+                fontWeight: 800,
                 textAlign: 'center',
                 position: 'relative',
-                background: 'linear-gradient(90deg, #5bb6e6 10%, #87CEEB 60%, #4682B4 100%)',
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
-                color: 'transparent',
-                WebkitTextFillColor: 'transparent',
-                textFillColor: 'transparent',
+                color: '#ffffff',
+                textShadow: '0 0 30px rgba(255, 255, 255, 0.3)',
                 display: 'inline-block',
+                fontFamily: '"Poppins", "Inter", sans-serif',
+                letterSpacing: '-0.02em',
                 '&::after': {
                   content: '""',
                   position: 'absolute',
@@ -51,7 +49,7 @@ const About: React.FC = () => {
                   transform: 'translateX(-50%)',
                   width: '60px',
                   height: '4px',
-                  background: 'linear-gradient(90deg, #87CEEB, #B0E0E6)',
+                  background: 'linear-gradient(90deg, #3b82f6, #6366f1)',
                   borderRadius: '2px',
                 }
               }}
@@ -72,13 +70,13 @@ const About: React.FC = () => {
                   elevation={3}
                   sx={{
                     p: 4,
-                    background: 'rgba(255, 255, 255, 0.9)',
+                    background: 'rgba(19, 47, 76, 0.9)',
                     backdropFilter: 'blur(10px)',
                     borderRadius: 4,
-                    border: '1px solid rgba(135, 206, 235, 0.3)',
+                    border: '1px solid rgba(59, 130, 246, 0.3)',
                     position: 'relative',
                     overflow: 'hidden',
-                    boxShadow: '0 8px 32px rgba(135, 206, 235, 0.1)',
+                    boxShadow: '0 8px 32px rgba(59, 130, 246, 0.1)',
                     '&::before': {
                       content: '""',
                       position: 'absolute',
@@ -86,26 +84,26 @@ const About: React.FC = () => {
                       left: 0,
                       right: 0,
                       height: '1px',
-                      background: 'linear-gradient(90deg, transparent, rgba(135, 206, 235, 0.3), transparent)',
+                      background: 'linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent)',
                     },
                     '&:hover': {
                       transform: 'translateY(-5px)',
-                      boxShadow: '0 15px 40px rgba(135, 206, 235, 0.2)',
-                      borderColor: 'rgba(135, 206, 235, 0.5)',
+                      boxShadow: '0 15px 40px rgba(59, 130, 246, 0.2)',
+                      borderColor: 'rgba(59, 130, 246, 0.5)',
                       transition: 'all 0.3s ease',
                     }
                   }}
                 >
-                  <Typography variant="h5" gutterBottom sx={{ color: '#4682B4', mb: 3, fontWeight: 600 }}>
+                  <Typography variant="h5" gutterBottom sx={{ color: '#3b82f6', mb: 3, fontWeight: 700, fontFamily: '"Inter", sans-serif', letterSpacing: '-0.01em' }}>
                     Cloud Developer Profile
                   </Typography>
-                  <Typography paragraph sx={{ color: '#34495e', lineHeight: 1.8 }}>
+                  <Typography paragraph sx={{ color: '#ffffff', lineHeight: 1.8, opacity: 0.9, fontFamily: '"Inter", sans-serif', fontWeight: 400, letterSpacing: '0.01em' }}>
                     I am a passionate cloud developer specializing in backend technologies, particularly PHP and MySQL, 
                     with expertise in designing robust cloud architectures and implementing scalable solutions. 
                     My focus extends beyond traditional backend development to include cloud-native technologies, 
                     DevOps practices, and modern deployment strategies.
                   </Typography>
-                  <Typography paragraph sx={{ color: '#34495e', mb: 0, lineHeight: 1.8 }}>
+                  <Typography paragraph sx={{ color: '#ffffff', mb: 0, lineHeight: 1.8, opacity: 0.9, fontFamily: '"Inter", sans-serif', fontWeight: 400, letterSpacing: '0.01em' }}>
                     Currently expanding my expertise in cloud platforms, containerization, and infrastructure as code. 
                     Passionate about building scalable, resilient applications that leverage the power of cloud computing 
                     to deliver exceptional user experiences.
@@ -130,7 +128,7 @@ const About: React.FC = () => {
                       left: '10%',
                       right: '-10px',
                       bottom: '-10px',
-                      background: 'linear-gradient(135deg, rgba(135, 206, 235, 0.2) 0%, rgba(176, 224, 230, 0.1) 100%)',
+                      background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(99, 102, 241, 0.1) 100%)',
                       borderRadius: '20px',
                       zIndex: 0,
                     }
@@ -149,12 +147,12 @@ const About: React.FC = () => {
                       position: 'relative',
                       zIndex: 1,
                       borderRadius: '20px',
-                      boxShadow: '0 20px 40px rgba(135, 206, 235, 0.2)',
+                      boxShadow: '0 20px 40px rgba(59, 130, 246, 0.2)',
                       transform: 'perspective(1000px) rotateY(-5deg)',
                       transition: 'all 0.3s ease',
                       '&:hover': {
                         transform: 'perspective(1000px) rotateY(0deg)',
-                        boxShadow: '0 25px 50px rgba(135, 206, 235, 0.4)',
+                        boxShadow: '0 25px 50px rgba(59, 130, 246, 0.4)',
                       },
                     }}
                   />

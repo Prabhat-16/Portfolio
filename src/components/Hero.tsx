@@ -195,6 +195,9 @@ const Hero: React.FC = () => {
                 color: '#ffffff',
                 textShadow: '0 0 30px rgba(255, 255, 255, 0.3)',
                 mb: 3,
+                fontFamily: '"Poppins", "Inter", sans-serif',
+                letterSpacing: '-0.03em',
+                lineHeight: 1.1,
               }}
             >
               Hi, I'm Prabhat Mishra
@@ -215,7 +218,9 @@ const Hero: React.FC = () => {
                   sx={{ 
                     color: '#ffffff',
                     fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
-                    fontWeight: 'bold',
+                    fontWeight: 700,
+                    fontFamily: '"Inter", "Poppins", sans-serif',
+                    letterSpacing: '-0.01em',
                   }}
                 >
                   I'm a {roles[currentRole]}
@@ -238,6 +243,10 @@ const Hero: React.FC = () => {
                 mx: 'auto',
                 fontSize: { xs: '1rem', sm: '1.1rem', md: '1.25rem' },
                 opacity: 0.9,
+                fontFamily: '"Inter", sans-serif',
+                fontWeight: 400,
+                letterSpacing: '0.01em',
+                lineHeight: 1.6,
               }}
             >
               Specializing in PHP, MySQL, Web Development & Cloud Deployments. Building robust, scalable solutions with modern technologies and best practices.

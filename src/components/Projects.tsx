@@ -42,7 +42,7 @@ const Projects: React.FC = () => {
       id="projects"
       sx={{
         py: 8,
-        background: 'linear-gradient(135deg, #B0E0E6 0%, #E0F6FF 50%, #F0F8FF 100%)',
+        background: 'linear-gradient(135deg, #1e3a8a 0%, #1e1b4b 25%, #0f172a 50%, #020617 75%, #000000 100%)',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -68,15 +68,13 @@ const Projects: React.FC = () => {
               gutterBottom 
               align="center"
               sx={{ 
-                fontWeight: 'bold',
+                fontWeight: 800,
                 position: 'relative',
-                background: 'linear-gradient(90deg, #5bb6e6 10%, #87CEEB 60%, #4682B4 100%)',
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
-                color: 'transparent',
-                WebkitTextFillColor: 'transparent',
-                textFillColor: 'transparent',
+                color: '#ffffff',
+                textShadow: '0 0 30px rgba(255, 255, 255, 0.3)',
                 display: 'inline-block',
+                fontFamily: '"Poppins", "Inter", sans-serif',
+                letterSpacing: '-0.02em',
                 '&::after': {
                   content: '""',
                   position: 'absolute',
@@ -85,7 +83,7 @@ const Projects: React.FC = () => {
                   transform: 'translateX(-50%)',
                   width: '60px',
                   height: '4px',
-                  background: 'linear-gradient(90deg, #87CEEB, #B0E0E6)',
+                  background: 'linear-gradient(90deg, #3b82f6, #6366f1)',
                   borderRadius: '2px',
                 }
               }}
@@ -95,12 +93,17 @@ const Projects: React.FC = () => {
             <Typography 
               variant="body1" 
               sx={{ 
-                color: '#34495e',
+                color: '#ffffff',
                 textAlign: 'center',
                 maxWidth: '800px',
                 mx: 'auto',
                 fontSize: '1.1rem',
                 mt: 2,
+                opacity: 0.9,
+                fontFamily: '"Inter", sans-serif',
+                fontWeight: 400,
+                letterSpacing: '0.01em',
+                lineHeight: 1.6,
               }}
             >
               Explore my projects that demonstrate modern development practices and scalable solutions.
@@ -122,16 +125,16 @@ const Projects: React.FC = () => {
                       height: '100%',
                       display: 'flex',
                       flexDirection: 'column',
-                      background: 'rgba(255, 255, 255, 0.9)',
+                      background: 'rgba(19, 47, 76, 0.9)',
                       backdropFilter: 'blur(10px)',
-                      border: '1px solid rgba(135, 206, 235, 0.3)',
+                      border: '1px solid rgba(59, 130, 246, 0.3)',
                       borderRadius: '20px',
-                      boxShadow: '0 8px 32px rgba(135, 206, 235, 0.1)',
+                      boxShadow: '0 8px 32px rgba(59, 130, 246, 0.1)',
                       transition: 'all 0.3s ease-in-out',
                       '&:hover': {
                         transform: 'translateY(-10px)',
-                        boxShadow: '0 15px 40px rgba(135, 206, 235, 0.2)',
-                        borderColor: 'rgba(135, 206, 235, 0.5)',
+                        boxShadow: '0 15px 40px rgba(59, 130, 246, 0.2)',
+                        borderColor: 'rgba(59, 130, 246, 0.5)',
                       },
                     }}
                   >
@@ -141,8 +144,10 @@ const Projects: React.FC = () => {
                         component="h3" 
                         gutterBottom 
                         sx={{ 
-                          color: '#4682B4',
-                          fontWeight: 'bold',
+                          color: '#3b82f6',
+                          fontWeight: 700,
+                          fontFamily: '"Inter", sans-serif',
+                          letterSpacing: '-0.01em',
                         }}
                       >
                         {project.title}
@@ -151,8 +156,12 @@ const Projects: React.FC = () => {
                         sx={{ 
                           fontSize: '0.9rem',
                           fontStyle: 'italic',
-                          color: '#5D8CAE',
+                          color: '#6366f1',
                           mb: 2,
+                          opacity: 0.8,
+                          fontFamily: '"Inter", sans-serif',
+                          fontWeight: 400,
+                          letterSpacing: '0.01em',
                         }}
                       >
                         {project.duration}
@@ -161,9 +170,13 @@ const Projects: React.FC = () => {
                         variant="body2" 
                         paragraph
                         sx={{ 
-                          color: '#2c3e50',
+                          color: '#ffffff',
                           mb: 2,
                           lineHeight: 1.6,
+                          opacity: 0.9,
+                          fontFamily: '"Inter", sans-serif',
+                          fontWeight: 400,
+                          letterSpacing: '0.01em',
                         }}
                       >
                         {project.description}
@@ -176,13 +189,13 @@ const Projects: React.FC = () => {
                             sx={{
                               mr: 1,
                               mb: 1,
-                              background: 'rgba(135, 206, 235, 0.1)',
-                              border: '1px solid rgba(135, 206, 235, 0.3)',
-                              color: '#4682B4',
+                              background: 'rgba(59, 130, 246, 0.1)',
+                              border: '1px solid rgba(59, 130, 246, 0.3)',
+                              color: '#3b82f6',
                               fontWeight: 500,
                               '&:hover': {
-                                background: 'rgba(135, 206, 235, 0.2)',
-                                borderColor: 'rgba(135, 206, 235, 0.5)',
+                                background: 'rgba(59, 130, 246, 0.2)',
+                                borderColor: 'rgba(59, 130, 246, 0.5)',
                               }
                             }}
                             size="small"
@@ -198,17 +211,17 @@ const Projects: React.FC = () => {
                         variant="contained"
                         startIcon={<GitHub />}
                         sx={{
-                          background: 'linear-gradient(45deg, #87CEEB, #B0E0E6)',
-                          color: '#2c3e50',
+                          background: 'linear-gradient(45deg, #3b82f6, #6366f1)',
+                          color: '#ffffff',
                           borderRadius: '25px',
                           textTransform: 'none',
                           fontWeight: 600,
                           px: 3,
                           py: 1,
                           '&:hover': {
-                            background: 'linear-gradient(45deg, #B0E0E6, #87CEEB)',
+                            background: 'linear-gradient(45deg, #6366f1, #3b82f6)',
                             transform: 'translateY(-2px)',
-                            boxShadow: '0 8px 25px rgba(135, 206, 235, 0.4)',
+                            boxShadow: '0 8px 25px rgba(59, 130, 246, 0.4)',
                           }
                         }}
                       >

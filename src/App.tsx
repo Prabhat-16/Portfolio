@@ -44,7 +44,7 @@ const AppContent: React.FC = () => {
       },
     },
     typography: {
-      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+      fontFamily: '"Inter", "Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
       h1: {
         background: isDarkMode 
           ? 'linear-gradient(45deg, #00bcd4 30%, #ff4081 90%)'
@@ -53,6 +53,8 @@ const AppContent: React.FC = () => {
         WebkitTextFillColor: 'transparent',
         backgroundClip: 'text',
         fontWeight: 900,
+        letterSpacing: '-0.02em',
+        fontFamily: '"Poppins", "Inter", sans-serif',
       },
       h2: {
         background: isDarkMode 
@@ -61,23 +63,61 @@ const AppContent: React.FC = () => {
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
         backgroundClip: 'text',
-        fontWeight: 700,
+        fontWeight: 800,
+        letterSpacing: '-0.01em',
+        fontFamily: '"Poppins", "Inter", sans-serif',
       },
       h3: {
         color: isDarkMode ? '#33c9dc' : '#4682B4',
-        fontWeight: 600,
+        fontWeight: 700,
+        letterSpacing: '-0.01em',
+        fontFamily: '"Inter", "Poppins", sans-serif',
       },
       h4: {
         color: isDarkMode ? '#4caf50' : '#5D8CAE',
         fontWeight: 600,
+        letterSpacing: '0em',
+        fontFamily: '"Inter", sans-serif',
       },
       h5: {
         color: isDarkMode ? '#ff9800' : '#6B8E9E',
         fontWeight: 600,
+        letterSpacing: '0.01em',
+        fontFamily: '"Inter", sans-serif',
       },
       h6: {
         color: isDarkMode ? '#f44336' : '#7A9EAE',
         fontWeight: 600,
+        letterSpacing: '0.01em',
+        fontFamily: '"Inter", sans-serif',
+      },
+      body1: {
+        fontFamily: '"Inter", sans-serif',
+        fontWeight: 400,
+        letterSpacing: '0.01em',
+        lineHeight: 1.6,
+      },
+      body2: {
+        fontFamily: '"Inter", sans-serif',
+        fontWeight: 400,
+        letterSpacing: '0.01em',
+        lineHeight: 1.5,
+      },
+      subtitle1: {
+        fontFamily: '"Inter", sans-serif',
+        fontWeight: 500,
+        letterSpacing: '0.01em',
+      },
+      subtitle2: {
+        fontFamily: '"Inter", sans-serif',
+        fontWeight: 500,
+        letterSpacing: '0.01em',
+      },
+      button: {
+        fontFamily: '"Inter", sans-serif',
+        fontWeight: 600,
+        letterSpacing: '0.02em',
+        textTransform: 'none',
       },
     },
     components: {
