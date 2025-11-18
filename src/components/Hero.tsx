@@ -54,40 +54,40 @@ const Hero: React.FC = () => {
 
   // Enhanced tech icons array with cloud icons added to existing ones
   const techIcons = [
-    // Original icons with enhanced animations - updated to blue theme
-    { icon: <CodeIcon />, color: '#3b82f6', size: '2.5rem', speed: 18, delay: 0 },
-    { icon: <TerminalIcon />, color: '#6366f1', size: '2.2rem', speed: 20, delay: 1 },
-    { icon: <StorageIcon />, color: '#818cf8', size: '2.3rem', speed: 22, delay: 2 },
-    { icon: <SecurityIcon />, color: '#a5b4fc', size: '2.1rem', speed: 21, delay: 3 },
-    { icon: <JavascriptIcon />, color: '#3b82f6', size: '2.5rem', speed: 17, delay: 4 },
-    { icon: <HtmlIcon />, color: '#6366f1', size: '2.3rem', speed: 23, delay: 5 },
-    { icon: <CssIcon />, color: '#818cf8', size: '2.3rem', speed: 20, delay: 6 },
-    { icon: <GitHubIcon />, color: '#a5b4fc', size: '2.2rem', speed: 18, delay: 7 },
-    { icon: <ComputerIcon />, color: '#3b82f6', size: '2.3rem', speed: 22, delay: 8 },
-    { icon: <DesktopWindowsIcon />, color: '#6366f1', size: '2.2rem', speed: 20, delay: 9 },
-    { icon: <DeveloperBoardIcon />, color: '#818cf8', size: '2.3rem', speed: 19, delay: 10 },
-    { icon: <BuildIcon />, color: '#a5b4fc', size: '2.2rem', speed: 21, delay: 11 },
-    { icon: <LanguageIcon />, color: '#3b82f6', size: '2.3rem', speed: 20, delay: 12 },
-    { icon: <DnsIcon />, color: '#6366f1', size: '2.2rem', speed: 22, delay: 13 },
-    { icon: <BugReportIcon />, color: '#818cf8', size: '2.1rem', speed: 23, delay: 14 },
+    // Original icons with enhanced animations - updated to blue theme with better visibility
+    { icon: <CodeIcon />, color: '#60a5fa', size: '2.8rem', speed: 18, delay: 0 },
+    { icon: <TerminalIcon />, color: '#818cf8', size: '2.5rem', speed: 20, delay: 1 },
+    { icon: <StorageIcon />, color: '#a78bfa', size: '2.6rem', speed: 22, delay: 2 },
+    { icon: <SecurityIcon />, color: '#c4b5fd', size: '2.4rem', speed: 21, delay: 3 },
+    { icon: <JavascriptIcon />, color: '#60a5fa', size: '2.8rem', speed: 17, delay: 4 },
+    { icon: <HtmlIcon />, color: '#818cf8', size: '2.6rem', speed: 23, delay: 5 },
+    { icon: <CssIcon />, color: '#a78bfa', size: '2.6rem', speed: 20, delay: 6 },
+    { icon: <GitHubIcon />, color: '#c4b5fd', size: '2.5rem', speed: 18, delay: 7 },
+    { icon: <ComputerIcon />, color: '#60a5fa', size: '2.6rem', speed: 22, delay: 8 },
+    { icon: <DesktopWindowsIcon />, color: '#818cf8', size: '2.5rem', speed: 20, delay: 9 },
+    { icon: <DeveloperBoardIcon />, color: '#a78bfa', size: '2.6rem', speed: 19, delay: 10 },
+    { icon: <BuildIcon />, color: '#c4b5fd', size: '2.5rem', speed: 21, delay: 11 },
+    { icon: <LanguageIcon />, color: '#60a5fa', size: '2.6rem', speed: 20, delay: 12 },
+    { icon: <DnsIcon />, color: '#818cf8', size: '2.5rem', speed: 22, delay: 13 },
+    { icon: <BugReportIcon />, color: '#a78bfa', size: '2.4rem', speed: 23, delay: 14 },
     
-    // Added cloud icons - updated to blue theme
-    { icon: <CloudIcon />, color: '#3b82f6', size: '3rem', speed: 15, delay: 15 },
-    { icon: <CloudQueueIcon />, color: '#6366f1', size: '2.8rem', speed: 18, delay: 16 },
-    { icon: <CloudDoneIcon />, color: '#818cf8', size: '2.9rem', speed: 16, delay: 17 },
-    { icon: <CloudSyncIcon />, color: '#a5b4fc', size: '2.7rem', speed: 19, delay: 18 },
-    { icon: <CloudUploadIcon />, color: '#3b82f6', size: '2.6rem', speed: 17, delay: 19 },
-    { icon: <CloudDownloadIcon />, color: '#6366f1', size: '2.5rem', speed: 20, delay: 20 },
-    { icon: <CloudCircleIcon />, color: '#818cf8', size: '2.8rem', speed: 14, delay: 21 },
-    { icon: <CloudDoneOutlinedIcon />, color: '#a5b4fc', size: '2.4rem', speed: 21, delay: 22 },
-    { icon: <CloudQueueOutlinedIcon />, color: '#3b82f6', size: '2.6rem', speed: 18, delay: 23 },
-    { icon: <CloudSyncOutlinedIcon />, color: '#6366f1', size: '2.3rem', speed: 22, delay: 24 },
-    { icon: <CloudUploadOutlinedIcon />, color: '#818cf8', size: '2.5rem', speed: 19, delay: 25 },
-    { icon: <CloudDownloadOutlinedIcon />, color: '#a5b4fc', size: '2.2rem', speed: 23, delay: 26 },
-    { icon: <CloudCircleOutlinedIcon />, color: '#3b82f6', size: '2.7rem', speed: 17, delay: 27 },
-    { icon: <ApiIcon />, color: '#6366f1', size: '2.4rem', speed: 18, delay: 28 },
-    { icon: <DataObjectIcon />, color: '#818cf8', size: '2.3rem', speed: 22, delay: 29 },
-    { icon: <StorageOutlinedIcon />, color: '#a5b4fc', size: '2.2rem', speed: 24, delay: 30 },
+    // Added cloud icons - updated to blue theme with better visibility
+    { icon: <CloudIcon />, color: '#60a5fa', size: '3.5rem', speed: 15, delay: 15 },
+    { icon: <CloudQueueIcon />, color: '#818cf8', size: '3.2rem', speed: 18, delay: 16 },
+    { icon: <CloudDoneIcon />, color: '#a78bfa', size: '3.3rem', speed: 16, delay: 17 },
+    { icon: <CloudSyncIcon />, color: '#c4b5fd', size: '3rem', speed: 19, delay: 18 },
+    { icon: <CloudUploadIcon />, color: '#60a5fa', size: '2.9rem', speed: 17, delay: 19 },
+    { icon: <CloudDownloadIcon />, color: '#818cf8', size: '2.8rem', speed: 20, delay: 20 },
+    { icon: <CloudCircleIcon />, color: '#a78bfa', size: '3.2rem', speed: 14, delay: 21 },
+    { icon: <CloudDoneOutlinedIcon />, color: '#c4b5fd', size: '2.7rem', speed: 21, delay: 22 },
+    { icon: <CloudQueueOutlinedIcon />, color: '#60a5fa', size: '2.9rem', speed: 18, delay: 23 },
+    { icon: <CloudSyncOutlinedIcon />, color: '#818cf8', size: '2.6rem', speed: 22, delay: 24 },
+    { icon: <CloudUploadOutlinedIcon />, color: '#a78bfa', size: '2.8rem', speed: 19, delay: 25 },
+    { icon: <CloudDownloadOutlinedIcon />, color: '#c4b5fd', size: '2.5rem', speed: 23, delay: 26 },
+    { icon: <CloudCircleOutlinedIcon />, color: '#60a5fa', size: '3rem', speed: 17, delay: 27 },
+    { icon: <ApiIcon />, color: '#818cf8', size: '2.7rem', speed: 18, delay: 28 },
+    { icon: <DataObjectIcon />, color: '#a78bfa', size: '2.6rem', speed: 22, delay: 29 },
+    { icon: <StorageOutlinedIcon />, color: '#c4b5fd', size: '2.5rem', speed: 24, delay: 30 },
   ];
 
   // Helper to get a random vertical position
@@ -100,7 +100,7 @@ const Hero: React.FC = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'linear-gradient(135deg, #1e3a8a 0%, #1e1b4b 25%, #0f172a 50%, #020617 75%, #000000 100%)',
+        background: 'linear-gradient(180deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%)',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -141,12 +141,12 @@ const Hero: React.FC = () => {
             sx={{
               position: 'absolute',
               color: item.color,
-              opacity: 0.6,
+              opacity: 0.85,
               fontSize: item.size || '2rem',
               zIndex: 1,
               top: y,
               left: 0,
-              filter: 'drop-shadow(0 0 15px rgba(59, 130, 246, 0.4))',
+              filter: 'drop-shadow(0 0 20px rgba(96, 165, 250, 0.6))',
             }}
             initial={{ 
               x: -80,
@@ -190,13 +190,16 @@ const Hero: React.FC = () => {
               component="h1" 
               gutterBottom
               sx={{ 
-                fontSize: { xs: '2.5rem', sm: '3.5rem', md: '5rem' },
+                fontSize: { xs: '2.5rem', sm: '4rem', md: '6rem' },
                 fontWeight: 900,
-                color: '#ffffff',
-                textShadow: '0 0 30px rgba(255, 255, 255, 0.3)',
+                background: 'linear-gradient(135deg, #a78bfa 0%, #60a5fa 50%, #8b5cf6 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                textShadow: '0 0 60px rgba(167, 139, 250, 0.5)',
                 mb: 3,
-                fontFamily: '"Playfair Display", serif',
-                letterSpacing: '-0.03em',
+                fontFamily: '"Poppins", "Inter", sans-serif',
+                letterSpacing: '-0.04em',
                 lineHeight: 1.1,
               }}
             >
@@ -216,11 +219,14 @@ const Hero: React.FC = () => {
                 <Typography 
                   variant="h3" 
                   sx={{ 
-                    color: '#ffffff',
-                    fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
-                    fontWeight: 700,
+                    background: 'linear-gradient(90deg, #60a5fa 0%, #a78bfa 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    fontSize: { xs: '1.5rem', sm: '2rem', md: '2.8rem' },
+                    fontWeight: 800,
                     fontFamily: '"Inter", "Poppins", sans-serif',
-                    letterSpacing: '-0.01em',
+                    letterSpacing: '-0.02em',
                   }}
                 >
                   I'm a {roles[currentRole]}
@@ -238,15 +244,15 @@ const Hero: React.FC = () => {
               variant="h6" 
               sx={{ 
                 mb: 6,
-                color: '#ffffff',
-                maxWidth: '800px',
+                color: '#e2e8f0',
+                maxWidth: '900px',
                 mx: 'auto',
-                fontSize: { xs: '1rem', sm: '1.1rem', md: '1.25rem' },
-                opacity: 0.9,
+                fontSize: { xs: '1.1rem', sm: '1.2rem', md: '1.35rem' },
+                opacity: 0.95,
                 fontFamily: '"Inter", sans-serif',
                 fontWeight: 400,
                 letterSpacing: '0.01em',
-                lineHeight: 1.6,
+                lineHeight: 1.7,
               }}
             >
               Specializing in PHP, MySQL, Web Development & Cloud Deployments. Building robust, scalable solutions with modern technologies and best practices.
@@ -266,17 +272,36 @@ const Hero: React.FC = () => {
               size="large"
               sx={{
                 mr: 2,
-                px: 4,
-                py: 1.5,
-                borderRadius: 2,
+                px: 5,
+                py: 2,
+                borderRadius: 4,
                 textTransform: 'none',
-                fontSize: { xs: '1rem', md: '1.1rem' },
-                background: 'linear-gradient(45deg, #1e3a8a, #1e1b4b)',
+                fontSize: { xs: '1.05rem', md: '1.15rem' },
+                fontWeight: 700,
+                background: 'linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%)',
                 color: '#ffffff',
+                boxShadow: '0 10px 30px rgba(139, 92, 246, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1) inset',
+                border: 'none',
+                position: 'relative',
+                overflow: 'hidden',
+                '&::before': {
+                  content: '""',
+                  position: 'absolute',
+                  top: 0,
+                  left: '-100%',
+                  width: '100%',
+                  height: '100%',
+                  background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)',
+                  transition: 'left 0.5s ease',
+                },
                 '&:hover': {
-                  background: 'linear-gradient(45deg, #1e1b4b, #1e3a8a)',
-                  transform: 'scale(1.05)',
-                  transition: 'transform 0.2s',
+                  background: 'linear-gradient(135deg, #a78bfa 0%, #c4b5fd 100%)',
+                  transform: 'translateY(-4px) scale(1.05)',
+                  boxShadow: '0 15px 40px rgba(139, 92, 246, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.2) inset',
+                  transition: 'all 0.3s ease',
+                  '&::before': {
+                    left: '100%',
+                  }
                 },
               }}
             >
@@ -289,16 +314,25 @@ const Hero: React.FC = () => {
               variant="outlined"
               size="large"
               sx={{
-                px: 4,
-                py: 1.5,
-                borderRadius: 2,
+                px: 5,
+                py: 2,
+                borderRadius: 4,
                 textTransform: 'none',
-                fontSize: { xs: '1rem', md: '1.1rem' },
-                borderColor: '#3b82f6',
-                color: '#3b82f6',
+                fontSize: { xs: '1.05rem', md: '1.15rem' },
+                fontWeight: 700,
+                borderWidth: '3px',
+                borderColor: '#a78bfa',
+                color: '#a78bfa',
+                background: 'rgba(167, 139, 250, 0.1)',
+                backdropFilter: 'blur(10px)',
+                boxShadow: '0 0 20px rgba(167, 139, 250, 0.3)',
                 '&:hover': {
-                  borderColor: '#1e3a8a',
-                  backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                  borderColor: '#c4b5fd',
+                  color: '#c4b5fd',
+                  backgroundColor: 'rgba(167, 139, 250, 0.2)',
+                  transform: 'translateY(-4px)',
+                  boxShadow: '0 10px 30px rgba(167, 139, 250, 0.5)',
+                  transition: 'all 0.3s ease',
                 },
               }}
             >

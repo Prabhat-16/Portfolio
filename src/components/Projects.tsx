@@ -48,8 +48,8 @@ const Projects: React.FC = () => {
     <Box
       id="projects"
       sx={{
-        py: 8,
-        background: 'linear-gradient(135deg, #1e3a8a 0%, #1e1b4b 25%, #0f172a 50%, #020617 75%, #000000 100%)',
+        py: 12,
+        background: 'linear-gradient(180deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%)',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -75,27 +75,31 @@ const Projects: React.FC = () => {
               gutterBottom 
               align="center"
               sx={{ 
-                fontWeight: 800,
+                fontWeight: 900,
                 position: 'relative',
-                color: '#ffffff',
-                textShadow: '0 0 30px rgba(255, 255, 255, 0.3)',
+                background: 'linear-gradient(135deg, #a78bfa 0%, #60a5fa 50%, #8b5cf6 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
                 display: 'inline-block',
                 fontFamily: '"Poppins", "Inter", sans-serif',
-                letterSpacing: '-0.02em',
+                letterSpacing: '-0.03em',
+                fontSize: { xs: '2.5rem', md: '3.5rem' },
                 '&::after': {
                   content: '""',
                   position: 'absolute',
-                  bottom: '-10px',
+                  bottom: '-15px',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  width: '60px',
-                  height: '4px',
-                  background: 'linear-gradient(90deg, #3b82f6, #6366f1)',
-                  borderRadius: '2px',
+                  width: '100px',
+                  height: '5px',
+                  background: 'linear-gradient(90deg, transparent, #8b5cf6, #a78bfa, #8b5cf6, transparent)',
+                  borderRadius: '10px',
+                  boxShadow: '0 0 20px rgba(139, 92, 246, 0.6)',
                 }
               }}
             >
-              ☁️ My Projects
+              🚀 My Projects
             </Typography>
             <Typography 
               variant="body1" 
@@ -139,16 +143,42 @@ const Projects: React.FC = () => {
                       height: '100%',
                       display: 'flex',
                       flexDirection: 'column',
-                      background: 'rgba(19, 47, 76, 0.9)',
-                      backdropFilter: 'blur(10px)',
-                      border: '1px solid rgba(59, 130, 246, 0.3)',
-                      borderRadius: '16px',
-                      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
-                      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                      background: 'linear-gradient(145deg, rgba(30, 27, 75, 0.6) 0%, rgba(15, 23, 42, 0.6) 100%)',
+                      backdropFilter: 'blur(20px)',
+                      border: '2px solid rgba(139, 92, 246, 0.3)',
+                      borderRadius: '24px',
+                      boxShadow: '0 20px 60px rgba(139, 92, 246, 0.2), 0 0 0 1px rgba(139, 92, 246, 0.1) inset',
+                      transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                      position: 'relative',
+                      overflow: 'hidden',
+                      '&::before': {
+                        content: '""',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        height: '4px',
+                        background: 'linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.8), transparent)',
+                        opacity: 0,
+                        transition: 'opacity 0.4s ease',
+                      },
+                      '&::after': {
+                        content: '""',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        background: 'radial-gradient(circle at top right, rgba(139, 92, 246, 0.15), transparent 60%)',
+                        pointerEvents: 'none',
+                      },
                       '&:hover': {
-                        transform: 'translateY(-8px)',
-                        boxShadow: '0 16px 48px rgba(59, 130, 246, 0.25)',
-                        borderColor: 'rgba(99, 102, 241, 0.5)',
+                        transform: 'translateY(-15px) scale(1.03)',
+                        boxShadow: '0 30px 80px rgba(139, 92, 246, 0.4), 0 0 0 2px rgba(139, 92, 246, 0.4) inset',
+                        borderColor: 'rgba(167, 139, 250, 0.6)',
+                        '&::before': {
+                          opacity: 1,
+                        }
                       },
                     }}
                   >
@@ -165,23 +195,24 @@ const Projects: React.FC = () => {
                           component="h3"
                           gutterBottom 
                           sx={{ 
-                            color: '#3b82f6',
-                            fontWeight: 700,
+                            color: '#a78bfa',
+                            fontWeight: 800,
                             fontFamily: '"Inter", sans-serif',
-                            fontSize: '1.25rem',
+                            fontSize: '1.4rem',
                             mb: 1,
                             lineHeight: 1.4,
                             minHeight: '3.5rem',
                             display: 'flex',
-                            alignItems: 'center'
+                            alignItems: 'center',
+                            textShadow: '0 4px 16px rgba(167, 139, 250, 0.5)',
                           }}
                         >
                           {project.title}
                         </Typography>
                         <Typography 
                           sx={{ 
-                            fontSize: '0.8rem',
-                            color: '#a5b4fc',
+                            fontSize: '0.85rem',
+                            color: '#c4b5fd',
                             mb: 2,
                             fontFamily: '"Inter", sans-serif',
                             fontWeight: 500,
@@ -199,13 +230,14 @@ const Projects: React.FC = () => {
                         variant="body2" 
                         paragraph
                         sx={{ 
-                          color: '#e2e8f0',
+                          color: '#f1f5f9',
                           mb: 3,
-                          lineHeight: 1.7,
+                          lineHeight: 1.8,
                           fontSize: '0.95rem',
                           flexGrow: 1,
                           fontFamily: '"Inter", sans-serif',
                           fontWeight: 400,
+                          opacity: 0.95,
                         }}
                       >
                         {project.description}
@@ -229,18 +261,20 @@ const Projects: React.FC = () => {
                               label={tech}
                               size="small"
                               sx={{
-                                background: 'rgba(99, 102, 241, 0.1)',
-                                border: '1px solid rgba(99, 102, 241, 0.2)',
-                                color: '#a5b4fc',
-                                fontWeight: 500,
-                                fontSize: '0.7rem',
-                                height: '24px',
+                                background: 'rgba(139, 92, 246, 0.15)',
+                                border: '1.5px solid rgba(139, 92, 246, 0.4)',
+                                color: '#c4b5fd',
+                                fontWeight: 700,
+                                fontSize: '0.8rem',
+                                height: '28px',
                                 '& .MuiChip-label': {
-                                  px: 1,
+                                  px: 2,
                                 },
                                 '&:hover': {
-                                  background: 'rgba(99, 102, 241, 0.2)',
-                                  transform: 'translateY(-1px)',
+                                  background: 'rgba(139, 92, 246, 0.25)',
+                                  borderColor: 'rgba(139, 92, 246, 0.6)',
+                                  transform: 'translateY(-2px)',
+                                  boxShadow: '0 6px 16px rgba(139, 92, 246, 0.3)',
                                 }
                               }}
                             />
@@ -255,21 +289,23 @@ const Projects: React.FC = () => {
                           size="small"
                           startIcon={<GitHub sx={{ fontSize: '1.1rem' }} />}
                           sx={{
-                            color: '#a5b4fc',
-                            borderColor: 'rgba(99, 102, 241, 0.3)',
-                            borderRadius: '8px',
+                            color: '#c4b5fd',
+                            borderColor: 'rgba(139, 92, 246, 0.5)',
+                            borderWidth: '2px',
+                            borderRadius: '12px',
                             textTransform: 'none',
-                            fontWeight: 500,
-                            fontSize: '0.85rem',
-                            px: 2,
-                            py: 0.8,
+                            fontWeight: 700,
+                            fontSize: '0.95rem',
+                            px: 3,
+                            py: 1.2,
                             mt: 1,
-                            transition: 'all 0.2s ease',
+                            transition: 'all 0.3s ease',
                             '&:hover': {
-                              background: 'rgba(99, 102, 241, 0.1)',
-                              borderColor: 'rgba(99, 102, 241, 0.5)',
-                              transform: 'translateY(-1px)',
-                              boxShadow: '0 4px 12px rgba(99, 102, 241, 0.15)',
+                              background: 'rgba(139, 92, 246, 0.2)',
+                              borderColor: 'rgba(139, 92, 246, 0.8)',
+                              color: '#a78bfa',
+                              transform: 'translateY(-3px)',
+                              boxShadow: '0 8px 20px rgba(139, 92, 246, 0.4)',
                             }
                           }}
                         >

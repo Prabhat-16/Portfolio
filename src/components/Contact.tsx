@@ -9,8 +9,8 @@ const Contact: React.FC = () => {
     <Box
       id="contact"
       sx={{
-        py: 8,
-        background: 'linear-gradient(135deg, #1e3a8a 0%, #1e1b4b 25%, #0f172a 50%, #020617 75%, #000000 100%)',
+        py: 12,
+        background: 'linear-gradient(180deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%)',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -35,27 +35,31 @@ const Contact: React.FC = () => {
               gutterBottom 
               align="center"
               sx={{ 
-                fontWeight: 800,
+                fontWeight: 900,
                 position: 'relative',
-                color: '#ffffff',
-                textShadow: '0 0 30px rgba(255, 255, 255, 0.3)',
+                background: 'linear-gradient(135deg, #a78bfa 0%, #60a5fa 50%, #8b5cf6 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
                 display: 'inline-block',
                 fontFamily: '"Poppins", "Inter", sans-serif',
-                letterSpacing: '-0.02em',
+                letterSpacing: '-0.03em',
+                fontSize: { xs: '2.5rem', md: '3.5rem' },
                 '&::after': {
                   content: '""',
                   position: 'absolute',
-                  bottom: '-10px',
+                  bottom: '-15px',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  width: '60px',
-                  height: '4px',
-                  background: 'linear-gradient(90deg, #3b82f6, #6366f1)',
-                  borderRadius: '2px',
+                  width: '100px',
+                  height: '5px',
+                  background: 'linear-gradient(90deg, transparent, #8b5cf6, #a78bfa, #8b5cf6, transparent)',
+                  borderRadius: '10px',
+                  boxShadow: '0 0 20px rgba(139, 92, 246, 0.6)',
                 }
               }}
             >
-              <span role="img" aria-label="cloud">☁️</span> Get In Touch
+              <span role="img" aria-label="contact">📬</span> Get In Touch
             </Typography>
             <Typography 
               variant="body1" 
@@ -88,17 +92,38 @@ const Contact: React.FC = () => {
                 <Paper 
                   elevation={3} 
                   sx={{ 
-                    p: 4, 
-                    background: 'rgba(19, 47, 76, 0.9)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(59, 130, 246, 0.3)',
-                    borderRadius: '20px',
-                    boxShadow: '0 8px 32px rgba(59, 130, 246, 0.1)',
+                    p: 5, 
+                    background: 'linear-gradient(145deg, rgba(30, 27, 75, 0.6) 0%, rgba(15, 23, 42, 0.6) 100%)',
+                    backdropFilter: 'blur(20px)',
+                    border: '2px solid rgba(139, 92, 246, 0.3)',
+                    borderRadius: '28px',
+                    boxShadow: '0 20px 60px rgba(139, 92, 246, 0.2), 0 0 0 1px rgba(139, 92, 246, 0.1) inset',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      height: '3px',
+                      background: 'linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.8), transparent)',
+                    },
+                    '&::after': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: 'radial-gradient(circle at center, rgba(139, 92, 246, 0.1), transparent 60%)',
+                      pointerEvents: 'none',
+                    },
                     '&:hover': {
-                      transform: 'translateY(-5px)',
-                      boxShadow: '0 15px 40px rgba(59, 130, 246, 0.2)',
-                      borderColor: 'rgba(59, 130, 246, 0.5)',
-                      transition: 'all 0.3s ease',
+                      transform: 'translateY(-10px)',
+                      boxShadow: '0 30px 80px rgba(139, 92, 246, 0.35), 0 0 0 2px rgba(139, 92, 246, 0.4) inset',
+                      borderColor: 'rgba(167, 139, 250, 0.6)',
+                      transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
                     }
                   }}
                 >
@@ -127,10 +152,10 @@ const Contact: React.FC = () => {
                         >
                           {/* Top row: icon + label */}
                           <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                            <IconButton sx={{ p: 0, mr: 1, color: '#3b82f6' }}>
+                            <IconButton sx={{ p: 0, mr: 1, color: '#60a5fa', fontSize: '1.8rem' }}>
                               <Email />
                             </IconButton>
-                            <Typography variant="h6" sx={{ color: '#3b82f6', fontWeight: 700, fontFamily: '"Inter", sans-serif', letterSpacing: '-0.01em' }}>
+                            <Typography variant="h6" sx={{ color: '#a78bfa', fontWeight: 800, fontFamily: '"Inter", sans-serif', letterSpacing: '-0.02em', textShadow: '0 4px 16px rgba(167, 139, 250, 0.5)' }}>
                               Email
                             </Typography>
                           </Box>
@@ -141,12 +166,13 @@ const Contact: React.FC = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             sx={{ 
-                              color: '#ffffff', 
+                              color: '#f1f5f9', 
                               textDecoration: 'none', 
-                              fontSize: '1rem',
-                              opacity: 0.9,
+                              fontSize: '1.05rem',
+                              opacity: 0.95,
+                              fontWeight: 500,
                               '&:hover': {
-                                color: '#3b82f6',
+                                color: '#60a5fa',
                               }
                             }}
                           >
@@ -183,11 +209,11 @@ const Contact: React.FC = () => {
                             transform: 'translateY(-2px)',
                           }
                         }}>
-                          <IconButton sx={{ mr: 2, color: '#3b82f6' }}>
+                          <IconButton sx={{ mr: 2, color: '#60a5fa', fontSize: '1.8rem' }}>
                             {item.icon}
                           </IconButton>
                           <Box sx={{ flex: 1 }}>
-                            <Typography variant="h6" sx={{ color: '#3b82f6', fontWeight: 700, fontFamily: '"Inter", sans-serif', letterSpacing: '-0.01em' }}>
+                            <Typography variant="h6" sx={{ color: '#a78bfa', fontWeight: 800, fontFamily: '"Inter", sans-serif', letterSpacing: '-0.02em', textShadow: '0 4px 16px rgba(167, 139, 250, 0.5)' }}>
                               {item.title}
                             </Typography>
                             {item.link ? (
@@ -196,18 +222,19 @@ const Contact: React.FC = () => {
                                 target="_blank" 
                                 rel="noopener noreferrer" 
                                 sx={{ 
-                                  color: '#ffffff', 
+                                  color: '#f1f5f9', 
                                   textDecoration: 'none',
-                                  opacity: 0.9,
+                                  opacity: 0.95,
+                                  fontWeight: 500,
                                   '&:hover': {
-                                    color: '#3b82f6',
+                                    color: '#60a5fa',
                                   }
                                 }}
                               >
                                 {item.content}
                               </Link>
                             ) : (
-                              <Typography sx={{ color: '#ffffff', opacity: 0.9 }}>{item.content}</Typography>
+                              <Typography sx={{ color: '#f1f5f9', opacity: 0.95, fontWeight: 500 }}>{item.content}</Typography>
                             )}
                           </Box>
                         </Box>
@@ -220,7 +247,7 @@ const Contact: React.FC = () => {
           </Grid>
 
           <Box sx={{ mt: 4, textAlign: 'center' }}>
-            <Typography variant="h5" sx={{ mb: 2, color: '#3b82f6', fontWeight: 700, fontFamily: '"Inter", sans-serif', letterSpacing: '-0.01em' }}>Follow Me</Typography>
+            <Typography variant="h5" sx={{ mb: 3, color: '#a78bfa', fontWeight: 800, fontFamily: '"Inter", sans-serif', letterSpacing: '-0.02em', textShadow: '0 4px 16px rgba(167, 139, 250, 0.5)', fontSize: '1.8rem' }}>Follow Me</Typography>
             <Box>
               {[{ icon: <Twitter />, link: 'https://x.com/PRABHAT160703' },
                 { icon: <Instagram />, link: 'https://www.instagram.com/iamprabhatmishraa' },
@@ -232,13 +259,18 @@ const Contact: React.FC = () => {
                   target="_blank" 
                   rel="noopener noreferrer" 
                   sx={{ 
-                    mx: 1, 
-                    color: '#3b82f6',
+                    mx: 1.5, 
+                    color: '#a78bfa',
+                    fontSize: '2.5rem',
                     transition: 'all 0.3s ease',
+                    background: 'rgba(139, 92, 246, 0.1)',
+                    borderRadius: '50%',
+                    p: 1.5,
                     '&:hover': {
-                      color: '#6366f1',
-                      transform: 'translateY(-3px)',
-                      boxShadow: '0 5px 15px rgba(59, 130, 246, 0.3)',
+                      color: '#c4b5fd',
+                      transform: 'translateY(-5px) scale(1.15)',
+                      boxShadow: '0 8px 24px rgba(139, 92, 246, 0.5)',
+                      background: 'rgba(139, 92, 246, 0.2)',
                     }
                   }}
                 >
