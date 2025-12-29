@@ -193,7 +193,7 @@ const Contact: React.FC = () => {
                       {
                         icon: <LocationOn />,
                         title: 'Location',
-                        content: 'Pune, Maharashtra, India',
+                        content: 'Pune, Maharashtra',
                       },
                     ].map((item) => (
                       <Grid item xs={12} sm={6} key={item.title}>
@@ -250,7 +250,7 @@ const Contact: React.FC = () => {
             <Typography variant="h5" sx={{ mb: 3, color: '#a78bfa', fontWeight: 800, fontFamily: '"Inter", sans-serif', letterSpacing: '-0.02em', textShadow: '0 4px 16px rgba(167, 139, 250, 0.5)', fontSize: '1.8rem' }}>Follow Me</Typography>
             <Box>
               {[{ icon: <Twitter />, link: 'https://x.com/PRABHAT160703' },
-                { icon: <Instagram />, link: 'https://www.instagram.com/iamprabhatmishraa' },
+                { icon: <Instagram />, link: 'https://www.instagram.com/prabhat_.16' },
                 { icon: <GitHub />, link: 'https://github.com/Prabhat-16' },
               ].map((social, index) => (
                 <IconButton 

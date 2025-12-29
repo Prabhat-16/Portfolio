@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Box, Typography, Container, Button, Grid, Avatar, Chip } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-scroll';
-import { useTheme } from '../context/ThemeContext';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import CodeIcon from '@mui/icons-material/Code';
@@ -11,7 +10,6 @@ import StorageIcon from '@mui/icons-material/Storage';
 import SecurityIcon from '@mui/icons-material/Security';
 
 const Hero: React.FC = () => {
-  const { isDarkMode } = useTheme();
   const [currentRole, setCurrentRole] = useState(0);
   
   const roles = [
@@ -64,9 +62,7 @@ const Hero: React.FC = () => {
         alignItems: 'center',
         position: 'relative',
         overflow: 'hidden',
-        background: isDarkMode 
-          ? 'radial-gradient(ellipse at top, rgba(99, 102, 241, 0.1) 0%, transparent 50%)'
-          : 'radial-gradient(ellipse at top, rgba(59, 130, 246, 0.1) 0%, transparent 50%)',
+        background: 'radial-gradient(ellipse at top, rgba(99, 102, 241, 0.1) 0%, transparent 50%)',
       }}
     >
       {/* Floating geometric shapes */}
@@ -79,13 +75,9 @@ const Hero: React.FC = () => {
             width: { xs: 60, md: 100 },
             height: { xs: 60, md: 100 },
             borderRadius: i % 2 === 0 ? '50%' : '20%',
-            background: isDarkMode 
-              ? `linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%)`
-              : `linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%)`,
+            background: `linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%)`,
             backdropFilter: 'blur(10px)',
-            border: isDarkMode 
-              ? '1px solid rgba(99, 102, 241, 0.2)'
-              : '1px solid rgba(59, 130, 246, 0.2)',
+            border: '1px solid rgba(99, 102, 241, 0.2)',
           }}
           animate={{
             x: [0, 30, 0],
@@ -116,7 +108,7 @@ const Hero: React.FC = () => {
                 <Typography
                   variant="h6"
                   sx={{
-                    color: isDarkMode ? '#818cf8' : '#6366f1',
+                    color: '#818cf8',
                     fontWeight: 600,
                     mb: 2,
                     fontSize: '1.1rem',
@@ -132,9 +124,7 @@ const Hero: React.FC = () => {
                   sx={{
                     fontSize: { xs: '3rem', sm: '4rem', md: '5.5rem' },
                     fontWeight: 800,
-                    background: isDarkMode 
-                      ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)'
-                      : 'linear-gradient(135deg, #1e293b 0%, #475569 100%)',
+                    background: 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     backgroundClip: 'text',
@@ -189,7 +179,7 @@ const Hero: React.FC = () => {
                 <Typography
                   variant="h6"
                   sx={{
-                    color: isDarkMode ? '#cbd5e1' : '#64748b',
+                    color: '#cbd5e1',
                     mb: 4,
                     fontSize: { xs: '1.1rem', md: '1.25rem' },
                     lineHeight: 1.6,
@@ -213,18 +203,12 @@ const Hero: React.FC = () => {
                       <Chip
                         label={skill}
                         sx={{
-                          background: isDarkMode 
-                            ? 'rgba(99, 102, 241, 0.1)'
-                            : 'rgba(59, 130, 246, 0.1)',
-                          color: isDarkMode ? '#818cf8' : '#3b82f6',
-                          border: isDarkMode 
-                            ? '1px solid rgba(99, 102, 241, 0.3)'
-                            : '1px solid rgba(59, 130, 246, 0.3)',
+                          background: 'rgba(99, 102, 241, 0.1)',
+                          color: '#818cf8',
+                          border: '1px solid rgba(99, 102, 241, 0.3)',
                           fontWeight: 600,
                           '&:hover': {
-                            background: isDarkMode 
-                              ? 'rgba(99, 102, 241, 0.2)'
-                              : 'rgba(59, 130, 246, 0.2)',
+                            background: 'rgba(99, 102, 241, 0.2)',
                             transform: 'translateY(-2px)',
                           },
                           transition: 'all 0.3s ease',
@@ -296,9 +280,7 @@ const Hero: React.FC = () => {
                       left: '-20px',
                       right: '-20px',
                       bottom: '-20px',
-                      background: isDarkMode 
-                        ? 'linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%)'
-                        : 'linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(99, 102, 241, 0.2) 100%)',
+                      background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%)',
                       borderRadius: '50%',
                       filter: 'blur(20px)',
                       zIndex: -1,
@@ -306,17 +288,13 @@ const Hero: React.FC = () => {
                   }}
                 >
                   <Avatar
-                    src="/me.jpg"
+                    src="/me.jpeg"
                     alt="Prabhat Mishra"
                     sx={{
                       width: { xs: 250, md: 300 },
                       height: { xs: 250, md: 300 },
-                      border: isDarkMode 
-                        ? '4px solid rgba(99, 102, 241, 0.3)'
-                        : '4px solid rgba(59, 130, 246, 0.3)',
-                      boxShadow: isDarkMode 
-                        ? '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
-                        : '0 25px 50px -12px rgba(0, 0, 0, 0.2)',
+                      border: '4px solid rgba(99, 102, 241, 0.3)',
+                      boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
                     }}
                   />
                 </Box>
@@ -344,7 +322,7 @@ const Hero: React.FC = () => {
             <ArrowDownwardIcon
               sx={{
                 fontSize: '2rem',
-                color: isDarkMode ? '#818cf8' : '#6366f1',
+                color: '#818cf8',
                 opacity: 0.7,
               }}
             />

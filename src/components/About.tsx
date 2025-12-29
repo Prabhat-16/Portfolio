@@ -1,14 +1,12 @@
 import React from 'react';
 import { Box, Container, Typography, Grid, Paper, Card, CardContent, Avatar, LinearProgress } from '@mui/material';
 import { motion } from 'framer-motion';
-import { useTheme } from '../context/ThemeContext';
 import CodeIcon from '@mui/icons-material/Code';
 import CloudIcon from '@mui/icons-material/Cloud';
 import SecurityIcon from '@mui/icons-material/Security';
 import SpeedIcon from '@mui/icons-material/Speed';
 
 const About: React.FC = () => {
-  const { isDarkMode } = useTheme();
 
   const stats = [
     { label: 'Education Level', value: 'MCA', icon: <CodeIcon /> },
@@ -53,9 +51,7 @@ const About: React.FC = () => {
       sx={{
         py: { xs: 8, md: 12 },
         position: 'relative',
-        background: isDarkMode 
-          ? 'radial-gradient(ellipse at center, rgba(139, 92, 246, 0.05) 0%, transparent 50%)'
-          : 'radial-gradient(ellipse at center, rgba(99, 102, 241, 0.05) 0%, transparent 50%)',
+        background: 'radial-gradient(ellipse at center, rgba(139, 92, 246, 0.05) 0%, transparent 50%)',
       }}
     >
       <Container maxWidth="lg">
@@ -73,9 +69,7 @@ const About: React.FC = () => {
                 sx={{
                   fontSize: { xs: '2.5rem', md: '3.5rem' },
                   fontWeight: 800,
-                  background: isDarkMode 
-                    ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)'
-                    : 'linear-gradient(135deg, #1e293b 0%, #475569 100%)',
+                  background: 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
@@ -88,9 +82,7 @@ const About: React.FC = () => {
                 sx={{
                   width: '80px',
                   height: '4px',
-                  background: isDarkMode 
-                    ? 'linear-gradient(90deg, #6366f1, #8b5cf6)'
-                    : 'linear-gradient(90deg, #3b82f6, #6366f1)',
+                  background: 'linear-gradient(90deg, #6366f1, #8b5cf6)',
                   borderRadius: '2px',
                   mx: 'auto',
                 }}
@@ -119,9 +111,7 @@ const About: React.FC = () => {
                         left: '-30px',
                         right: '-30px',
                         bottom: '-30px',
-                        background: isDarkMode 
-                          ? 'linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%)'
-                          : 'linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(99, 102, 241, 0.2) 100%)',
+                        background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%)',
                         borderRadius: '30px',
                         filter: 'blur(30px)',
                         zIndex: -1,
@@ -133,13 +123,9 @@ const About: React.FC = () => {
                       sx={{
                         p: 3,
                         borderRadius: '30px',
-                        background: isDarkMode 
-                          ? 'rgba(30, 41, 59, 0.8)'
-                          : 'rgba(255, 255, 255, 0.8)',
+                        background: 'rgba(30, 41, 59, 0.8)',
                         backdropFilter: 'blur(20px)',
-                        border: isDarkMode 
-                          ? '1px solid rgba(99, 102, 241, 0.2)'
-                          : '1px solid rgba(59, 130, 246, 0.2)',
+                        border: '1px solid rgba(99, 102, 241, 0.2)',
                       }}
                     >
                       <Avatar
@@ -165,7 +151,7 @@ const About: React.FC = () => {
                   sx={{
                     fontWeight: 700,
                     mb: 3,
-                    color: isDarkMode ? '#f1f5f9' : '#1e293b',
+                    color: '#f1f5f9',
                   }}
                 >
                   MCA Student & Web Developer
@@ -177,7 +163,7 @@ const About: React.FC = () => {
                     fontSize: '1.1rem',
                     lineHeight: 1.8,
                     mb: 4,
-                    color: isDarkMode ? '#cbd5e1' : '#64748b',
+                    color: '#cbd5e1',
                   }}
                 >
                   I'm a dedicated full-stack web developer with expertise in PHP, MySQL, HTML, CSS, 
@@ -192,7 +178,7 @@ const About: React.FC = () => {
                     fontSize: '1.1rem',
                     lineHeight: 1.8,
                     mb: 4,
-                    color: isDarkMode ? '#cbd5e1' : '#64748b',
+                    color: '#cbd5e1',
                   }}
                 >
                   I have hands-on experience from my role as a Trainee Web Developer at Tryon Infosoft, 
@@ -208,7 +194,7 @@ const About: React.FC = () => {
                     sx={{
                       fontWeight: 600,
                       mb: 3,
-                      color: isDarkMode ? '#f1f5f9' : '#1e293b',
+                      color: '#f1f5f9',
                     }}
                   >
                     Core Competencies
@@ -220,7 +206,7 @@ const About: React.FC = () => {
                           variant="body2"
                           sx={{
                             fontWeight: 600,
-                            color: isDarkMode ? '#cbd5e1' : '#64748b',
+                            color: '#cbd5e1',
                           }}
                         >
                           {skill.name}
@@ -241,9 +227,7 @@ const About: React.FC = () => {
                         sx={{
                           height: 8,
                           borderRadius: 4,
-                          backgroundColor: isDarkMode 
-                            ? 'rgba(30, 41, 59, 0.8)'
-                            : 'rgba(226, 232, 240, 0.8)',
+                          backgroundColor: 'rgba(30, 41, 59, 0.8)',
                           '& .MuiLinearProgress-bar': {
                             backgroundColor: skill.color,
                             borderRadius: 4,
@@ -273,13 +257,9 @@ const About: React.FC = () => {
                         textAlign: 'center',
                         p: 3,
                         height: '100%',
-                        background: isDarkMode 
-                          ? 'rgba(30, 41, 59, 0.8)'
-                          : 'rgba(255, 255, 255, 0.8)',
+                        background: 'rgba(30, 41, 59, 0.8)',
                         backdropFilter: 'blur(20px)',
-                        border: isDarkMode 
-                          ? '1px solid rgba(99, 102, 241, 0.2)'
-                          : '1px solid rgba(59, 130, 246, 0.2)',
+                        border: '1px solid rgba(99, 102, 241, 0.2)',
                         '&:hover': {
                           transform: 'translateY(-8px)',
                           transition: 'all 0.3s ease',
@@ -289,7 +269,7 @@ const About: React.FC = () => {
                       <CardContent sx={{ p: 0 }}>
                         <Box
                           sx={{
-                            color: isDarkMode ? '#6366f1' : '#3b82f6',
+                            color: '#6366f1',
                             mb: 2,
                             fontSize: '2.5rem',
                           }}
@@ -301,7 +281,7 @@ const About: React.FC = () => {
                           sx={{
                             fontWeight: 800,
                             mb: 1,
-                            color: isDarkMode ? '#f1f5f9' : '#1e293b',
+                            color: '#f1f5f9',
                           }}
                         >
                           {stat.value}
@@ -309,7 +289,7 @@ const About: React.FC = () => {
                         <Typography
                           variant="body2"
                           sx={{
-                            color: isDarkMode ? '#cbd5e1' : '#64748b',
+                            color: '#cbd5e1',
                             fontWeight: 500,
                           }}
                         >

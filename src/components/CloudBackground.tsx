@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useTheme } from '../context/ThemeContext';
 
 const FloatingCloud = ({ 
   style, 
@@ -8,8 +7,7 @@ const FloatingCloud = ({
   floatY = 0, 
   duration = 8, 
   delay = 0, 
-  opacity = 0.18,
-  isDarkMode = false
+  opacity = 0.18
 }: { 
   style: React.CSSProperties; 
   floatX?: number; 
@@ -17,7 +15,6 @@ const FloatingCloud = ({
   duration?: number; 
   delay?: number; 
   opacity?: number;
-  isDarkMode?: boolean;
 }) => (
   <motion.div
     animate={{
@@ -36,17 +33,13 @@ const FloatingCloud = ({
       position: 'absolute',
       borderRadius: '50%',
       filter: 'blur(32px)',
-      background: isDarkMode 
-        ? 'radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.1) 50%, transparent 100%)'
-        : 'radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(99, 102, 241, 0.1) 50%, transparent 100%)',
+      background: 'radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.1) 50%, transparent 100%)',
       ...style,
     }}
   />
 );
 
 const CloudBackground: React.FC<{ zIndex?: number }> = ({ zIndex = 0 }) => {
-  const { isDarkMode } = useTheme();
-
   return (
     <>
       {/* Main floating clouds */}
@@ -55,7 +48,6 @@ const CloudBackground: React.FC<{ zIndex?: number }> = ({ zIndex = 0 }) => {
         floatX={40} 
         duration={10} 
         delay={0.1} 
-        isDarkMode={isDarkMode}
       />
       <FloatingCloud 
         style={{ left: '65%', top: '10%', width: 120, height: 60, zIndex }} 
@@ -63,7 +55,6 @@ const CloudBackground: React.FC<{ zIndex?: number }> = ({ zIndex = 0 }) => {
         floatY={10} 
         duration={12} 
         delay={0.3}
-        isDarkMode={isDarkMode}
       />
       <FloatingCloud 
         style={{ left: '50%', top: '70%', width: 160, height: 70, zIndex }} 
@@ -71,7 +62,6 @@ const CloudBackground: React.FC<{ zIndex?: number }> = ({ zIndex = 0 }) => {
         floatY={15} 
         duration={14} 
         delay={0.5}
-        isDarkMode={isDarkMode}
       />
       <FloatingCloud 
         style={{ left: '80%', top: '60%', width: 90, height: 40, zIndex }} 
@@ -79,7 +69,6 @@ const CloudBackground: React.FC<{ zIndex?: number }> = ({ zIndex = 0 }) => {
         floatY={8} 
         duration={11} 
         delay={0.7}
-        isDarkMode={isDarkMode}
       />
       <FloatingCloud 
         style={{ left: '20%', top: '75%', width: 110, height: 50, zIndex }} 
@@ -87,7 +76,6 @@ const CloudBackground: React.FC<{ zIndex?: number }> = ({ zIndex = 0 }) => {
         floatY={12} 
         duration={13} 
         delay={0.9}
-        isDarkMode={isDarkMode}
       />
       
       {/* Additional smaller particles */}
@@ -111,9 +99,7 @@ const CloudBackground: React.FC<{ zIndex?: number }> = ({ zIndex = 0 }) => {
             top: `-${Math.random() * 20}%`,
             width: '4px',
             height: '4px',
-            background: isDarkMode 
-              ? 'rgba(99, 102, 241, 0.6)' 
-              : 'rgba(59, 130, 246, 0.6)',
+            background: 'rgba(99, 102, 241, 0.6)',
             borderRadius: '50%',
             filter: 'blur(1px)',
             zIndex,

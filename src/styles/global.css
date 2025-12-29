@@ -1,20 +1,5 @@
 :root {
-  /* Light mode variables */
-  --bg-primary: #f8fafc;
-  --bg-secondary: #f1f5f9;
-  --text-primary: #1e293b;
-  --text-secondary: #64748b;
-  --accent-primary: #3b82f6;
-  --accent-secondary: #6366f1;
-  --surface: rgba(255, 255, 255, 0.8);
-  --border: rgba(59, 130, 246, 0.2);
-  --shadow: rgba(0, 0, 0, 0.1);
-  --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
-  --gradient-secondary: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
-}
-
-html[data-theme="dark"] {
-  /* Dark mode variables */
+  /* Dark mode variables - fixed theme */
   --bg-primary: #0f172a;
   --bg-secondary: #1e293b;
   --text-primary: #f1f5f9;

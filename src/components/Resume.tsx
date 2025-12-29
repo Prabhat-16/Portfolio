@@ -2,12 +2,8 @@ import React from 'react';
 import { Box, Container, Typography, Button, Paper, Grid, Card, CardContent } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Download, WorkOutline, SchoolOutlined, EmojiEventsOutlined } from '@mui/icons-material';
-import { useTheme } from '../context/ThemeContext';
-import CloudBackground from './CloudBackground';
 
 const Resume: React.FC = () => {
-  const { isDarkMode } = useTheme();
-
   const highlights = [
     {
       icon: <SchoolOutlined />,
@@ -35,9 +31,7 @@ const Resume: React.FC = () => {
       sx={{
         py: { xs: 8, md: 12 },
         position: 'relative',
-        background: isDarkMode 
-          ? 'radial-gradient(ellipse at center, rgba(236, 72, 153, 0.05) 0%, transparent 50%)'
-          : 'radial-gradient(ellipse at center, rgba(139, 92, 246, 0.05) 0%, transparent 50%)',
+        background: 'radial-gradient(ellipse at center, rgba(236, 72, 153, 0.05) 0%, transparent 50%)',
         overflow: 'hidden',
       }}
     >
@@ -51,13 +45,9 @@ const Resume: React.FC = () => {
             width: { xs: 40, md: 60 },
             height: { xs: 40, md: 60 },
             borderRadius: i % 2 === 0 ? '50%' : '20%',
-            background: isDarkMode 
-              ? `linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%)`
-              : `linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%)`,
+            background: `linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%)`,
             backdropFilter: 'blur(10px)',
-            border: isDarkMode 
-              ? '1px solid rgba(236, 72, 153, 0.2)'
-              : '1px solid rgba(99, 102, 241, 0.2)',
+            border: '1px solid rgba(236, 72, 153, 0.2)',
           }}
           animate={{
             x: [0, 20, 0],
@@ -96,9 +86,7 @@ const Resume: React.FC = () => {
                 sx={{
                   fontSize: { xs: '2.5rem', md: '3.5rem' },
                   fontWeight: 800,
-                  background: isDarkMode 
-                    ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)'
-                    : 'linear-gradient(135deg, #1e293b 0%, #475569 100%)',
+                  background: 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
@@ -111,9 +99,7 @@ const Resume: React.FC = () => {
                 sx={{
                   width: '80px',
                   height: '4px',
-                  background: isDarkMode 
-                    ? 'linear-gradient(90deg, #ec4899, #8b5cf6)'
-                    : 'linear-gradient(90deg, #6366f1, #8b5cf6)',
+                  background: 'linear-gradient(90deg, #ec4899, #8b5cf6)',
                   borderRadius: '2px',
                   mx: 'auto',
                   mb: 3,
@@ -122,7 +108,7 @@ const Resume: React.FC = () => {
               <Typography
                 variant="h6"
                 sx={{
-                  color: isDarkMode ? '#cbd5e1' : '#64748b',
+                  color: '#cbd5e1',
                   maxWidth: '600px',
                   mx: 'auto',
                   fontSize: '1.1rem',
@@ -148,23 +134,15 @@ const Resume: React.FC = () => {
                   <Card
                     sx={{
                       height: '100%',
-                      background: isDarkMode 
-                        ? 'rgba(30, 41, 59, 0.8)'
-                        : 'rgba(255, 255, 255, 0.8)',
+                      background: 'rgba(30, 41, 59, 0.8)',
                       backdropFilter: 'blur(20px)',
-                      border: isDarkMode 
-                        ? '1px solid rgba(236, 72, 153, 0.2)'
-                        : '1px solid rgba(99, 102, 241, 0.2)',
+                      border: '1px solid rgba(236, 72, 153, 0.2)',
                       borderRadius: '24px',
-                      boxShadow: isDarkMode 
-                        ? '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
-                        : '0 25px 50px -12px rgba(0, 0, 0, 0.1)',
+                      boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
                       transition: 'all 0.3s ease',
                       '&:hover': {
                         transform: 'translateY(-8px)',
-                        boxShadow: isDarkMode 
-                          ? '0 35px 60px -12px rgba(0, 0, 0, 0.4)'
-                          : '0 35px 60px -12px rgba(0, 0, 0, 0.15)',
+                        boxShadow: '0 35px 60px -12px rgba(0, 0, 0, 0.4)',
                       },
                     }}
                   >
@@ -191,7 +169,7 @@ const Resume: React.FC = () => {
                         sx={{
                           fontWeight: 700,
                           mb: 2,
-                          color: isDarkMode ? '#f1f5f9' : '#1e293b',
+                          color: '#f1f5f9',
                         }}
                       >
                         {highlight.title}
@@ -199,7 +177,7 @@ const Resume: React.FC = () => {
                       <Typography
                         variant="body2"
                         sx={{
-                          color: isDarkMode ? '#cbd5e1' : '#64748b',
+                          color: '#cbd5e1',
                           lineHeight: 1.6,
                         }}
                       >
@@ -224,17 +202,11 @@ const Resume: React.FC = () => {
               sx={{
                 p: 6,
                 textAlign: 'center',
-                background: isDarkMode 
-                  ? 'rgba(30, 41, 59, 0.8)'
-                  : 'rgba(255, 255, 255, 0.8)',
+                background: 'rgba(30, 41, 59, 0.8)',
                 backdropFilter: 'blur(20px)',
-                border: isDarkMode 
-                  ? '1px solid rgba(236, 72, 153, 0.2)'
-                  : '1px solid rgba(99, 102, 241, 0.2)',
+                border: '1px solid rgba(236, 72, 153, 0.2)',
                 borderRadius: '32px',
-                boxShadow: isDarkMode 
-                  ? '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
-                  : '0 25px 50px -12px rgba(0, 0, 0, 0.1)',
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
                 position: 'relative',
                 overflow: 'hidden',
                 '&::before': {
@@ -244,9 +216,7 @@ const Resume: React.FC = () => {
                   left: 0,
                   right: 0,
                   height: '4px',
-                  background: isDarkMode 
-                    ? 'linear-gradient(90deg, #ec4899, #8b5cf6)'
-                    : 'linear-gradient(90deg, #6366f1, #8b5cf6)',
+                  background: 'linear-gradient(90deg, #ec4899, #8b5cf6)',
                 },
               }}
             >
@@ -255,7 +225,7 @@ const Resume: React.FC = () => {
                 sx={{
                   fontWeight: 700,
                   mb: 2,
-                  color: isDarkMode ? '#f1f5f9' : '#1e293b',
+                  color: '#f1f5f9',
                 }}
               >
                 Ready to Learn More?
@@ -263,7 +233,7 @@ const Resume: React.FC = () => {
               <Typography
                 variant="body1"
                 sx={{
-                  color: isDarkMode ? '#cbd5e1' : '#64748b',
+                  color: '#cbd5e1',
                   mb: 4,
                   fontSize: '1.1rem',
                   maxWidth: '500px',
@@ -286,17 +256,11 @@ const Resume: React.FC = () => {
                   fontSize: '1.1rem',
                   fontWeight: 600,
                   borderRadius: '16px',
-                  background: isDarkMode 
-                    ? 'linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%)'
-                    : 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
-                  boxShadow: isDarkMode 
-                    ? '0 10px 25px -5px rgba(236, 72, 153, 0.4)'
-                    : '0 10px 25px -5px rgba(99, 102, 241, 0.4)',
+                  background: 'linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%)',
+                  boxShadow: '0 10px 25px -5px rgba(236, 72, 153, 0.4)',
                   '&:hover': {
                     transform: 'translateY(-2px)',
-                    boxShadow: isDarkMode 
-                      ? '0 20px 40px -5px rgba(236, 72, 153, 0.6)'
-                      : '0 20px 40px -5px rgba(99, 102, 241, 0.6)',
+                    boxShadow: '0 20px 40px -5px rgba(236, 72, 153, 0.6)',
                   },
                 }}
               >
@@ -310,4 +274,4 @@ const Resume: React.FC = () => {
   );
 };
 
-export default Resume; 
+export default Resume;
