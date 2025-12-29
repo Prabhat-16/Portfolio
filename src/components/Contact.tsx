@@ -77,7 +77,7 @@ const Contact: React.FC = () => {
                 lineHeight: 1.6,
               }}
             >
-              Ready to collaborate on cloud projects? Let's connect and build something amazing together.
+              Ready to collaborate on web development projects? Let's connect and build something amazing with PHP, React, and modern technologies.
             </Typography>
           </Box>
 
@@ -193,7 +193,7 @@ const Contact: React.FC = () => {
                       {
                         icon: <LocationOn />,
                         title: 'Location',
-                        content: 'Pune, Maharashtra',
+                        content: 'Pune, Maharashtra, India',
                       },
                     ].map((item) => (
                       <Grid item xs={12} sm={6} key={item.title}>

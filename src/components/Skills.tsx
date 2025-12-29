@@ -19,48 +19,66 @@ import TerminalIcon from '@mui/icons-material/Terminal';
 import ComputerIcon from '@mui/icons-material/Computer';
 import LaptopIcon from '@mui/icons-material/Laptop';
 import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
+import DataObjectIcon from '@mui/icons-material/DataObject';
+import LanguageIcon from '@mui/icons-material/Language';
+import AccountTreeIcon from '@mui/icons-material/AccountTree';
+import SettingsIcon from '@mui/icons-material/Settings';
+import DevicesIcon from '@mui/icons-material/Devices';
+import BuildIcon from '@mui/icons-material/Build';
+import { PhpIcon, ReactIcon, MySQLIcon, BootstrapIcon, NodeJSIcon, DockerIcon, HTML5Icon, CSS3Icon, GitIcon, AzureIcon } from './TechIcons';
 
 const Skills: React.FC = () => {
   const categories = [
     {
-      title: "Languages & Frameworks",
+      title: "Languages & Core Technologies",
       icon: <CodeIcon sx={{ fontSize: '2rem' }} />,
       items: [
-        { name: "PHP", icon: <CodeIcon />, color: "#8b5cf6" },
-        { name: "MySQL", icon: <StorageIcon />, color: "#3b82f6" },
-        { name: "JavaScript", icon: <JavascriptIcon />, color: "#f59e0b" },
-        { name: "React", icon: <WebIcon />, color: "#06b6d4" },
-        { name: "HTML5", icon: <HtmlIcon />, color: "#ef4444" },
-        { name: "CSS3", icon: <CssIcon />, color: "#3b82f6" },
+        { name: "PHP", icon: <PhpIcon />, color: "#777BB4" },
+        { name: "JavaScript", icon: <JavascriptIcon />, color: "#F7DF1E" },
+        { name: "MySQL", icon: <MySQLIcon />, color: "#4479A1" },
+        { name: "HTML5", icon: <HTML5Icon />, color: "#E34F26" },
+        { name: "CSS3", icon: <CSS3Icon />, color: "#1572B6" },
+        { name: "AJAX", icon: <ApiIcon />, color: "#06b6d4" },
       ]
     },
     {
-      title: "Cloud & DevOps",
+      title: "Frontend Frameworks & Libraries",
+      icon: <WebIcon sx={{ fontSize: '2rem' }} />,
+      items: [
+        { name: "React", icon: <ReactIcon />, color: "#61DAFB" },
+        { name: "Bootstrap", icon: <BootstrapIcon />, color: "#7952B3" },
+        { name: "jQuery", icon: <JavascriptIcon />, color: "#0769AD" },
+        { name: "Responsive Design", icon: <DevicesIcon />, color: "#f97316" },
+      ]
+    },
+    {
+      title: "Backend & Database",
+      icon: <StorageIcon sx={{ fontSize: '2rem' }} />,
+      items: [
+        { name: "PHP (Core)", icon: <PhpIcon />, color: "#777BB4" },
+        { name: "MySQL", icon: <MySQLIcon />, color: "#4479A1" },
+        { name: "Node.js", icon: <NodeJSIcon />, color: "#339933" },
+      ]
+    },
+    {
+      title: "Tools & Platforms",
+      icon: <BuildIcon sx={{ fontSize: '2rem' }} />,
+      items: [
+        { name: "Git & GitHub", icon: <GitIcon />, color: "#F05032" },
+        { name: "Azure App Services", icon: <AzureIcon />, color: "#0078D4" },
+        { name: "Azure VM", icon: <AzureIcon />, color: "#0078D4" },
+        { name: "Linux", icon: <TerminalIcon />, color: "#FCC624" },
+        { name: "Windows", icon: <ComputerIcon />, color: "#0078D6" },
+      ]
+    },
+    {
+      title: "Learning & Development",
       icon: <CloudIcon sx={{ fontSize: '2rem' }} />,
       items: [
-        { name: "Git", icon: <GitHubIcon />, color: "#f97316" },
-        { name: "GitHub Actions", icon: <IntegrationInstructionsIcon />, color: "#3b82f6" },
-        { name: "Docker", icon: <CloudQueueIcon />, color: "#06b6d4" },
-        { name: "Azure", icon: <CloudDoneIcon />, color: "#3b82f6" },
-        { name: "AWS", icon: <CloudSyncIcon />, color: "#f59e0b" },
-      ]
-    },
-    {
-      title: "Development Tools",
-      icon: <DeveloperModeIcon sx={{ fontSize: '2rem' }} />,
-      items: [
-        { name: "VS Code", icon: <TerminalIcon />, color: "#3b82f6" },
-        { name: "Postman", icon: <ApiIcon />, color: "#f97316" },
-        { name: "Netlify", icon: <CloudIcon />, color: "#06b6d4" },
-        { name: "GitHub", icon: <GitHubIcon />, color: "#8b5cf6" },
-      ]
-    },
-    {
-      title: "Platforms",
-      icon: <ComputerIcon sx={{ fontSize: '2rem' }} />,
-      items: [
-        { name: "Windows", icon: <ComputerIcon />, color: "#3b82f6" },
-        { name: "Linux", icon: <LaptopIcon />, color: "#f59e0b" },
+        { name: "CI/CD", icon: <IntegrationInstructionsIcon />, color: "#3b82f6" },
+        { name: "Docker (Basic)", icon: <DockerIcon />, color: "#2496ED" },
+        { name: "AWS (Learning)", icon: <CloudSyncIcon />, color: "#FF9900" },
+        { name: "Azure", icon: <AzureIcon />, color: "#0078D4" },
       ]
     }
   ];
@@ -181,7 +199,7 @@ const Skills: React.FC = () => {
                   lineHeight: 1.6,
                 }}
               >
-                As a cloud developer passionate about modern technologies, here's my comprehensive tech stack:
+                As a full-stack web developer skilled in PHP, MySQL, and modern frontend technologies, here's my comprehensive tech stack:
               </Typography>
             </motion.div>
           </Box>

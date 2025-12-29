@@ -14,32 +14,46 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'Careeion - Career Recommendation System',
-    description: 'Developed a career recommendation system that suggests personalized career paths based on user input, skills, and preferences. The system analyzes user data to provide tailored career recommendations with detailed insights.',
-    duration: 'May 2024 - Present',
-    technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Material-UI'],
+    title: 'Task Tracker App',
+    description: 'Full-stack application built with React, Node.js, and MySQL featuring real-time task updates. Deployed on Azure VM with comprehensive task management capabilities including user authentication and responsive design.',
+    duration: 'Recent Project',
+    technologies: ['React', 'Node.js', 'MySQL', 'Azure VM'],
+    githubLink: 'https://github.com/Prabhat-16',
+  },
+  {
+    title: 'AI Chatbot - DeepSeek',
+    description: 'Intelligent chatbot built with React frontend and DeepSeek v3 API integration. Features real-time chat functionality, error handling, and modern UI design. Deployed on Azure for scalable performance.',
+    duration: 'Recent Project',
+    technologies: ['React', 'DeepSeek API', 'Azure', 'JavaScript'],
+    githubLink: 'https://github.com/Prabhat-16',
+  },
+  {
+    title: 'CAREERION - Career Recommendation System',
+    description: 'AI-powered career recommendation system built using the MERN stack. Uses machine learning to analyze user skills, interests, and trends to suggest suitable career paths with personalized recommendations.',
+    duration: 'Major Project',
+    technologies: ['React', 'Node.js', 'MongoDB', 'Machine Learning', 'Express'],
     githubLink: 'https://github.com/Prabhat-16/Careeion',
   },
   {
-    title: 'Web Billing Software',
-    description: 'Developed a Web Billing Software enabling secure authentication, streamlined invoice generation, client management, and seamless payment processing. Implemented reporting, automation, and multi-platform access for efficient billing operations.',
-    duration: 'Jan 2024 - Apr 2024',
-    technologies: ['HTML', 'CSS', 'JavaScript', 'AJAX', 'PHP', 'MySQL', 'Bootstrap', 'jQuery'],
+    title: 'Movie Ticket Booking Site',
+    description: 'Frontend movie booking platform with admin schedule control. Built using HTML, CSS, JavaScript, and Bootstrap. Features responsive design, movie browsing, showtime viewing, and ticket booking functionality.',
+    duration: 'Frontend Project',
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap'],
+    githubLink: 'https://github.com/Prabhat-16/ONLINEMOVIEBOOKING',
+  },
+  {
+    title: 'Web Billing System',
+    description: 'PHP billing platform with comprehensive features including login, invoices, and payment tracking using AJAX and MySQL. Includes client management, automated billing, and detailed reporting capabilities.',
+    duration: 'PHP Project',
+    technologies: ['PHP', 'MySQL', 'AJAX', 'JavaScript', 'Bootstrap'],
     githubLink: 'https://github.com/Prabhat-16/WebBilling',
   },
   {
-    title: 'Full-Stack Construction Project',
-    description: 'Full-stack construction project developed in core PHP with MySQL. Implemented features such as project management, task management, document management, communication, and reporting. Built using best practices for scalability and maintainability.',
-    duration: 'Aug 2023 - Sep 2023',
-    technologies: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
+    title: 'Construction Company Website',
+    description: 'Core PHP and MySQL site featuring project showcase and contact forms. Fast and responsive design with project management capabilities, client testimonials, and service portfolio display.',
+    duration: 'Core PHP Project',
+    technologies: ['PHP', 'MySQL', 'HTML5', 'CSS3', 'JavaScript'],
     githubLink: 'https://github.com/Prabhat-16/ConstructionWebsite',
-  },
-  {
-    title: 'Movie Ticket Booking',
-    description: 'Developed a responsive movie ticket booking website as a Frontend Developer. Built a client-facing platform for browsing movies, viewing showtimes, and booking tickets, along with an admin panel for managing schedules and ticket data.',
-    duration: 'Sep 2024 - Dec 2024',
-    technologies: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
-    githubLink: 'https://github.com/Prabhat-16/ONLINEMOVIEBOOKING',
   },
 ];
 
@@ -117,7 +131,7 @@ const Projects: React.FC = () => {
                 lineHeight: 1.6,
               }}
             >
-              Explore my projects that demonstrate modern development practices and scalable solutions.
+              Explore my projects showcasing full-stack development with PHP, MySQL, React, and modern web technologies.
             </Typography>
           </Box>
 

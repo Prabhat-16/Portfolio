@@ -1,49 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Typography, Container, Button } from '@mui/material';
+import { Box, Typography, Container, Button, Grid, Avatar, Chip } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-scroll';
+import { useTheme } from '../context/ThemeContext';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import CodeIcon from '@mui/icons-material/Code';
-import TerminalIcon from '@mui/icons-material/Terminal';
-import StorageIcon from '@mui/icons-material/Storage';
 import CloudIcon from '@mui/icons-material/Cloud';
+import StorageIcon from '@mui/icons-material/Storage';
 import SecurityIcon from '@mui/icons-material/Security';
-import JavascriptIcon from '@mui/icons-material/Javascript';
-import HtmlIcon from '@mui/icons-material/Html';
-import CssIcon from '@mui/icons-material/Css';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import CloudQueueIcon from '@mui/icons-material/CloudQueue';
-import ComputerIcon from '@mui/icons-material/Computer';
-import DesktopWindowsIcon from '@mui/icons-material/DesktopWindows';
-import DeveloperBoardIcon from '@mui/icons-material/DeveloperBoard';
-import BuildIcon from '@mui/icons-material/Build';
-import LanguageIcon from '@mui/icons-material/Language';
-import DnsIcon from '@mui/icons-material/Dns';
-import BugReportIcon from '@mui/icons-material/BugReport';
-import ApiIcon from '@mui/icons-material/Api';
-import DataObjectIcon from '@mui/icons-material/DataObject';
-import StorageOutlinedIcon from '@mui/icons-material/StorageOutlined';
-import CloudDoneIcon from '@mui/icons-material/CloudDone';
-import CloudSyncIcon from '@mui/icons-material/CloudSync';
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
-import CloudOffIcon from '@mui/icons-material/CloudOff';
-import CloudCircleIcon from '@mui/icons-material/CloudCircle';
-import CloudDoneOutlinedIcon from '@mui/icons-material/CloudDoneOutlined';
-import CloudQueueOutlinedIcon from '@mui/icons-material/CloudQueueOutlined';
-import CloudSyncOutlinedIcon from '@mui/icons-material/CloudSyncOutlined';
-import CloudUploadOutlinedIcon from '@mui/icons-material/CloudUploadOutlined';
-import CloudDownloadOutlinedIcon from '@mui/icons-material/CloudDownloadOutlined';
-import CloudOffOutlinedIcon from '@mui/icons-material/CloudOffOutlined';
-import CloudCircleOutlinedIcon from '@mui/icons-material/CloudCircleOutlined';
 
 const Hero: React.FC = () => {
-  const roles = [
-    "Frontend Developer",
-    "Backend Developer",
-    "DevOps and Cloud Enthusiast"
-  ];
-  
+  const { isDarkMode } = useTheme();
   const [currentRole, setCurrentRole] = useState(0);
+  
+  const roles = [
+    { title: "Full Stack Web Developer", icon: <CodeIcon />, color: "#6366f1" },
+    { title: "PHP Developer", icon: <StorageIcon />, color: "#8b5cf6" },
+    { title: "Cloud Enthusiast", icon: <CloudIcon />, color: "#ec4899" },
+    { title: "DevOps Learner", icon: <SecurityIcon />, color: "#f59e0b" }
+  ];
+
+  const skills = [
+    "PHP", "JavaScript", "React", "MySQL", "HTML5", "CSS3", 
+    "Node.js", "Bootstrap", "jQuery", "AJAX"
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -52,46 +33,28 @@ const Hero: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Enhanced tech icons array with cloud icons added to existing ones
-  const techIcons = [
-    // Original icons with enhanced animations - updated to blue theme with better visibility
-    { icon: <CodeIcon />, color: '#60a5fa', size: '2.8rem', speed: 18, delay: 0 },
-    { icon: <TerminalIcon />, color: '#818cf8', size: '2.5rem', speed: 20, delay: 1 },
-    { icon: <StorageIcon />, color: '#a78bfa', size: '2.6rem', speed: 22, delay: 2 },
-    { icon: <SecurityIcon />, color: '#c4b5fd', size: '2.4rem', speed: 21, delay: 3 },
-    { icon: <JavascriptIcon />, color: '#60a5fa', size: '2.8rem', speed: 17, delay: 4 },
-    { icon: <HtmlIcon />, color: '#818cf8', size: '2.6rem', speed: 23, delay: 5 },
-    { icon: <CssIcon />, color: '#a78bfa', size: '2.6rem', speed: 20, delay: 6 },
-    { icon: <GitHubIcon />, color: '#c4b5fd', size: '2.5rem', speed: 18, delay: 7 },
-    { icon: <ComputerIcon />, color: '#60a5fa', size: '2.6rem', speed: 22, delay: 8 },
-    { icon: <DesktopWindowsIcon />, color: '#818cf8', size: '2.5rem', speed: 20, delay: 9 },
-    { icon: <DeveloperBoardIcon />, color: '#a78bfa', size: '2.6rem', speed: 19, delay: 10 },
-    { icon: <BuildIcon />, color: '#c4b5fd', size: '2.5rem', speed: 21, delay: 11 },
-    { icon: <LanguageIcon />, color: '#60a5fa', size: '2.6rem', speed: 20, delay: 12 },
-    { icon: <DnsIcon />, color: '#818cf8', size: '2.5rem', speed: 22, delay: 13 },
-    { icon: <BugReportIcon />, color: '#a78bfa', size: '2.4rem', speed: 23, delay: 14 },
-    
-    // Added cloud icons - updated to blue theme with better visibility
-    { icon: <CloudIcon />, color: '#60a5fa', size: '3.5rem', speed: 15, delay: 15 },
-    { icon: <CloudQueueIcon />, color: '#818cf8', size: '3.2rem', speed: 18, delay: 16 },
-    { icon: <CloudDoneIcon />, color: '#a78bfa', size: '3.3rem', speed: 16, delay: 17 },
-    { icon: <CloudSyncIcon />, color: '#c4b5fd', size: '3rem', speed: 19, delay: 18 },
-    { icon: <CloudUploadIcon />, color: '#60a5fa', size: '2.9rem', speed: 17, delay: 19 },
-    { icon: <CloudDownloadIcon />, color: '#818cf8', size: '2.8rem', speed: 20, delay: 20 },
-    { icon: <CloudCircleIcon />, color: '#a78bfa', size: '3.2rem', speed: 14, delay: 21 },
-    { icon: <CloudDoneOutlinedIcon />, color: '#c4b5fd', size: '2.7rem', speed: 21, delay: 22 },
-    { icon: <CloudQueueOutlinedIcon />, color: '#60a5fa', size: '2.9rem', speed: 18, delay: 23 },
-    { icon: <CloudSyncOutlinedIcon />, color: '#818cf8', size: '2.6rem', speed: 22, delay: 24 },
-    { icon: <CloudUploadOutlinedIcon />, color: '#a78bfa', size: '2.8rem', speed: 19, delay: 25 },
-    { icon: <CloudDownloadOutlinedIcon />, color: '#c4b5fd', size: '2.5rem', speed: 23, delay: 26 },
-    { icon: <CloudCircleOutlinedIcon />, color: '#60a5fa', size: '3rem', speed: 17, delay: 27 },
-    { icon: <ApiIcon />, color: '#818cf8', size: '2.7rem', speed: 18, delay: 28 },
-    { icon: <DataObjectIcon />, color: '#a78bfa', size: '2.6rem', speed: 22, delay: 29 },
-    { icon: <StorageOutlinedIcon />, color: '#c4b5fd', size: '2.5rem', speed: 24, delay: 30 },
-  ];
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2
+      }
+    }
+  };
 
-  // Helper to get a random vertical position
-  const getRandomY = () => Math.random() * (window.innerHeight - 60);
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100
+      }
+    }
+  };
 
   return (
     <Box
@@ -99,247 +62,294 @@ const Hero: React.FC = () => {
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
-        background: 'linear-gradient(180deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%)',
         position: 'relative',
         overflow: 'hidden',
+        background: isDarkMode 
+          ? 'radial-gradient(ellipse at top, rgba(99, 102, 241, 0.1) 0%, transparent 50%)'
+          : 'radial-gradient(ellipse at top, rgba(59, 130, 246, 0.1) 0%, transparent 50%)',
       }}
     >
-      {/* Animated cloud background gradient */}
-      <Box
-        component={motion.div}
-        sx={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'linear-gradient(135deg, #1e3a8a 0%, #1e1b4b 25%, #0f172a 50%, #020617 75%, #000000 100%)',
-          zIndex: 0,
-        }}
-        animate={{
-          background: [
-            'linear-gradient(135deg, #1e3a8a 0%, #1e1b4b 25%, #0f172a 50%, #020617 75%, #000000 100%)',
-            'linear-gradient(135deg, #1e1b4b 0%, #0f172a 25%, #020617 50%, #1e3a8a 75%, #1e1b4b 100%)',
-            'linear-gradient(135deg, #1e3a8a 0%, #1e1b4b 25%, #0f172a 50%, #020617 75%, #000000 100%)',
-          ],
-        }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          ease: 'linear',
-        }}
-      />
-
-      {/* Enhanced floating tech icons with cloud icons added */}
-      {techIcons.map((item, index) => {
-        const y = getRandomY();
-        return (
-          <Box
-            key={`icon-${index}`}
-            component={motion.div}
-            sx={{
-              position: 'absolute',
-              color: item.color,
-              opacity: 0.85,
-              fontSize: item.size || '2rem',
-              zIndex: 1,
-              top: y,
-              left: 0,
-              filter: 'drop-shadow(0 0 20px rgba(96, 165, 250, 0.6))',
-            }}
-            initial={{ 
-              x: -80,
-              y: y,
-              rotate: 0,
-              scale: 0.8,
-            }}
-            animate={{ 
-              x: window.innerWidth + 80,
-              y: [y, y - 30, y + 20, y - 15, y],
-              rotate: [0, 5, -3, 2, 0],
-              scale: [0.8, 1, 0.9, 1.1, 0.8],
-            }}
-            transition={{
-              duration: item.speed || 18 + index * 2,
-              repeat: Infinity,
-              repeatType: 'loop',
-              ease: 'easeInOut',
-              delay: item.delay || index * 1.5,
-            }}
-          >
-            {item.icon}
-          </Box>
-        );
-      })}
+      {/* Floating geometric shapes */}
+      {[...Array(6)].map((_, i) => (
+        <Box
+          key={i}
+          component={motion.div}
+          sx={{
+            position: 'absolute',
+            width: { xs: 60, md: 100 },
+            height: { xs: 60, md: 100 },
+            borderRadius: i % 2 === 0 ? '50%' : '20%',
+            background: isDarkMode 
+              ? `linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%)`
+              : `linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%)`,
+            backdropFilter: 'blur(10px)',
+            border: isDarkMode 
+              ? '1px solid rgba(99, 102, 241, 0.2)'
+              : '1px solid rgba(59, 130, 246, 0.2)',
+          }}
+          animate={{
+            x: [0, 30, 0],
+            y: [0, -30, 0],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: 10 + i * 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          style={{
+            top: `${20 + i * 15}%`,
+            left: `${10 + i * 15}%`,
+          }}
+        />
+      ))}
 
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
-        <Box
-          sx={{
-            textAlign: 'center',
-            position: 'relative',
-          }}
-        >
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-          >
-            <Typography 
-              variant="h1" 
-              component="h1" 
-              gutterBottom
-              sx={{ 
-                fontSize: { xs: '2.5rem', sm: '4rem', md: '6rem' },
-                fontWeight: 900,
-                background: 'linear-gradient(135deg, #a78bfa 0%, #60a5fa 50%, #8b5cf6 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                textShadow: '0 0 60px rgba(167, 139, 250, 0.5)',
-                mb: 3,
-                fontFamily: '"Poppins", "Inter", sans-serif',
-                letterSpacing: '-0.04em',
-                lineHeight: 1.1,
-              }}
+        <Grid container spacing={4} alignItems="center">
+          <Grid item xs={12} md={8}>
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
             >
-              Hi, I'm Prabhat Mishra
-            </Typography>
-          </motion.div>
+              <motion.div variants={itemVariants}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: isDarkMode ? '#818cf8' : '#6366f1',
+                    fontWeight: 600,
+                    mb: 2,
+                    fontSize: '1.1rem',
+                  }}
+                >
+                  👋 Hello, I'm
+                </Typography>
+              </motion.div>
 
-          <Box sx={{ height: '80px', mb: 4, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentRole}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Typography 
-                  variant="h3" 
-                  sx={{ 
-                    background: 'linear-gradient(90deg, #60a5fa 0%, #a78bfa 100%)',
+              <motion.div variants={itemVariants}>
+                <Typography
+                  variant="h1"
+                  sx={{
+                    fontSize: { xs: '3rem', sm: '4rem', md: '5.5rem' },
+                    fontWeight: 800,
+                    background: isDarkMode 
+                      ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)'
+                      : 'linear-gradient(135deg, #1e293b 0%, #475569 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     backgroundClip: 'text',
-                    fontSize: { xs: '1.5rem', sm: '2rem', md: '2.8rem' },
-                    fontWeight: 800,
-                    fontFamily: '"Inter", "Poppins", sans-serif',
-                    letterSpacing: '-0.02em',
+                    mb: 2,
+                    lineHeight: 1.1,
                   }}
                 >
-                  I'm a {roles[currentRole]}
+                  Prabhat Mishra
                 </Typography>
               </motion.div>
-            </AnimatePresence>
-          </Box>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-          >
-            <Typography 
-              variant="h6" 
-              sx={{ 
-                mb: 6,
-                color: '#e2e8f0',
-                maxWidth: '900px',
-                mx: 'auto',
-                fontSize: { xs: '1.1rem', sm: '1.2rem', md: '1.35rem' },
-                opacity: 0.95,
-                fontFamily: '"Inter", sans-serif',
-                fontWeight: 400,
-                letterSpacing: '0.01em',
-                lineHeight: 1.7,
-              }}
-            >
-              Specializing in PHP, MySQL, Web Development & Cloud Deployments. Building robust, scalable solutions with modern technologies and best practices.
-            </Typography>
-          </motion.div>
+              <motion.div variants={itemVariants}>
+                <Box sx={{ height: '80px', mb: 3, display: 'flex', alignItems: 'center' }}>
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentRole}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      transition={{ duration: 0.5 }}
+                      style={{ display: 'flex', alignItems: 'center', gap: '12px' }}
+                    >
+                      <Box
+                        sx={{
+                          color: roles[currentRole].color,
+                          display: 'flex',
+                          alignItems: 'center',
+                          fontSize: '2rem',
+                        }}
+                      >
+                        {roles[currentRole].icon}
+                      </Box>
+                      <Typography
+                        variant="h3"
+                        sx={{
+                          fontSize: { xs: '1.8rem', sm: '2.2rem', md: '2.8rem' },
+                          fontWeight: 700,
+                          background: `linear-gradient(135deg, ${roles[currentRole].color} 0%, ${roles[currentRole].color}80 100%)`,
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                          backgroundClip: 'text',
+                        }}
+                      >
+                        {roles[currentRole].title}
+                      </Typography>
+                    </motion.div>
+                  </AnimatePresence>
+                </Box>
+              </motion.div>
 
+              <motion.div variants={itemVariants}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: isDarkMode ? '#cbd5e1' : '#64748b',
+                    mb: 4,
+                    fontSize: { xs: '1.1rem', md: '1.25rem' },
+                    lineHeight: 1.6,
+                    maxWidth: '600px',
+                  }}
+                >
+                  Crafting scalable web applications with modern technologies. 
+                  Specialized in PHP, MySQL, and full-stack development with clean code practices.
+                </Typography>
+              </motion.div>
+
+              <motion.div variants={itemVariants}>
+                <Box sx={{ mb: 4, display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                  {skills.slice(0, 6).map((skill, index) => (
+                    <motion.div
+                      key={skill}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 1 + index * 0.1 }}
+                    >
+                      <Chip
+                        label={skill}
+                        sx={{
+                          background: isDarkMode 
+                            ? 'rgba(99, 102, 241, 0.1)'
+                            : 'rgba(59, 130, 246, 0.1)',
+                          color: isDarkMode ? '#818cf8' : '#3b82f6',
+                          border: isDarkMode 
+                            ? '1px solid rgba(99, 102, 241, 0.3)'
+                            : '1px solid rgba(59, 130, 246, 0.3)',
+                          fontWeight: 600,
+                          '&:hover': {
+                            background: isDarkMode 
+                              ? 'rgba(99, 102, 241, 0.2)'
+                              : 'rgba(59, 130, 246, 0.2)',
+                            transform: 'translateY(-2px)',
+                          },
+                          transition: 'all 0.3s ease',
+                        }}
+                      />
+                    </motion.div>
+                  ))}
+                </Box>
+              </motion.div>
+
+              <motion.div variants={itemVariants}>
+                <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+                  <Button
+                    component={Link}
+                    to="projects"
+                    smooth={true}
+                    variant="contained"
+                    size="large"
+                    startIcon={<PlayArrowIcon />}
+                    sx={{
+                      px: 4,
+                      py: 1.5,
+                      fontSize: '1.1rem',
+                      fontWeight: 600,
+                    }}
+                  >
+                    View My Work
+                  </Button>
+                  <Button
+                    component={Link}
+                    to="contact"
+                    smooth={true}
+                    variant="outlined"
+                    size="large"
+                    sx={{
+                      px: 4,
+                      py: 1.5,
+                      fontSize: '1.1rem',
+                      fontWeight: 600,
+                    }}
+                  >
+                    Let's Connect
+                  </Button>
+                </Box>
+              </motion.div>
+            </motion.div>
+          </Grid>
+
+          <Grid item xs={12} md={4}>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            >
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  position: 'relative',
+                }}
+              >
+                <Box
+                  sx={{
+                    position: 'relative',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: '-20px',
+                      left: '-20px',
+                      right: '-20px',
+                      bottom: '-20px',
+                      background: isDarkMode 
+                        ? 'linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%)'
+                        : 'linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(99, 102, 241, 0.2) 100%)',
+                      borderRadius: '50%',
+                      filter: 'blur(20px)',
+                      zIndex: -1,
+                    },
+                  }}
+                >
+                  <Avatar
+                    src="/me.jpg"
+                    alt="Prabhat Mishra"
+                    sx={{
+                      width: { xs: 250, md: 300 },
+                      height: { xs: 250, md: 300 },
+                      border: isDarkMode 
+                        ? '4px solid rgba(99, 102, 241, 0.3)'
+                        : '4px solid rgba(59, 130, 246, 0.3)',
+                      boxShadow: isDarkMode 
+                        ? '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
+                        : '0 25px 50px -12px rgba(0, 0, 0, 0.2)',
+                    }}
+                  />
+                </Box>
+              </Box>
+            </motion.div>
+          </Grid>
+        </Grid>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2 }}
+          style={{
+            position: 'absolute',
+            bottom: '2rem',
+            left: '50%',
+            transform: 'translateX(-50%)',
+          }}
+        >
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.5 }}
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
           >
-            <Button
-              component={Link}
-              to="projects"
-              smooth={true}
-              variant="contained"
-              size="large"
+            <ArrowDownwardIcon
               sx={{
-                mr: 2,
-                px: 5,
-                py: 2,
-                borderRadius: 4,
-                textTransform: 'none',
-                fontSize: { xs: '1.05rem', md: '1.15rem' },
-                fontWeight: 700,
-                background: 'linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%)',
-                color: '#ffffff',
-                boxShadow: '0 10px 30px rgba(139, 92, 246, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1) inset',
-                border: 'none',
-                position: 'relative',
-                overflow: 'hidden',
-                '&::before': {
-                  content: '""',
-                  position: 'absolute',
-                  top: 0,
-                  left: '-100%',
-                  width: '100%',
-                  height: '100%',
-                  background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)',
-                  transition: 'left 0.5s ease',
-                },
-                '&:hover': {
-                  background: 'linear-gradient(135deg, #a78bfa 0%, #c4b5fd 100%)',
-                  transform: 'translateY(-4px) scale(1.05)',
-                  boxShadow: '0 15px 40px rgba(139, 92, 246, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.2) inset',
-                  transition: 'all 0.3s ease',
-                  '&::before': {
-                    left: '100%',
-                  }
-                },
+                fontSize: '2rem',
+                color: isDarkMode ? '#818cf8' : '#6366f1',
+                opacity: 0.7,
               }}
-            >
-              View Projects
-            </Button>
-            <Button
-              component={Link}
-              to="contact"
-              smooth={true}
-              variant="outlined"
-              size="large"
-              sx={{
-                px: 5,
-                py: 2,
-                borderRadius: 4,
-                textTransform: 'none',
-                fontSize: { xs: '1.05rem', md: '1.15rem' },
-                fontWeight: 700,
-                borderWidth: '3px',
-                borderColor: '#a78bfa',
-                color: '#a78bfa',
-                background: 'rgba(167, 139, 250, 0.1)',
-                backdropFilter: 'blur(10px)',
-                boxShadow: '0 0 20px rgba(167, 139, 250, 0.3)',
-                '&:hover': {
-                  borderColor: '#c4b5fd',
-                  color: '#c4b5fd',
-                  backgroundColor: 'rgba(167, 139, 250, 0.2)',
-                  transform: 'translateY(-4px)',
-                  boxShadow: '0 10px 30px rgba(167, 139, 250, 0.5)',
-                  transition: 'all 0.3s ease',
-                },
-              }}
-            >
-              Get In Touch
-            </Button>
+            />
           </motion.div>
-        </Box>
+        </motion.div>
       </Container>
     </Box>
   );
