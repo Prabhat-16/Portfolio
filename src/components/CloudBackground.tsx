@@ -1,111 +1,131 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import CloudIcon from '@mui/icons-material/Cloud';
+import StorageIcon from '@mui/icons-material/Storage';
+import SecurityIcon from '@mui/icons-material/Security';
+import CodeIcon from '@mui/icons-material/Code';
+import DnsIcon from '@mui/icons-material/Dns';
+import RouterIcon from '@mui/icons-material/Router';
 
-const FloatingCloud = ({ 
+const FloatingIcon = ({ 
+  icon: Icon,
   style, 
   floatX = 30, 
-  floatY = 0, 
+  floatY = 20, 
   duration = 8, 
   delay = 0, 
-  opacity = 0.18
+  color = '#6366f1'
 }: { 
+  icon: React.ElementType;
   style: React.CSSProperties; 
   floatX?: number; 
   floatY?: number; 
   duration?: number; 
   delay?: number; 
-  opacity?: number;
+  color?: string;
 }) => (
   <motion.div
     animate={{
-      opacity,
-      x: [0, floatX, -floatX, 0],
       y: [0, floatY, -floatY, 0],
-      scale: [1, 1.1, 0.9, 1],
+      rotate: [0, 5, -5, 0],
     }}
     transition={{
-      opacity: { duration: 0 },
-      x: { duration, repeat: Infinity, ease: 'easeInOut', delay },
-      y: { duration: duration * 1.2, repeat: Infinity, ease: 'easeInOut', delay: delay + 0.5 },
-      scale: { duration: duration * 0.8, repeat: Infinity, ease: 'easeInOut', delay: delay + 1 },
+      duration: duration,
+      repeat: Infinity,
+      ease: 'easeInOut',
+      delay: delay,
     }}
     style={{
       position: 'absolute',
-      borderRadius: '50%',
-      filter: 'blur(32px)',
-      background: 'radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.1) 50%, transparent 100%)',
       ...style,
     }}
-  />
+  >
+    <Icon sx={{ fontSize: style.fontSize || 60, color: color, opacity: 0.15 }} />
+  </motion.div>
 );
 
 const CloudBackground: React.FC<{ zIndex?: number }> = ({ zIndex = 0 }) => {
   return (
     <>
-      {/* Main floating clouds */}
-      <FloatingCloud 
-        style={{ left: '10%', top: '15%', width: 180, height: 80, zIndex }} 
-        floatX={40} 
-        duration={10} 
-        delay={0.1} 
-      />
-      <FloatingCloud 
-        style={{ left: '65%', top: '10%', width: 120, height: 60, zIndex }} 
-        floatX={30} 
-        floatY={10} 
+      {/* Floating Tech Icons */}
+      <FloatingIcon 
+        icon={CloudIcon}
+        style={{ left: '10%', top: '15%', fontSize: 120, zIndex }} 
+        floatY={30}
         duration={12} 
-        delay={0.3}
+        delay={0} 
+        color="#0ea5e9"
       />
-      <FloatingCloud 
-        style={{ left: '50%', top: '70%', width: 160, height: 70, zIndex }} 
-        floatX={25} 
-        floatY={15} 
+      <FloatingIcon 
+        icon={StorageIcon}
+        style={{ right: '15%', top: '20%', fontSize: 80, zIndex }} 
+        floatY={25}
+        duration={15} 
+        delay={1}
+        color="#8b5cf6" 
+      />
+      <FloatingIcon 
+        icon={SecurityIcon}
+        style={{ left: '20%', bottom: '20%', fontSize: 90, zIndex }} 
+        floatY={35}
+        duration={18} 
+        delay={2}
+        color="#f59e0b" 
+      />
+      <FloatingIcon 
+        icon={CodeIcon}
+        style={{ right: '25%', bottom: '30%', fontSize: 70, zIndex }} 
+        floatY={20}
         duration={14} 
-        delay={0.5}
+        delay={3}
+        color="#10b981" 
       />
-      <FloatingCloud 
-        style={{ left: '80%', top: '60%', width: 90, height: 40, zIndex }} 
-        floatX={20} 
-        floatY={8} 
-        duration={11} 
-        delay={0.7}
-      />
-      <FloatingCloud 
-        style={{ left: '20%', top: '75%', width: 110, height: 50, zIndex }} 
-        floatX={35} 
-        floatY={12} 
-        duration={13} 
-        delay={0.9}
+      <FloatingIcon 
+        icon={DnsIcon}
+        style={{ left: '50%', top: '10%', fontSize: 60, zIndex }} 
+        floatY={15}
+        duration={20} 
+        delay={4}
+        color="#ec4899" 
       />
       
-      {/* Additional smaller particles */}
-      {[...Array(8)].map((_, i) => (
+      {/* Network Lines / Data Particles */}
+      {[...Array(15)].map((_, i) => (
         <motion.div
           key={i}
+          initial={{ 
+            x: Math.random() * window.innerWidth, 
+            y: Math.random() * window.innerHeight,
+            opacity: 0 
+          }}
           animate={{
-            y: ['0vh', '100vh'],
-            opacity: [0, 0.3, 0],
-            scale: [0.5, 1, 0.5],
+            y: [null, Math.random() * -100],
+            opacity: [0, 0.4, 0],
           }}
           transition={{
-            duration: Math.random() * 20 + 15,
+            duration: Math.random() * 5 + 5,
             repeat: Infinity,
-            delay: Math.random() * 10,
-            ease: 'linear',
+            delay: Math.random() * 5,
+            ease: "linear"
           }}
           style={{
             position: 'absolute',
-            left: `${Math.random() * 100}%`,
-            top: `-${Math.random() * 20}%`,
-            width: '4px',
-            height: '4px',
-            background: 'rgba(99, 102, 241, 0.6)',
+            width: '2px',
+            height: '2px',
+            background: '#ffffff',
+            boxShadow: '0 0 4px #ffffff',
             borderRadius: '50%',
-            filter: 'blur(1px)',
-            zIndex,
+            zIndex: zIndex,
           }}
         />
       ))}
+
+      {/* Connection Lines (Simulated) */}
+       <svg style={{ position: 'absolute', width: '100%', height: '100%', zIndex: zIndex - 1, opacity: 0.1 }}>
+        <line x1="15%" y1="20%" x2="50%" y2="15%" stroke="#6366f1" strokeWidth="1" />
+        <line x1="50%" y1="15%" x2="85%" y2="25%" stroke="#6366f1" strokeWidth="1" />
+        <line x1="20%" y1="80%" x2="50%" y2="15%" stroke="#6366f1" strokeWidth="1" />
+      </svg>
     </>
   );
 };
