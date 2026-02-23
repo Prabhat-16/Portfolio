@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Box, Container, Typography, Grid, Link, Button, TextField, CircularProgress, Alert } from '@mui/material';
 import { Email, LinkedIn, LocationOn, GitHub, Twitter, Instagram } from '@mui/icons-material';
 import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -18,44 +17,48 @@ const Contact: React.FC = () => {
     setIsSending(true);
     setStatus({ type: null, message: '' });
 
-    // Debug check for environment variables
-    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
-    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+    const webhookUrl = process.env.REACT_APP_DISCORD_WEBHOOK_URL;
 
-    if (!serviceId || !templateId || !publicKey) {
-      console.error('EmailJS Error: Environment variables are missing or not loaded. Did you restart the server?');
+    if (!webhookUrl) {
+      console.error('Discord Error: REACT_APP_DISCORD_WEBHOOK_URL is missing.');
       setStatus({ 
         type: 'error', 
-        message: 'Configuration error: Environment variables not found. Please ensure you have restarted the development server after updating the .env file.' 
+        message: 'System Error: Dispatch URL not found. Please configure the webhook in .env.' 
       });
       setIsSending(false);
       return;
     }
 
     try {
-      emailjs.init(publicKey);
-      const result = await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          title: 'New Portfolio Message',
-        }
-      );
-
-      if (result.status === 200) {
-        setStatus({ type: 'success', message: 'Message sent successfully! I will get back to you soon.' });
-        setFormData({ name: '', email: '', message: '' });
-      }
-    } catch (error: any) {
-      console.error('EmailJS Full Error:', error);
-      setStatus({ 
-        type: 'error', 
-        message: `Failed to send: ${error?.text || 'Check console for details'}. Please try again or reach out directly.` 
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          username: "Portfolio Bot",
+          avatar_url: "https://i.imgur.com/4M34hi2.png",
+          embeds: [{
+            title: "📡 New Incoming Transmission",
+            color: 6735233, // High-tech Green
+            fields: [
+              { name: "👤 Sender", value: formData.name, inline: true },
+              { name: "📧 Email", value: formData.email, inline: true },
+              { name: "💬 Message", value: formData.message }
+            ],
+            footer: { text: "System Info: Portfolio v2.4.0 • Node.js Environment" },
+            timestamp: new Date().toISOString()
+          }]
+        })
       });
+
+      if (response.ok) {
+        setStatus({ type: 'success', message: 'TRANSMISSION_SUCCESS: Message dispatched to system logs.' });
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        throw new Error('Webhook rejected the request');
+      }
+    } catch (error) {
+      console.error('Discord Webhook Error:', error);
+      setStatus({ type: 'error', message: 'TRANSMISSION_FAILED: Connection to dispatch server lost.' });
     } finally {
       setIsSending(false);
     }
