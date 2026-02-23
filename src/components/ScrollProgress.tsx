@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Box } from '@mui/material';
 import { motion, useScroll, useSpring } from 'framer-motion';
 
@@ -17,10 +17,9 @@ const ScrollProgress: React.FC = () => {
         top: 0,
         left: 0,
         right: 0,
-        height: '4px',
+        height: '3px',
         zIndex: 1001,
-        background: 'rgba(30, 41, 59, 0.8)',
-        backdropFilter: 'blur(10px)',
+        bgcolor: '#030712',
       }}
     >
       <motion.div
@@ -28,8 +27,8 @@ const ScrollProgress: React.FC = () => {
           scaleX,
           transformOrigin: '0%',
           height: '100%',
-          background: 'linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899)',
-          borderRadius: '0 2px 2px 0',
+          background: '#4ade80',
+          boxShadow: '0 0 10px rgba(74, 222, 128, 0.5)',
         }}
       />
     </Box>

@@ -22,13 +22,6 @@ export const MySQLIcon: React.FC<SvgIconProps> = (props) => (
   </SvgIcon>
 );
 
-// Bootstrap Icon
-export const BootstrapIcon: React.FC<SvgIconProps> = (props) => (
-  <SvgIcon {...props} viewBox="0 0 24 24">
-    <path d="M11.77 11.24H9.956V8.202h2.152c1.17 0 1.834.522 1.834 1.466 0 1.008-.773 1.572-2.174 1.572zm.324 1.206H9.957v3.348h2.231c1.459 0 2.232-.585 2.232-1.685s-.795-1.663-2.326-1.663zM24 0v24H0V0h24zM6.5 4.026c0-.273.222-.495.495-.495h4.33c2.914 0 4.675 1.542 4.675 4.123 0 1.685-.971 2.914-2.326 3.436v.05c1.542.398 2.914 1.542 2.914 3.65 0 2.914-2.007 4.21-5.018 4.21H6.995c-.273 0-.495-.222-.495-.495V4.026z"/>
-  </SvgIcon>
-);
-
 // Node.js Icon
 export const NodeJSIcon: React.FC<SvgIconProps> = (props) => (
   <SvgIcon {...props} viewBox="0 0 24 24">

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Box, Container, Typography, Grid, Card, CardContent, CardActions, Button, Chip } from '@mui/material';
+import { Box, Container, Typography, Grid, Paper, Chip, Button } from '@mui/material';
 import { motion } from 'framer-motion';
-import { GitHub, Launch } from '@mui/icons-material';
-import CloudBackground from './CloudBackground';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LaunchIcon from '@mui/icons-material/Launch';
 
 interface Project {
   title: string;
@@ -15,44 +15,44 @@ interface Project {
 const projects: Project[] = [
   {
     title: 'Task Tracker App',
-    description: 'Full-stack application built with React, Node.js, and MySQL featuring real-time task updates. Deployed on Azure VM with comprehensive task management capabilities including user authentication and responsive design.',
-    duration: 'Recent Project',
-    technologies: ['React', 'Node.js', 'MySQL', 'Azure VM'],
+    description: 'Full-stack application built with React, Node.js, and MySQL featuring real-time task updates. Deployed on Azure VM with comprehensive task management capabilities.',
+    duration: '2024',
+    technologies: ['React', 'Node.js', 'MySQL', 'Azure'],
     githubLink: 'https://github.com/Prabhat-16/Task-Tracker-Frontend',
   },
   {
     title: 'AI Chatbot - DeepSeek',
-    description: 'Intelligent chatbot built with React frontend and DeepSeek v3 API integration. Features real-time chat functionality, error handling, and modern UI design. Deployed on Azure for scalable performance.',
-    duration: 'Recent Project',
-    technologies: ['React', 'DeepSeek API', 'Azure', 'JavaScript'],
+    description: 'Intelligent chatbot built with React frontend and DeepSeek v3 API integration. Features real-time chat functionality and modern UI design.',
+    duration: '2024',
+    technologies: ['React', 'DeepSeek API', 'Azure'],
     githubLink: 'https://github.com/Prabhat-16/AzureAiModel',
   },
   {
-    title: 'CAREERION - Career Recommendation System',
-    description: 'AI-powered career recommendation system built using the MERN stack. Uses machine learning to analyze user skills, interests, and trends to suggest suitable career paths with personalized recommendations.',
-    duration: 'Major Project',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Machine Learning', 'Express'],
+    title: 'CAREERION',
+    description: 'AI-powered career recommendation system built using the MERN stack. Uses machine learning to analyze user skills and suggest suitable career paths.',
+    duration: '2023',
+    technologies: ['MongoDB', 'Express', 'React', 'Node.js', 'ML'],
     githubLink: 'https://github.com/Prabhat-16/Careerion-Frontend',
   },
   {
-    title: 'Movie Ticket Booking Site',
-    description: 'Frontend movie booking platform with admin schedule control. Built using HTML, CSS, JavaScript, and Bootstrap. Features responsive design, movie browsing, showtime viewing, and ticket booking functionality.',
-    duration: 'Frontend Project',
-    technologies: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap'],
+    title: 'Movie Ticket Booking',
+    description: 'Frontend movie booking platform with admin schedule control. Features responsive design and ticket booking functionality.',
+    duration: '2023',
+    technologies: ['HTML5', 'CSS3', 'JavaScript'],
     githubLink: 'https://github.com/Prabhat-16/ONLINEMOVIEBOOKING',
   },
   {
     title: 'Web Billing System',
-    description: 'PHP billing platform with comprehensive features including login, invoices, and payment tracking using AJAX and MySQL. Includes client management, automated billing, and detailed reporting capabilities.',
-    duration: 'PHP Project',
-    technologies: ['PHP', 'MySQL', 'AJAX', 'JavaScript', 'Bootstrap'],
+    description: 'PHP billing platform featuring login, invoices, and payment tracking using AJAX and MySQL.',
+    duration: '2022',
+    technologies: ['PHP', 'MySQL', 'AJAX'],
     githubLink: 'https://github.com/Prabhat-16/WebBilling',
   },
   {
-    title: 'Construction Company Website',
-    description: 'Core PHP and MySQL site featuring project showcase and contact forms. Fast and responsive design with project management capabilities, client testimonials, and service portfolio display.',
-    duration: 'Core PHP Project',
-    technologies: ['PHP', 'MySQL', 'HTML5', 'CSS3', 'JavaScript'],
+    title: 'Construction Site',
+    description: 'Core PHP and MySQL site featuring project showcase and contact forms. Fast and responsive design.',
+    duration: '2022',
+    technologies: ['PHP', 'MySQL', 'HTML5'],
     githubLink: 'https://github.com/Prabhat-16/ConstructionWebsite',
   },
 ];
@@ -63,279 +63,161 @@ const Projects: React.FC = () => {
       id="projects"
       sx={{
         py: 12,
-        background: 'linear-gradient(180deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%)',
+        bgcolor: 'transparent',
         position: 'relative',
-        overflow: 'hidden',
       }}
     >
-      <CloudBackground zIndex={0} />
-
-      <Container sx={{ position: 'relative', zIndex: 1 }}>
+      <Container maxWidth="lg">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
         >
-          <Box sx={{ 
-            display: 'flex', 
-            flexDirection: 'column', 
-            alignItems: 'center',
-            mb: 6 
-          }}>
-            <Typography 
-              variant="h2" 
-              component="h2" 
-              gutterBottom 
-              align="center"
-              sx={{ 
-                fontWeight: 900,
-                position: 'relative',
-                background: 'linear-gradient(135deg, #a78bfa 0%, #60a5fa 50%, #8b5cf6 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                display: 'inline-block',
-                fontFamily: '"Poppins", "Inter", sans-serif',
-                letterSpacing: '-0.03em',
-                fontSize: { xs: '2.5rem', md: '3.5rem' },
-                '&::after': {
-                  content: '""',
-                  position: 'absolute',
-                  bottom: '-15px',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  width: '100px',
-                  height: '5px',
-                  background: 'linear-gradient(90deg, transparent, #8b5cf6, #a78bfa, #8b5cf6, transparent)',
-                  borderRadius: '10px',
-                  boxShadow: '0 0 20px rgba(139, 92, 246, 0.6)',
-                }
+          {/* Section Header */}
+          <Box sx={{ mb: 8, display: 'flex', alignItems: 'center', gap: 2 }}>
+            <Typography
+              variant="h2"
+              sx={{
+                fontSize: { xs: '2rem', md: '3rem' },
+                fontWeight: 800,
+                color: '#4ade80',
+                fontFamily: "'Fira Code', monospace",
+                textShadow: '0 0 20px rgba(74, 222, 128, 0.3)'
               }}
             >
-              🚀 My Projects
+              {">"} Featured Projects
             </Typography>
-            <Typography 
-              variant="body1" 
-              sx={{ 
-                color: '#ffffff',
-                textAlign: 'center',
-                maxWidth: '800px',
-                mx: 'auto',
-                fontSize: '1.1rem',
-                mt: 2,
-                opacity: 0.9,
-                fontFamily: '"Inter", sans-serif',
-                fontWeight: 400,
-                letterSpacing: '0.01em',
-                lineHeight: 1.6,
-              }}
-            >
-              Explore my projects showcasing full-stack development with PHP, MySQL, React, and modern web technologies.
-            </Typography>
+            <Box sx={{ flexGrow: 1, height: '1px', bgcolor: 'rgba(74, 222, 128, 0.2)' }} />
           </Box>
 
-          <Grid container spacing={4} sx={{ 
-            mt: 2,
-            '& .MuiGrid-item:last-child:nth-of-type(3n+1)': {
-              marginLeft: 'auto',
-              marginRight: 'auto',
-              flexBasis: 'calc(33.333% - 32px)'
-            }
-          }}>
+          <Grid container spacing={4}>
             {projects.map((project, index) => (
               <Grid item xs={12} md={6} lg={4} key={project.title}>
                 <motion.div
-                  initial={{ opacity: 0, y: 50 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.2 }}
+                  transition={{ delay: index * 0.1 }}
                 >
-                  <Card 
-                    elevation={3}
+                  <Paper
+                    elevation={0}
                     sx={{
+                      p: 3,
                       height: '100%',
+                      bgcolor: '#0f172a',
+                      border: '1px solid #1e293b',
                       display: 'flex',
                       flexDirection: 'column',
-                      background: 'linear-gradient(145deg, rgba(30, 27, 75, 0.6) 0%, rgba(15, 23, 42, 0.6) 100%)',
-                      backdropFilter: 'blur(20px)',
-                      border: '2px solid rgba(139, 92, 246, 0.3)',
-                      borderRadius: '24px',
-                      boxShadow: '0 20px 60px rgba(139, 92, 246, 0.2), 0 0 0 1px rgba(139, 92, 246, 0.1) inset',
-                      transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
-                      position: 'relative',
-                      overflow: 'hidden',
-                      '&::before': {
-                        content: '""',
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        height: '4px',
-                        background: 'linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.8), transparent)',
-                        opacity: 0,
-                        transition: 'opacity 0.4s ease',
-                      },
-                      '&::after': {
-                        content: '""',
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        background: 'radial-gradient(circle at top right, rgba(139, 92, 246, 0.15), transparent 60%)',
-                        pointerEvents: 'none',
-                      },
                       '&:hover': {
-                        transform: 'translateY(-15px) scale(1.03)',
-                        boxShadow: '0 30px 80px rgba(139, 92, 246, 0.4), 0 0 0 2px rgba(139, 92, 246, 0.4) inset',
-                        borderColor: 'rgba(167, 139, 250, 0.6)',
-                        '&::before': {
-                          opacity: 1,
-                        }
+                        borderColor: '#38bdf8',
+                        transform: 'translateY(-4px)',
+                        boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
                       },
+                      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                     }}
                   >
-                    <CardContent sx={{ 
-                      flexGrow: 1, 
-                      p: 3,
-                      display: 'flex',
-                      flexDirection: 'column',
-                      height: '100%'
-                    }}>
-                      <Box>
-                        <Typography 
-                          variant="h6"
-                          component="h3"
-                          gutterBottom 
-                          sx={{ 
-                            color: '#a78bfa',
-                            fontWeight: 800,
-                            fontFamily: '"Inter", sans-serif',
-                            fontSize: '1.4rem',
-                            mb: 1,
-                            lineHeight: 1.4,
-                            minHeight: '3.5rem',
-                            display: 'flex',
-                            alignItems: 'center',
-                            textShadow: '0 4px 16px rgba(167, 139, 250, 0.5)',
-                          }}
-                        >
-                          {project.title}
-                        </Typography>
-                        <Typography 
-                          sx={{ 
-                            fontSize: '0.85rem',
-                            color: '#c4b5fd',
-                            mb: 2,
-                            fontFamily: '"Inter", sans-serif',
-                            fontWeight: 500,
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: 1
-                          }}
-                        >
-                          <span style={{ fontSize: '1.2em' }}>⏳</span>
-                          {project.duration}
-                        </Typography>
-                      </Box>
-                      
-                      <Typography 
-                        variant="body2" 
-                        paragraph
-                        sx={{ 
+                    <Box sx={{ mb: 2 }}>
+                      <Typography sx={{ color: '#4ade80', fontSize: '0.8rem', mb: 1 }}>
+                        $ ./deploy --id={project.duration}
+                      </Typography>
+                      <Typography
+                        variant="h5"
+                        sx={{
                           color: '#f1f5f9',
-                          mb: 3,
-                          lineHeight: 1.8,
-                          fontSize: '0.95rem',
-                          flexGrow: 1,
-                          fontFamily: '"Inter", sans-serif',
-                          fontWeight: 400,
-                          opacity: 0.95,
+                          fontWeight: 700,
+                          fontFamily: "'Fira Code', monospace",
+                          mb: 2
                         }}
                       >
-                        {project.description}
+                        {project.title}
                       </Typography>
-                      
-                      <Box sx={{ 
-                        mt: 'auto',
-                        pt: 2,
-                        borderTop: '1px solid rgba(99, 102, 241, 0.1)'
-                      }}>
-                        <Box sx={{ 
-                          display: 'flex',
-                          flexWrap: 'wrap',
-                          gap: 1,
-                          mb: 2,
-                          minHeight: '2.5rem'
-                        }}>
-                          {project.technologies.map((tech) => (
-                            <Chip
-                              key={tech}
-                              label={tech}
-                              size="small"
-                              sx={{
-                                background: 'rgba(139, 92, 246, 0.15)',
-                                border: '1.5px solid rgba(139, 92, 246, 0.4)',
-                                color: '#c4b5fd',
-                                fontWeight: 700,
-                                fontSize: '0.8rem',
-                                height: '28px',
-                                '& .MuiChip-label': {
-                                  px: 2,
-                                },
-                                '&:hover': {
-                                  background: 'rgba(139, 92, 246, 0.25)',
-                                  borderColor: 'rgba(139, 92, 246, 0.6)',
-                                  transform: 'translateY(-2px)',
-                                  boxShadow: '0 6px 16px rgba(139, 92, 246, 0.3)',
-                                }
-                              }}
-                            />
-                          ))}
-                        </Box>
-                        
-                        <Button
-                          href={project.githubLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          variant="outlined"
+                    </Box>
+
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: '#94a3b8',
+                        lineHeight: 1.6,
+                        mb: 3,
+                        flexGrow: 1,
+                        fontFamily: "'Fira Code', monospace",
+                        fontSize: '0.9rem'
+                      }}
+                    >
+                      {project.description}
+                    </Typography>
+
+                    <Box sx={{ mb: 3, display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                      {project.technologies.map((tech) => (
+                        <Chip
+                          key={tech}
+                          label={tech}
                           size="small"
-                          startIcon={<GitHub sx={{ fontSize: '1.1rem' }} />}
                           sx={{
-                            color: '#c4b5fd',
-                            borderColor: 'rgba(139, 92, 246, 0.5)',
-                            borderWidth: '2px',
-                            borderRadius: '12px',
-                            textTransform: 'none',
-                            fontWeight: 700,
-                            fontSize: '0.95rem',
-                            px: 3,
-                            py: 1.2,
-                            mt: 1,
-                            transition: 'all 0.3s ease',
-                            '&:hover': {
-                              background: 'rgba(139, 92, 246, 0.2)',
-                              borderColor: 'rgba(139, 92, 246, 0.8)',
-                              color: '#a78bfa',
-                              transform: 'translateY(-3px)',
-                              boxShadow: '0 8px 20px rgba(139, 92, 246, 0.4)',
-                            }
+                            bgcolor: 'rgba(56, 189, 248, 0.1)',
+                            color: '#38bdf8',
+                            border: '1px solid rgba(56, 189, 248, 0.2)',
+                            borderRadius: '4px',
+                            fontFamily: "'Fira Code', monospace",
+                            fontSize: '0.7rem',
                           }}
-                        >
-                          View on GitHub
-                        </Button>
-                      </Box>
-                    </CardContent>
-                  </Card>
+                        />
+                      ))}
+                    </Box>
+
+                    <Box sx={{ display: 'flex', gap: 2 }}>
+                      <Button
+                        href={project.githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        startIcon={<GitHubIcon />}
+                        sx={{
+                          color: '#4ade80',
+                          textTransform: 'none',
+                          fontSize: '0.85rem',
+                          fontFamily: "'Fira Code', monospace",
+                          '&:hover': { bgcolor: 'rgba(74, 222, 128, 0.1)' }
+                        }}
+                      >
+                        [source]
+                      </Button>
+                      <Button
+                        startIcon={<LaunchIcon />}
+                        sx={{
+                          color: '#38bdf8',
+                          textTransform: 'none',
+                          fontSize: '0.85rem',
+                          fontFamily: "'Fira Code', monospace",
+                          '&:hover': { bgcolor: 'rgba(56, 189, 248, 0.1)' }
+                        }}
+                      >
+                        [demo]
+                      </Button>
+                    </Box>
+                  </Paper>
                 </motion.div>
               </Grid>
             ))}
           </Grid>
+          
+          <Box sx={{ mt: 8, textAlign: 'center' }}>
+            <Typography
+              sx={{
+                color: '#4ade80',
+                fontFamily: "'Fira Code', monospace",
+                cursor: 'pointer',
+                '&:hover': { textDecoration: 'underline' }
+              }}
+            >
+              $ view-all --on-github
+            </Typography>
+          </Box>
         </motion.div>
       </Container>
     </Box>
   );
 };
 
-export default Projects; 
+export default Projects;
+ 

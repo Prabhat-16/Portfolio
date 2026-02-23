@@ -1,25 +1,25 @@
 import React from 'react';
-import { Box, Container, Typography, Grid, Paper, Card, CardContent, Avatar, LinearProgress } from '@mui/material';
+import { Box, Container, Typography, Grid, Paper } from '@mui/material';
 import { motion } from 'framer-motion';
+import StorageIcon from '@mui/icons-material/Storage';
 import CodeIcon from '@mui/icons-material/Code';
-import CloudIcon from '@mui/icons-material/Cloud';
-import SecurityIcon from '@mui/icons-material/Security';
-import SpeedIcon from '@mui/icons-material/Speed';
+import TerminalIcon from '@mui/icons-material/Terminal';
+import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions';
 
 const About: React.FC = () => {
 
   const stats = [
     { label: 'Education Level', value: 'MCA', icon: <CodeIcon /> },
-    { label: 'Projects Completed', value: '6+', icon: <CloudIcon /> },
-    { label: 'Technologies Used', value: '15+', icon: <SecurityIcon /> },
-    { label: 'Learning Progress', value: '100%', icon: <SpeedIcon /> },
+    { label: 'Projects Completed', value: '6+', icon: <StorageIcon /> },
+    { label: 'Technologies', value: '15+', icon: <IntegrationInstructionsIcon /> },
+    { label: 'Uptime', value: '99.9%', icon: <TerminalIcon /> },
   ];
 
   const skills = [
-    { name: 'PHP & MySQL Development', level: 90, color: '#6366f1' },
-    { name: 'Frontend Technologies', level: 85, color: '#8b5cf6' },
-    { name: 'JavaScript & AJAX', level: 80, color: '#ec4899' },
-    { name: 'Cloud & DevOps (Learning)', level: 70, color: '#f59e0b' },
+    { name: 'PHP & MySQL', level: 90 },
+    { name: 'Frontend Tech', level: 85 },
+    { name: 'JavaScript & AJAX', level: 80 },
+    { name: 'Cloud & DevOps', level: 70 },
   ];
 
   const containerVariants = {
@@ -27,8 +27,7 @@ const About: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2
+        staggerChildren: 0.15
       }
     }
   };
@@ -45,13 +44,20 @@ const About: React.FC = () => {
     }
   };
 
+  const renderProgressBar = (level: number) => {
+    const bars = 20;
+    const filled = Math.round((level / 100) * bars);
+    const empty = bars - filled;
+    return `[${'#'.repeat(filled)}${'.'.repeat(empty)}] ${level}%`;
+  };
+
   return (
     <Box
       id="about"
       sx={{
         py: { xs: 8, md: 12 },
         position: 'relative',
-        background: 'radial-gradient(ellipse at center, rgba(139, 92, 246, 0.05) 0%, transparent 50%)',
+        bgcolor: 'transparent',
       }}
     >
       <Container maxWidth="lg">
@@ -63,249 +69,108 @@ const About: React.FC = () => {
         >
           {/* Section Header */}
           <motion.div variants={itemVariants}>
-            <Box sx={{ textAlign: 'center', mb: 8 }}>
+            <Box sx={{ mb: 8, display: 'flex', alignItems: 'center', gap: 2 }}>
               <Typography
                 variant="h2"
                 sx={{
-                  fontSize: { xs: '2.5rem', md: '3.5rem' },
+                  fontSize: { xs: '2rem', md: '3rem' },
                   fontWeight: 800,
-                  background: 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  mb: 2,
+                  color: '#4ade80',
+                  fontFamily: "'Fira Code', monospace",
+                  textShadow: '0 0 20px rgba(74, 222, 128, 0.3)'
                 }}
               >
-                About Me
+                {">"} About Me
               </Typography>
-              <Box
-                sx={{
-                  width: '80px',
-                  height: '4px',
-                  background: 'linear-gradient(90deg, #6366f1, #8b5cf6)',
-                  borderRadius: '2px',
-                  mx: 'auto',
-                }}
-              />
+              <Box sx={{ flexGrow: 1, height: '1px', bgcolor: 'rgba(74, 222, 128, 0.2)' }} />
             </Box>
           </motion.div>
 
-          <Grid container spacing={4} alignItems="center">
-            {/* Profile Image */}
-            <Grid item xs={12} md={5}>
+          <Grid container spacing={6}>
+            <Grid item xs={12} md={7}>
               <motion.div variants={itemVariants}>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    position: 'relative',
-                  }}
-                >
-                  <Box
+                <Box sx={{ p: 4, border: '1px solid #1e293b', borderRadius: '4px', bgcolor: '#0f172a' }}>
+                  <Typography sx={{ color: '#4ade80', mb: 2 }}>$ cat profile.md</Typography>
+                  <Typography
                     sx={{
-                      position: 'relative',
-                      '&::before': {
-                        content: '""',
-                        position: 'absolute',
-                        top: '-30px',
-                        left: '-30px',
-                        right: '-30px',
-                        bottom: '-30px',
-                        background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%)',
-                        borderRadius: '30px',
-                        filter: 'blur(30px)',
-                        zIndex: -1,
-                      },
+                      color: '#f1f5f9',
+                      fontSize: '1.05rem',
+                      lineHeight: 1.8,
+                      fontFamily: "'Fira Code', monospace",
+                      mb: 4
                     }}
                   >
-                    <Paper
-                      elevation={0}
-                      sx={{
-                        p: 3,
-                        borderRadius: '30px',
-                        background: 'rgba(30, 41, 59, 0.8)',
-                        backdropFilter: 'blur(20px)',
-                        border: '1px solid rgba(99, 102, 241, 0.2)',
-                      }}
-                    >
-                      <Avatar
-                        src="/about.jpg"
-                        alt="Prabhat Mishra"
-                        sx={{
-                          width: { xs: 280, md: 320 },
-                          height: { xs: 280, md: 320 },
-                          borderRadius: '20px',
-                        }}
-                      />
-                    </Paper>
+                    ## Summary
+                    Experienced Full-Stack Developer currently pursuing Master's in Computer Applications (MCA) at MIT-WPU. 
+                    I bridge the gap between robust backend systems and intuitive frontend experiences.
+                    
+                    ## Background
+                    - Trainee Web Developer @ Tryon Infosoft
+                    - Tech Lead & Cloud Enthusiast
+                    - Passionate about automation and scalable architectures
+                  </Typography>
+
+                  <Typography sx={{ color: '#4ade80', mb: 2 }}>$ ls -la core_competencies/</Typography>
+                  <Box sx={{ fontFamily: "'Fira Code', monospace" }}>
+                    {skills.map((skill) => (
+                      <Box key={skill.name} sx={{ mb: 1, display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-between' }}>
+                        <Typography sx={{ color: '#38bdf8' }}>- {skill.name}</Typography>
+                        <Typography sx={{ color: '#94a3b8' }}>{renderProgressBar(skill.level)}</Typography>
+                      </Box>
+                    ))}
                   </Box>
                 </Box>
               </motion.div>
             </Grid>
 
-            {/* About Content */}
-            <Grid item xs={12} md={7}>
+            <Grid item xs={12} md={5}>
               <motion.div variants={itemVariants}>
-                <Typography
-                  variant="h4"
-                  sx={{
-                    fontWeight: 700,
-                    mb: 3,
-                    color: '#f1f5f9',
-                  }}
-                >
-                  MCA Student & Web Developer
-                </Typography>
-                
-                <Typography
-                  variant="body1"
-                  sx={{
-                    fontSize: '1.1rem',
-                    lineHeight: 1.8,
-                    mb: 4,
-                    color: '#cbd5e1',
-                  }}
-                >
-                  I'm a dedicated full-stack web developer with expertise in PHP, MySQL, HTML, CSS, 
-                  JavaScript, and AJAX. Currently pursuing my Master's in Computer Applications (MCA) 
-                  at MIT World Peace University, I'm passionate about building scalable applications 
-                  with clean code and responsive UI.
-                </Typography>
-
-                <Typography
-                  variant="body1"
-                  sx={{
-                    fontSize: '1.1rem',
-                    lineHeight: 1.8,
-                    mb: 4,
-                    color: '#cbd5e1',
-                  }}
-                >
-                  I have hands-on experience from my role as a Trainee Web Developer at Tryon Infosoft, 
-                  where I worked in an Agile environment and contributed to deployments and debugging. 
-                  I'm also actively involved in cloud technologies through AWS Cloud Club and tech 
-                  leadership roles.
-                </Typography>
-
-                {/* Skills Progress */}
-                <Box sx={{ mb: 4 }}>
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      fontWeight: 600,
-                      mb: 3,
-                      color: '#f1f5f9',
-                    }}
-                  >
-                    Core Competencies
-                  </Typography>
-                  {skills.map((skill, index) => (
-                    <Box key={skill.name} sx={{ mb: 3 }}>
-                      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
-                        <Typography
-                          variant="body2"
-                          sx={{
-                            fontWeight: 600,
-                            color: '#cbd5e1',
-                          }}
-                        >
-                          {skill.name}
-                        </Typography>
-                        <Typography
-                          variant="body2"
-                          sx={{
-                            fontWeight: 600,
-                            color: skill.color,
-                          }}
-                        >
-                          {skill.level}%
-                        </Typography>
-                      </Box>
-                      <LinearProgress
-                        variant="determinate"
-                        value={skill.level}
+                <Grid container spacing={3}>
+                  {stats.map((stat, index) => (
+                    <Grid item xs={6} key={stat.label}>
+                      <Paper
+                        elevation={0}
                         sx={{
-                          height: 8,
-                          borderRadius: 4,
-                          backgroundColor: 'rgba(30, 41, 59, 0.8)',
-                          '& .MuiLinearProgress-bar': {
-                            backgroundColor: skill.color,
-                            borderRadius: 4,
+                          p: 3,
+                          height: '100%',
+                          bgcolor: '#0f172a',
+                          border: '1px solid #1e293b',
+                          textAlign: 'center',
+                          '&:hover': {
+                            borderColor: '#4ade80',
+                            bgcolor: 'rgba(74, 222, 128, 0.05)',
                           },
+                          transition: 'all 0.3s'
                         }}
-                      />
-                    </Box>
+                      >
+                        <Box sx={{ color: '#4ade80', mb: 1 }}>{stat.icon}</Box>
+                        <Typography variant="h4" sx={{ color: '#f1f5f9', fontWeight: 700, mb: 0.5 }}>
+                          {stat.value}
+                        </Typography>
+                        <Typography variant="body2" sx={{ color: '#94a3b8', fontSize: '0.8rem' }}>
+                          {stat.label}
+                        </Typography>
+                      </Paper>
+                    </Grid>
                   ))}
+                </Grid>
+
+                <Box sx={{ mt: 4, p: 3, border: '1px solid #1e293b', bgcolor: '#0f172a', borderRadius: '4px' }}>
+                  <Typography sx={{ color: '#4ade80', mb: 1 }}>$ ping google.com</Typography>
+                  <Typography sx={{ color: '#94a3b8', fontFamily: "'Fira Code', monospace", fontSize: '0.85rem' }}>
+                    64 bytes from 142.250.190.46: icmp_seq=1 ttl=117 time=14.2 ms<br />
+                    64 bytes from 142.250.190.46: icmp_seq=2 ttl=117 time=14.5 ms<br />
+                    <span style={{ color: '#4ade80' }}>System online and ready for new challenges.</span>
+                  </Typography>
                 </Box>
               </motion.div>
             </Grid>
           </Grid>
-
-          {/* Stats Section */}
-          <motion.div variants={itemVariants}>
-            <Grid container spacing={3} sx={{ mt: 8 }}>
-              {stats.map((stat, index) => (
-                <Grid item xs={6} md={3} key={stat.label}>
-                  <motion.div
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <Card
-                      sx={{
-                        textAlign: 'center',
-                        p: 3,
-                        height: '100%',
-                        background: 'rgba(30, 41, 59, 0.8)',
-                        backdropFilter: 'blur(20px)',
-                        border: '1px solid rgba(99, 102, 241, 0.2)',
-                        '&:hover': {
-                          transform: 'translateY(-8px)',
-                          transition: 'all 0.3s ease',
-                        },
-                      }}
-                    >
-                      <CardContent sx={{ p: 0 }}>
-                        <Box
-                          sx={{
-                            color: '#6366f1',
-                            mb: 2,
-                            fontSize: '2.5rem',
-                          }}
-                        >
-                          {stat.icon}
-                        </Box>
-                        <Typography
-                          variant="h4"
-                          sx={{
-                            fontWeight: 800,
-                            mb: 1,
-                            color: '#f1f5f9',
-                          }}
-                        >
-                          {stat.value}
-                        </Typography>
-                        <Typography
-                          variant="body2"
-                          sx={{
-                            color: '#cbd5e1',
-                            fontWeight: 500,
-                          }}
-                        >
-                          {stat.label}
-                        </Typography>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                </Grid>
-              ))}
-            </Grid>
-          </motion.div>
         </motion.div>
       </Container>
     </Box>
   );
 };
 
-export default About; 
+export default About;
+ 

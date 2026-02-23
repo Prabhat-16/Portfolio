@@ -1,290 +1,416 @@
-import React from 'react';
-import { Box, Container, Typography, Grid, Paper, IconButton, Link } from '@mui/material';
+import React, { useState } from 'react';
+import { Box, Container, Typography, Grid, Link, Button, TextField, CircularProgress, Alert } from '@mui/material';
 import { Email, LinkedIn, LocationOn, GitHub, Twitter, Instagram } from '@mui/icons-material';
 import { motion } from 'framer-motion';
-import CloudBackground from './CloudBackground';
+import emailjs from '@emailjs/browser';
 
 const Contact: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isSending, setIsSending] = useState(false);
+  const [status, setStatus] = useState<{ type: 'success' | 'error' | null, message: string }>({ type: null, message: '' });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSending(true);
+    setStatus({ type: null, message: '' });
+
+    // Debug check for environment variables
+    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      console.error('EmailJS Error: Environment variables are missing or not loaded. Did you restart the server?');
+      setStatus({ 
+        type: 'error', 
+        message: 'Configuration error: Environment variables not found. Please ensure you have restarted the development server after updating the .env file.' 
+      });
+      setIsSending(false);
+      return;
+    }
+
+    try {
+      emailjs.init(publicKey);
+      const result = await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          title: 'New Portfolio Message',
+        }
+      );
+
+      if (result.status === 200) {
+        setStatus({ type: 'success', message: 'Message sent successfully! I will get back to you soon.' });
+        setFormData({ name: '', email: '', message: '' });
+      }
+    } catch (error: any) {
+      console.error('EmailJS Full Error:', error);
+      setStatus({ 
+        type: 'error', 
+        message: `Failed to send: ${error?.text || 'Check console for details'}. Please try again or reach out directly.` 
+      });
+    } finally {
+      setIsSending(false);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
   return (
     <Box
       id="contact"
       sx={{
         py: 12,
-        background: 'linear-gradient(180deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%)',
+        bgcolor: 'transparent',
         position: 'relative',
-        overflow: 'hidden',
       }}
     >
-      <CloudBackground zIndex={0} />
-      <Container sx={{ position: 'relative', zIndex: 1 }}>
+      <Container maxWidth="lg">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
+           initial={{ opacity: 0, y: 30 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           transition={{ duration: 0.8 }}
         >
-          <Box sx={{ 
-            display: 'flex', 
-            flexDirection: 'column', 
-            alignItems: 'center',
-            mb: 6 
-          }}>
-            <Typography 
-              variant="h2" 
-              component="h2" 
-              gutterBottom 
-              align="center"
-              sx={{ 
-                fontWeight: 900,
-                position: 'relative',
-                background: 'linear-gradient(135deg, #a78bfa 0%, #60a5fa 50%, #8b5cf6 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                display: 'inline-block',
-                fontFamily: '"Poppins", "Inter", sans-serif',
-                letterSpacing: '-0.03em',
+          {/* Section Header - Centered as per screenshot */}
+          <Box sx={{ mb: 8, textAlign: 'center' }}>
+            <Typography
+              variant="h2"
+              sx={{
                 fontSize: { xs: '2.5rem', md: '3.5rem' },
-                '&::after': {
-                  content: '""',
-                  position: 'absolute',
-                  bottom: '-15px',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  width: '100px',
-                  height: '5px',
-                  background: 'linear-gradient(90deg, transparent, #8b5cf6, #a78bfa, #8b5cf6, transparent)',
-                  borderRadius: '10px',
-                  boxShadow: '0 0 20px rgba(139, 92, 246, 0.6)',
-                }
+                fontWeight: 900,
+                color: '#f1f5f9',
+                fontFamily: "'Fira Code', monospace",
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 3,
+                mb: 2
               }}
             >
-              <span role="img" aria-label="contact">📬</span> Get In Touch
+              <span style={{ color: '#10b981' }}>{">"}</span> Get In Touch
             </Typography>
-            <Typography 
-              variant="body1" 
-              sx={{ 
-                color: '#ffffff',
-                textAlign: 'center',
-                maxWidth: '800px',
-                mx: 'auto',
+            <Typography
+              sx={{
+                color: '#94a3b8',
                 fontSize: '1.1rem',
-                mt: 2,
-                opacity: 0.9,
-                fontFamily: '"Inter", sans-serif',
-                fontWeight: 400,
-                letterSpacing: '0.01em',
-                lineHeight: 1.6,
+                fontFamily: "'Inter', sans-serif"
               }}
             >
-              Ready to collaborate on web development projects? Let's connect and build something amazing with PHP, React, and modern technologies.
+              Have a project in mind or want to collaborate? Drop me a message!
             </Typography>
           </Box>
 
-          <Grid container spacing={4} sx={{ mt: 2 }} justifyContent="center">
-            <Grid item xs={12} md={6}>
-              <motion.div
-                initial={{ x: -50, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
+          <Grid container spacing={4} alignItems="stretch">
+            {/* Contact Form - Terminal Style */}
+            <Grid item xs={12} md={7}>
+              <Box
+                sx={{
+                  bgcolor: '#0f172a',
+                  border: '1px solid rgba(16, 185, 129, 0.2)',
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                  boxShadow: '0 20px 50px rgba(0,0,0,0.4)',
+                  position: 'relative',
+                  backdropFilter: 'blur(10px)',
+                  height: '100%'
+                }}
               >
-                <Paper 
-                  elevation={3} 
+                {/* Terminal Header */}
+                <Box 
                   sx={{ 
-                    p: 5, 
-                    background: 'linear-gradient(145deg, rgba(30, 27, 75, 0.6) 0%, rgba(15, 23, 42, 0.6) 100%)',
-                    backdropFilter: 'blur(20px)',
-                    border: '2px solid rgba(139, 92, 246, 0.3)',
-                    borderRadius: '28px',
-                    boxShadow: '0 20px 60px rgba(139, 92, 246, 0.2), 0 0 0 1px rgba(139, 92, 246, 0.1) inset',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    '&::before': {
-                      content: '""',
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      height: '3px',
-                      background: 'linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.8), transparent)',
-                    },
-                    '&::after': {
-                      content: '""',
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      background: 'radial-gradient(circle at center, rgba(139, 92, 246, 0.1), transparent 60%)',
-                      pointerEvents: 'none',
-                    },
-                    '&:hover': {
-                      transform: 'translateY(-10px)',
-                      boxShadow: '0 30px 80px rgba(139, 92, 246, 0.35), 0 0 0 2px rgba(139, 92, 246, 0.4) inset',
-                      borderColor: 'rgba(167, 139, 250, 0.6)',
-                      transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
-                    }
+                    bgcolor: 'rgba(30, 41, 59, 0.7)', 
+                    p: 2, 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'space-between',
+                    borderBottom: '1px solid rgba(16, 185, 129, 0.1)' 
                   }}
                 >
-                  <Grid container spacing={3}>
-                    {/* Email - full width */}
-                    <Grid item xs={12}>
-                      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                        <Box
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
+                    <Box sx={{ display: 'flex', gap: 1 }}>
+                      <Box sx={{ width: 12, height: 12, borderRadius: '50%', bgcolor: '#ef4444', opacity: 0.8 }} />
+                      <Box sx={{ width: 12, height: 12, borderRadius: '50%', bgcolor: '#f59e0b', opacity: 0.8 }} />
+                      <Box sx={{ width: 12, height: 12, borderRadius: '50%', bgcolor: '#10b981', opacity: 0.8 }} />
+                    </Box>
+                    <Typography sx={{ color: '#10b981', fontSize: '0.85rem', ml: 1, fontFamily: "'Fira Code', monospace", fontWeight: 600 }}>
+                      contact_form.sh
+                    </Typography>
+                  </Box>
+                  <Typography sx={{ color: '#475569', fontSize: '0.75rem', fontFamily: "'Fira Code', monospace" }}>
+                    ~/messages/new
+                  </Typography>
+                </Box>
+                
+                {/* Terminal Body */}
+                <Box sx={{ p: { xs: 3, md: 5 }, pb: 12 }}>
+                  <Typography sx={{ color: '#10b981', mb: 4, fontFamily: "'Fira Code', monospace", fontSize: '1rem' }}>
+                    <span style={{ opacity: 0.5 }}>$</span> ./send_message --to prabhat
+                  </Typography>
+
+                  <form onSubmit={handleSubmit}>
+                    {status.type && (
+                      <Alert 
+                        severity={status.type} 
+                        sx={{ 
+                          mb: 4, 
+                          bgcolor: status.type === 'success' ? 'rgba(16, 185, 129, 0.1)' : 'rgba(239, 68, 68, 0.1)',
+                          color: status.type === 'success' ? '#10b981' : '#ef4444',
+                          border: `1px solid ${status.type === 'success' ? '#10b981' : '#ef4444'}`,
+                          '& .MuiAlert-icon': { color: status.type === 'success' ? '#10b981' : '#ef4444' }
+                        }}
+                      >
+                        {status.message}
+                      </Alert>
+                    )}
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                      <Box>
+                        <Typography sx={{ color: '#10b981', mb: 1.5, fontFamily: "'Fira Code', monospace", fontSize: '0.9rem', opacity: 0.9 }}>
+                          --name
+                        </Typography>
+                        <TextField
+                          fullWidth
+                          name="name"
+                          placeholder="Your Name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          variant="standard"
+                          required
+                          disabled={isSending}
+                          InputProps={{ disableUnderline: true }}
                           sx={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            textAlign: 'center',
+                            bgcolor: 'rgba(15, 23, 42, 0.5)',
                             p: 2,
-                            borderRadius: 2,
-                            background: 'rgba(59, 130, 246, 0.1)',
-                            transition: 'all 0.3s ease',
-                            width: '100%',
-                            maxWidth: 600,
-                            wordBreak: 'break-word',
-                            '&:hover': {
-                              background: 'rgba(59, 130, 246, 0.15)',
-                              transform: 'translateY(-2px)',
-                            }
+                            borderRadius: '8px',
+                            border: '1px solid rgba(16, 185, 129, 0.1)',
+                            '&:hover': { borderColor: 'rgba(16, 185, 129, 0.3)' },
+                            '& input': {
+                              color: '#f1f5f9',
+                              fontFamily: "'Fira Code', monospace",
+                              fontSize: '1rem',
+                              '&::placeholder': { color: '#475569', opacity: 1 }
+                            },
                           }}
-                        >
-                          {/* Top row: icon + label */}
-                          <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                            <IconButton sx={{ p: 0, mr: 1, color: '#60a5fa', fontSize: '1.8rem' }}>
-                              <Email />
-                            </IconButton>
-                            <Typography variant="h6" sx={{ color: '#a78bfa', fontWeight: 800, fontFamily: '"Inter", sans-serif', letterSpacing: '-0.02em', textShadow: '0 4px 16px rgba(167, 139, 250, 0.5)' }}>
-                              Email
-                            </Typography>
-                          </Box>
-
-                          {/* Email address centered below */}
-                          <Link
-                            href="mailto:mprabhat1607@gmail.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            sx={{ 
-                              color: '#f1f5f9', 
-                              textDecoration: 'none', 
-                              fontSize: '1.05rem',
-                              opacity: 0.95,
-                              fontWeight: 500,
-                              '&:hover': {
-                                color: '#60a5fa',
-                              }
-                            }}
-                          >
-                            mprabhat1607@gmail.com
-                          </Link>
-                        </Box>
+                        />
                       </Box>
-                    </Grid>
 
-                    {/* LinkedIn and Location - half width each */}
-                    {[
-                      {
-                        icon: <LinkedIn />,
-                        title: 'LinkedIn',
-                        content: 'Prabhat/linkedin',
-                        link: 'https://www.linkedin.com/in/prabhat-web-developer/',
-                      },
-                      {
-                        icon: <LocationOn />,
-                        title: 'Location',
-                        content: 'Pune, Maharashtra',
-                      },
-                    ].map((item) => (
-                      <Grid item xs={12} sm={6} key={item.title}>
-                        <Box sx={{ 
-                          display: 'flex', 
-                          alignItems: 'flex-start', 
-                          p: 2, 
-                          borderRadius: 2, 
-                          background: 'rgba(59, 130, 246, 0.1)', 
-                          transition: 'all 0.3s ease',
-                          '&:hover': {
-                            background: 'rgba(59, 130, 246, 0.15)',
-                            transform: 'translateY(-2px)',
-                          }
-                        }}>
-                          <IconButton sx={{ mr: 2, color: '#60a5fa', fontSize: '1.8rem' }}>
-                            {item.icon}
-                          </IconButton>
-                          <Box sx={{ flex: 1 }}>
-                            <Typography variant="h6" sx={{ color: '#a78bfa', fontWeight: 800, fontFamily: '"Inter", sans-serif', letterSpacing: '-0.02em', textShadow: '0 4px 16px rgba(167, 139, 250, 0.5)' }}>
-                              {item.title}
+                      <Box>
+                        <Typography sx={{ color: '#10b981', mb: 1.5, fontFamily: "'Fira Code', monospace", fontSize: '0.9rem', opacity: 0.9 }}>
+                          --email
+                        </Typography>
+                        <TextField
+                          fullWidth
+                          name="email"
+                          type="email"
+                          placeholder="your@email.com"
+                          value={formData.email}
+                          onChange={handleChange}
+                          variant="standard"
+                          required
+                          disabled={isSending}
+                          InputProps={{ disableUnderline: true }}
+                          sx={{
+                            bgcolor: 'rgba(15, 23, 42, 0.5)',
+                            p: 2,
+                            borderRadius: '8px',
+                            border: '1px solid rgba(16, 185, 129, 0.1)',
+                            '&:hover': { borderColor: 'rgba(16, 185, 129, 0.3)' },
+                            '& input': {
+                              color: '#f1f5f9',
+                              fontFamily: "'Fira Code', monospace",
+                              fontSize: '1rem',
+                              '&::placeholder': { color: '#475569', opacity: 1 }
+                            },
+                          }}
+                        />
+                      </Box>
+
+                      <Box>
+                        <Typography sx={{ color: '#10b981', mb: 1.5, fontFamily: "'Fira Code', monospace", fontSize: '0.9rem', opacity: 0.9 }}>
+                          --message
+                        </Typography>
+                        <TextField
+                          fullWidth
+                          name="message"
+                          placeholder="Your message content..."
+                          value={formData.message}
+                          onChange={handleChange}
+                          multiline
+                          rows={4}
+                          variant="standard"
+                          required
+                          disabled={isSending}
+                          InputProps={{ disableUnderline: true }}
+                          sx={{
+                            bgcolor: 'rgba(15, 23, 42, 0.5)',
+                            p: 2,
+                            borderRadius: '8px',
+                            border: '1px solid rgba(16, 185, 129, 0.1)',
+                            '&:hover': { borderColor: 'rgba(16, 185, 129, 0.3)' },
+                            '& textarea': {
+                              color: '#f1f5f9',
+                              fontFamily: "'Fira Code', monospace",
+                              fontSize: '1rem',
+                              '&::placeholder': { color: '#475569', opacity: 1 }
+                            },
+                          }}
+                        />
+                      </Box>
+                    </Box>
+
+                    {/* Submit Bar */}
+                    <Button
+                      type="submit"
+                      fullWidth
+                      disabled={isSending}
+                      sx={{
+                        mt: 6,
+                        py: 2.5,
+                        bgcolor: '#10b981',
+                        color: '#000',
+                        fontSize: '1.1rem',
+                        fontWeight: 900,
+                        fontFamily: "'Fira Code', monospace",
+                        borderRadius: '0 0 12px 12px',
+                        position: 'absolute',
+                        bottom: 0,
+                        left: 0,
+                        '&:hover': {
+                          bgcolor: '#059669',
+                        },
+                        '&.Mui-disabled': {
+                          bgcolor: 'rgba(16, 185, 129, 0.3)',
+                          color: 'rgba(0, 0, 0, 0.5)'
+                        }
+                      }}
+                    >
+                      {isSending ? (
+                        <>
+                          <CircularProgress size={24} sx={{ color: '#000', mr: 2 }} />
+                          SENDING...
+                        </>
+                      ) : (
+                        'SEND_MESSAGE'
+                      )}
+                    </Button>
+                  </form>
+                </Box>
+              </Box>
+            </Grid>
+
+            {/* Side Info - Reorganized into a single Terminal */}
+            <Grid item xs={12} md={5}>
+              <Box
+                sx={{
+                  bgcolor: '#0f172a',
+                  border: '1px solid rgba(56, 189, 248, 0.1)',
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
+                  backdropFilter: 'blur(10px)',
+                }}
+              >
+                {/* Info Terminal Header */}
+                <Box sx={{ bgcolor: 'rgba(30, 41, 59, 0.6)', p: 2, borderBottom: '1px solid rgba(56, 189, 248, 0.1)' }}>
+                  <Typography sx={{ color: '#38bdf8', fontSize: '0.85rem', fontFamily: "'Fira Code', monospace", fontWeight: 600 }}>
+                    system_info.log
+                  </Typography>
+                </Box>
+
+                <Box sx={{ p: 4, display: 'flex', flexDirection: 'column', gap: 5 }}>
+                  {/* Contact Info Section */}
+                  <Box>
+                    <Typography sx={{ color: '#38bdf8', mb: 3, fontFamily: "'Fira Code', monospace", fontSize: '0.9rem' }}>
+                      $ cat user_details.json
+                    </Typography>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+                      {[
+                        { icon: <Email />, label: 'EMAIL', value: 'mprabhat1607@gmail.com', href: 'mailto:mprabhat1607@gmail.com' },
+                        { icon: <LinkedIn />, label: 'LINKEDIN', value: 'prabhat-mishra', href: 'https://www.linkedin.com/in/prabhat-web-developer/' },
+                        { icon: <LocationOn />, label: 'LOCATION', value: 'Pune, Maharashtra', href: null },
+                      ].map((contact, index) => (
+                        <Box key={index} sx={{ display: 'flex', alignItems: 'flex-start', gap: 2.5 }}>
+                          <Box sx={{ color: '#38bdf8', mt: 0.5 }}>{contact.icon}</Box>
+                          <Box>
+                            <Typography sx={{ color: '#475569', fontSize: '0.65rem', fontFamily: "'Fira Code', monospace", fontWeight: 700 }}>
+                              {contact.label}
                             </Typography>
-                            {item.link ? (
-                              <Link 
-                                href={item.link} 
-                                target="_blank" 
-                                rel="noopener noreferrer" 
-                                sx={{ 
-                                  color: '#f1f5f9', 
-                                  textDecoration: 'none',
-                                  opacity: 0.95,
-                                  fontWeight: 500,
-                                  '&:hover': {
-                                    color: '#60a5fa',
-                                  }
-                                }}
-                              >
-                                {item.content}
+                            {contact.href ? (
+                              <Link href={contact.href} target="_blank" underline="none" sx={{ color: '#f1f5f9', fontSize: '0.95rem', fontFamily: "'Fira Code', monospace", '&:hover': { color: '#38bdf8' } }}>
+                                {contact.value}
                               </Link>
                             ) : (
-                              <Typography sx={{ color: '#f1f5f9', opacity: 0.95, fontWeight: 500 }}>{item.content}</Typography>
+                              <Typography sx={{ color: '#f1f5f9', fontSize: '0.95rem', fontFamily: "'Fira Code', monospace" }}>{contact.value}</Typography>
                             )}
                           </Box>
                         </Box>
-                      </Grid>
-                    ))}
-                  </Grid>
-                </Paper>
-              </motion.div>
+                      ))}
+                    </Box>
+                  </Box>
+
+                  {/* Social Links Section */}
+                  <Box>
+                    <Typography sx={{ color: '#38bdf8', mb: 3, fontFamily: "'Fira Code', monospace", fontSize: '0.9rem' }}>
+                      $ ls social_handles/
+                    </Typography>
+                    <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 1.5 }}>
+                      {[
+                        { icon: <GitHub />, label: 'GITHUB', href: 'https://github.com/Prabhat-16' },
+                        { icon: <Twitter />, label: 'TWITTER', href: 'https://x.com/PRABHAT160703' },
+                        { icon: <Instagram />, label: 'INSTAGRAM', href: 'https://www.instagram.com/prabhat_.16' },
+                      ].map((social, index) => (
+                        <Button
+                          key={index}
+                          href={social.href}
+                          target="_blank"
+                          startIcon={social.icon}
+                          sx={{
+                            justifyContent: 'flex-start',
+                            color: '#38bdf8',
+                            border: '1px solid rgba(56, 189, 248, 0.1)',
+                            bgcolor: 'rgba(56, 189, 248, 0.05)',
+                            fontFamily: "'Fira Code', monospace",
+                            textTransform: 'none',
+                            fontSize: '0.8rem',
+                            py: 1.5,
+                            '&:hover': { 
+                              borderColor: '#38bdf8', 
+                              bgcolor: 'rgba(56, 189, 248, 0.1)',
+                              color: '#fff' 
+                            }
+                          }}
+                        >
+                          {social.label}
+                        </Button>
+                      ))}
+                    </Box>
+                  </Box>
+
+                  {/* Footer Credits */}
+                  <Box sx={{ mt: 'auto', pt: 4, borderTop: '1px solid rgba(30, 41, 59, 0.8)' }}>
+                    <Typography sx={{ color: '#475569', fontSize: '0.75rem', fontFamily: "'Fira Code', monospace", lineHeight: 1.8 }}>
+                      SYSTEM: v2.4.0-stable<br />
+                      USER: prabhat@portfolio<br />
+                      © {new Date().getFullYear()} Built with React & MUI
+                    </Typography>
+                  </Box>
+                </Box>
+              </Box>
             </Grid>
           </Grid>
-
-          <Box sx={{ mt: 4, textAlign: 'center' }}>
-            <Typography variant="h5" sx={{ mb: 3, color: '#a78bfa', fontWeight: 800, fontFamily: '"Inter", sans-serif', letterSpacing: '-0.02em', textShadow: '0 4px 16px rgba(167, 139, 250, 0.5)', fontSize: '1.8rem' }}>Follow Me</Typography>
-            <Box>
-              {[{ icon: <Twitter />, link: 'https://x.com/PRABHAT160703' },
-                { icon: <Instagram />, link: 'https://www.instagram.com/prabhat_.16' },
-                { icon: <GitHub />, link: 'https://github.com/Prabhat-16' },
-              ].map((social, index) => (
-                <IconButton 
-                  key={index} 
-                  href={social.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  sx={{ 
-                    mx: 1.5, 
-                    color: '#a78bfa',
-                    fontSize: '2.5rem',
-                    transition: 'all 0.3s ease',
-                    background: 'rgba(139, 92, 246, 0.1)',
-                    borderRadius: '50%',
-                    p: 1.5,
-                    '&:hover': {
-                      color: '#c4b5fd',
-                      transform: 'translateY(-5px) scale(1.15)',
-                      boxShadow: '0 8px 24px rgba(139, 92, 246, 0.5)',
-                      background: 'rgba(139, 92, 246, 0.2)',
-                    }
-                  }}
-                >
-                  {social.icon}
-                </IconButton>
-              ))}
-            </Box>
-          </Box>
-
-          <Box sx={{ mt: 6, textAlign: 'center' }}>
-            <Typography variant="body1" sx={{ color: '#ffffff', opacity: 0.8, fontFamily: '"Inter", sans-serif', fontWeight: 400, letterSpacing: '0.01em' }}>
-              © {new Date().getFullYear()} Prabhat Mishra. All rights reserved.
-            </Typography>
-          </Box>
         </motion.div>
       </Container>
     </Box>
