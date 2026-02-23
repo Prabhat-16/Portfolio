@@ -90,24 +90,26 @@ const About: React.FC = () => {
             <Grid item xs={12} md={7}>
               <motion.div variants={itemVariants}>
                 <Box sx={{ p: 4, border: '1px solid #1e293b', borderRadius: '4px', bgcolor: '#0f172a' }}>
-                  <Typography sx={{ color: '#4ade80', mb: 2 }}>$ cat profile.md</Typography>
+                  <Typography sx={{ color: '#4ade80', mb: 2, fontFamily: "'Fira Code', monospace" }}>$ cat profile.md</Typography>
                   <Typography
                     sx={{
                       color: '#f1f5f9',
-                      fontSize: '1.05rem',
+                      fontSize: '0.95rem',
                       lineHeight: 1.8,
-                      fontFamily: "'Fira Code', monospace",
+                      fontFamily: "'Inter', sans-serif",
                       mb: 4
                     }}
                   >
-                    ## Summary
+                    <strong style={{ color: '#4ade80' }}>## Summary</strong><br />
                     Experienced Full-Stack Developer currently pursuing Master's in Computer Applications (MCA) at MIT-WPU. 
-                    I bridge the gap between robust backend systems and intuitive frontend experiences.
+                    I bridge the gap between robust backend systems and intuitive frontend experiences.<br /><br />
                     
-                    ## Background
-                    - Trainee Web Developer @ Tryon Infosoft
-                    - Tech Lead & Cloud Enthusiast
-                    - Passionate about automation and scalable architectures
+                    <strong style={{ color: '#4ade80' }}>## Background</strong>
+                    <ul style={{ paddingLeft: '20px', margin: '10px 0' }}>
+                      <li>Trainee Web Developer @ Tryon Infosoft</li>
+                      <li>Tech Lead & Cloud Enthusiast</li>
+                      <li>Passionate about automation and scalable architectures</li>
+                    </ul>
                   </Typography>
 
                   <Typography sx={{ color: '#4ade80', mb: 2 }}>$ ls -la core_competencies/</Typography>

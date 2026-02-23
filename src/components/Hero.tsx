@@ -204,17 +204,18 @@ const Hero: React.FC = () => {
                   <Typography
                     variant="h1"
                     sx={{
-                      fontSize: { xs: '2.5rem', md: '4rem' },
-                      fontWeight: 900,
-                      color: '#f1f5f9',
-                      fontFamily: "'Fira Code', monospace",
-                      lineHeight: 1.1,
-                      mb: 2,
+                      fontSize: { xs: '2rem', md: '3.2rem' },
+                      fontWeight: 800,
+                      color: '#f8fafc',
+                      fontFamily: "'Inter', sans-serif",
+                      lineHeight: 1.3,
+                      mb: 3,
+                      letterSpacing: '-0.02em'
                     }}
                   >
-                    <span style={{ color: '#10b981' }}>$</span>Passionate
+                    I build <span style={{ color: '#38bdf8', fontFamily: "'Dancing Script', cursive", fontWeight: 700, fontSize: '1.2em' }}>robust backends</span>
                     <br />
-                    <span style={{ color: '#38bdf8' }}>Full Stack</span> <span style={{ color: '#4ade80' }}>Developer</span>
+                    & <span style={{ color: '#4ade80', fontFamily: "'Dancing Script', cursive", fontWeight: 700, fontSize: '1.2em' }}>sleek interfaces</span>
                   </Typography>
                 </motion.div>
 
@@ -222,11 +223,12 @@ const Hero: React.FC = () => {
                   <Typography
                     sx={{
                       color: '#94a3b8',
-                      fontSize: { xs: '1rem', md: '1.1rem' },
-                      lineHeight: 1.6,
+                      fontSize: { xs: '0.9rem', md: '0.95rem' },
+                      lineHeight: 1.8,
                       mb: 6,
                       fontFamily: "'Inter', sans-serif",
-                      maxWidth: '600px'
+                      maxWidth: '550px',
+                      letterSpacing: '0.01em'
                     }}
                   >
                     <span style={{ color: '#f1f5f9', fontWeight: 600 }}>Full Stack Developer</span> specializing in <span style={{ color: '#38bdf8', fontWeight: 600 }}>modern JavaScript frameworks</span> and backend technologies, with experience in deploying applications on <span style={{ color: '#4ade80', fontWeight: 600 }}>Azure cloud</span>. Proficient in database management and API development, and actively strengthening <span style={{ color: '#8b5cf6', fontWeight: 600 }}>DevOps skills</span> in CI/CD pipelines, containerization, and automation.

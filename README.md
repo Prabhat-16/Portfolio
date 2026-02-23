@@ -7,17 +7,17 @@ A cutting-edge, high-tech portfolio website built with **React**, **TypeScript**
 - **Terminal Aesthetic**: MacOS-style contact form (`contact_form.sh`) and system logger info (`system_info.log`).
 - **Dynamic Backgrounds**: Custom starfield video integration with a sharp "Green Dot" particle layer and nebula-style overlays.
 - **Glassmorphism UI**: Premium frosted glass effects on all containers using modern CSS/MUI backdrops.
-- **Interactive Hero**: Floating skill tags (Azure, AWS, React, etc.) with spring-based animations.
+- **Interactive Hero**: Floating skill tags (Azure, AWS, React, etc.) with spring-based animations and a blend of **Sans-serif (Inter)** and **Cursive (Dancing Script)** typography.
 - **Professional Resume Integration**: Direct access to professional credentials.
-- **Real-time Email**: Fully integrated with **EmailJS** for direct inbox communication (via `contact_form.sh`).
+- **Real-time Dispatch**: Integrated with **Discord Webhooks** for instant notifications of incoming transmissions.
 - **Responsive & Premium**: Optimized for everything from mobile terminals to 4K displays.
 
 ## 🛠️ Tech Stack
 
 - **Core**: React 19, TypeScript
 - **Styling**: Material UI (MUI), Vanilla CSS, Framer Motion
-- **Services**: EmailJS, GitHub Pages/Vercel
-- **Aesthetic**: Inter (Sans-serif) & Fira Code (Monospace) fonts
+- **Services**: Discord Webhooks (API), GitHub Pages/Vercel
+- **Typography**: Inter (Sans-serif), Fira Code (Monospace), and Dancing Script (Cursive)
 
 ## 📦 Getting Started
 
@@ -29,13 +29,11 @@ A cutting-edge, high-tech portfolio website built with **React**, **TypeScript**
    npm install
    ```
 
-2. **Configure Email Service**:
+2. **Configure Webhook**:
    Create a `.env` file in the root directory:
 
    ```env
-   REACT_APP_EMAILJS_SERVICE_ID=your_id
-   REACT_APP_EMAILJS_TEMPLATE_ID=your_template
-   REACT_APP_EMAILJS_PUBLIC_KEY=your_key
+   REACT_APP_DISCORD_WEBHOOK_URL=your_discord_webhook_url
    ```
 
 3. **Launch Development**:
@@ -45,9 +43,9 @@ A cutting-edge, high-tech portfolio website built with **React**, **TypeScript**
 
 ## 📱 Project Structure
 
-- `src/components/Hero.tsx` - Dynamic role-switcher and floating tech tags.
+- `src/components/Hero.tsx` - Dynamic role-switcher, floating tech tags, and premium typography.
 - `src/components/Background.tsx` - Custom-built starfield and green particle engine.
-- `src/components/Contact.tsx` - Reorganized Terminal-style contact system.
+- `src/components/Contact.tsx` - Reorganized Terminal-style contact system using Discord API.
 - `src/components/Projects.tsx` - Interactive showcases.
 
 ## 📄 License
