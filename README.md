@@ -1,107 +1,59 @@
-# Personal Portfolio Website
+# 🚀 Premium Portfolio 2.0 | Full Stack & Cloud
 
-A modern, responsive portfolio website built with React and TypeScript, showcasing my skills, projects, and professional experience as a Backend Developer.
+A cutting-edge, high-tech portfolio website built with **React**, **TypeScript**, and **Material UI**. This project features a unique **Terminal-inspired aesthetic**, dynamic starfield backgrounds with green-tinted "digital particles", and highly organized system-style components.
 
-## 🌟 Features
+## 🌟 Premium Features
 
-- **Modern Design**: Clean and professional interface with dark theme
-- **Responsive Layout**: Fully responsive design that works on all devices
-- **Interactive UI**: Smooth animations and transitions
-- **Contact Form**: Integrated contact form for easy communication
-- **Project Showcase**: Detailed display of projects with GitHub links
-- **Skills Section**: Visual representation of technical skills
-- **About Section**: Professional background and experience
-- **Social Links**: Easy access to professional profiles
+- **Terminal Aesthetic**: MacOS-style contact form (`contact_form.sh`) and system logger info (`system_info.log`).
+- **Dynamic Backgrounds**: Custom starfield video integration with a sharp "Green Dot" particle layer and nebula-style overlays.
+- **Glassmorphism UI**: Premium frosted glass effects on all containers using modern CSS/MUI backdrops.
+- **Interactive Hero**: Floating skill tags (Azure, AWS, React, etc.) with spring-based animations.
+- **Professional Resume Integration**: Direct access to professional credentials.
+- **Real-time Email**: Fully integrated with **EmailJS** for direct inbox communication (via `contact_form.sh`).
+- **Responsive & Premium**: Optimized for everything from mobile terminals to 4K displays.
 
-## 🛠️ Technologies Used
+## 🛠️ Tech Stack
 
-- React.js
-- TypeScript
-- CSS3
-- HTML5
-- React Router
-- EmailJS (for contact form)
-- Framer Motion (for animations)
+- **Core**: React 19, TypeScript
+- **Styling**: Material UI (MUI), Vanilla CSS, Framer Motion
+- **Services**: EmailJS, GitHub Pages/Vercel
+- **Aesthetic**: Inter (Sans-serif) & Fira Code (Monospace) fonts
 
-## 📦 Installation
+## 📦 Getting Started
 
-1. Clone the repository:
-```bash
-git clone https://github.com/Prabhat-16/portfolio.git
-```
+1. **Clone & Install**:
 
-2. Navigate to the project directory:
-```bash
-cd portfolio
-```
+   ```bash
+   git clone https://github.com/Prabhat-16/Portfolio.git
+   cd Portfolio
+   npm install
+   ```
 
-3. Install dependencies:
-```bash
-npm install
-```
+2. **Configure Email Service**:
+   Create a `.env` file in the root directory:
 
-4. Start the development server:
-```bash
-npm start
-```
+   ```env
+   REACT_APP_EMAILJS_SERVICE_ID=your_id
+   REACT_APP_EMAILJS_TEMPLATE_ID=your_template
+   REACT_APP_EMAILJS_PUBLIC_KEY=your_key
+   ```
 
-The application will open in your default browser at `http://localhost:3000`.
+3. **Launch Development**:
+   ```bash
+   npm start
+   ```
 
-## 🚀 Deployment
+## 📱 Project Structure
 
-To build the project for production:
-
-```bash
-npm run build
-```
-
-This will create a `build` folder with optimized production files.
-
-## 📱 Features in Detail
-
-### Home Section
-- Animated introduction
-- Professional summary
-- Call-to-action buttons
-
-### About Section
-- Professional background
-- Education details
-- Work experience
-- Personal interests
-
-### Skills Section
-- Technical skills with progress indicators
-- Soft skills
-- Tools and technologies
-
-### Projects Section
-- Project cards with descriptions
-- GitHub repository links
-- Technologies used in each project
-
-### Contact Section
-- Interactive contact form
-- Social media links
-- Professional email
-
-## 🎨 Customization
-
-You can customize the portfolio by:
-
-1. Updating the content in respective component files
-2. Modifying the color scheme in `src/index.css`
-3. Adding/removing sections as needed
-4. Updating the profile photo and logo
+- `src/components/Hero.tsx` - Dynamic role-switcher and floating tech tags.
+- `src/components/Background.tsx` - Custom-built starfield and green particle engine.
+- `src/components/Contact.tsx` - Reorganized Terminal-style contact system.
+- `src/components/Projects.tsx` - Interactive showcases.
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
-
-## 📧 Contact
-
-For any queries or suggestions, feel free to reach out through the contact form on the website or connect with me on LinkedIn.
+This project is [MIT](LICENSE) licensed.
 
 ---
 
-Made with ❤️ by Prabhat Mishra 
+**Build with precision by Prabhat Mishra**
