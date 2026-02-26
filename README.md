@@ -48,9 +48,6 @@ A cutting-edge, high-tech portfolio website built with **React**, **TypeScript**
 - `src/components/Contact.tsx` - Reorganized Terminal-style contact system using Discord API.
 - `src/components/Projects.tsx` - Interactive showcases.
 
-## 📄 License
-
-This project is [MIT](LICENSE) licensed.
 
 ---
 
