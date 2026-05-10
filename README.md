@@ -12,6 +12,20 @@ A cutting-edge, high-tech portfolio website built with **React**, **TypeScript**
 - **Real-time Dispatch**: Integrated with **Discord Webhooks** for instant notifications of incoming transmissions.
 - **Responsive & Premium**: Optimized for everything from mobile terminals to 4K displays.
 
+## 📸 Project Screenshots
+
+### Hero Section
+![Hero Section](./public/HeroSs.png)
+
+### Skills Section
+![Skills Section](./public/Skills.png)
+
+### Projects Section
+![Projects Section](./public/Projects.png)
+
+### Contact Section
+![Contact Section](./public/Contact.png)
+
 ## 🛠️ Tech Stack
 
 - **Core**: React 19, TypeScript
