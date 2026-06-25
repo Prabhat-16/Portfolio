@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
     { type: 'command', text: 'whoami' },
     { type: 'response', text: 'Full-Stack Developer' },
     { type: 'command', text: 'cat Degree.txt' },
-    { type: 'response', text: 'MCA @ MIT-WPU' },
+    { type: 'response', text: 'MCA Graduate @ MIT-WPU (2026)' },
     { type: 'command', text: 'uptime' },
     { type: 'response', text: 'Building scalable solutions...' },
   ];
@@ -231,7 +231,7 @@ const Hero: React.FC = () => {
                       letterSpacing: '0.01em'
                     }}
                   >
-                    <span style={{ color: '#f1f5f9', fontWeight: 600 }}>Full Stack Developer</span> specializing in <span style={{ color: '#38bdf8', fontWeight: 600 }}>modern JavaScript frameworks</span> and backend technologies, with experience in deploying applications on <span style={{ color: '#4ade80', fontWeight: 600 }}>Azure cloud</span>. Proficient in database management and API development, and actively strengthening <span style={{ color: '#8b5cf6', fontWeight: 600 }}>DevOps skills</span> in CI/CD pipelines, containerization, and automation.
+                    I'm <span style={{ color: '#f1f5f9', fontWeight: 600 }}>Prabhat Mishra</span>, an <span style={{ color: '#4ade80', fontWeight: 600 }}>MCA graduate</span> and <span style={{ color: '#38bdf8', fontWeight: 600 }}>Full Stack Web Developer</span> with hands-on experience building responsive web applications using <span style={{ color: '#4ade80', fontWeight: 600 }}>React, PHP, JavaScript, MySQL, HTML, and CSS</span>. I enjoy creating clean, scalable, and user-friendly applications while continuously learning modern technologies, and I am actively seeking full-time <span style={{ color: '#8b5cf6', fontWeight: 600 }}>Software Developer opportunities</span>.
                   </Typography>
                 </motion.div>
 

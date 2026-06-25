@@ -8,7 +8,7 @@ const Resume: React.FC = () => {
     {
       icon: <SchoolOutlined />,
       title: "MCA",
-      description: "MIT World Peace University",
+      description: "MIT World Peace University (Completed 2026)",
       color: "#4ade80"
     },
     {

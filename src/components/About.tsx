@@ -9,7 +9,7 @@ import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstruct
 const About: React.FC = () => {
 
   const stats = [
-    { label: 'Education Level', value: 'MCA', icon: <CodeIcon /> },
+    { label: 'Education Level', value: 'MCA Graduate', icon: <CodeIcon /> },
     { label: 'Projects Completed', value: '6+', icon: <StorageIcon /> },
     { label: 'Technologies', value: '15+', icon: <IntegrationInstructionsIcon /> },
     { label: 'Uptime', value: '99.9%', icon: <TerminalIcon /> },
@@ -101,8 +101,7 @@ const About: React.FC = () => {
                     }}
                   >
                     <strong style={{ color: '#4ade80' }}>## Summary</strong><br />
-                    Experienced Full-Stack Developer currently pursuing Master's in Computer Applications (MCA) at MIT-WPU. 
-                    I bridge the gap between robust backend systems and intuitive frontend experiences.<br /><br />
+                    I'm Prabhat Mishra, an MCA graduate and Full Stack Web Developer with hands-on experience building responsive web applications using React, PHP, JavaScript, MySQL, HTML, and CSS. I enjoy creating clean, scalable, and user-friendly applications while continuously learning modern technologies.<br /><br />
                     
                     <strong style={{ color: '#4ade80' }}>## Background</strong>
                     <ul style={{ paddingLeft: '20px', margin: '10px 0' }}>
